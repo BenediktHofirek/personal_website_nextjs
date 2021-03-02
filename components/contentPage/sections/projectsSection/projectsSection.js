@@ -44,7 +44,7 @@ export default function projectsSection() {
             <div className={styles.projectGroup_actions}>
               <a
                 className={styles.projectGroup_repositoryLink}
-                href="https://github.com/utility4u/reas-test-task"
+                href="https://github.com/utility4u/personal_website_nextjs"
                 target="_blank"
               >
                 <FontAwesomeIcon className={styles.projectGroup_githubIcon} icon={faGithub}/>

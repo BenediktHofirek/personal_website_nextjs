@@ -147,6 +147,7 @@ a {
   font-size: 40px;
   line-height: 40px;
   font-weight: 500;
+  margin-bottom: 30px;
 
   &::before {
     @extend .tag; 

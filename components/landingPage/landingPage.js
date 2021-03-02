@@ -21,7 +21,7 @@ export default function LandingPage({
       </div>
       <div
         className={styles.arrowDown}
-        onClick={handleScroll}  
+        onClick={() => handleScroll({keyCode: 40})} //scroll down  
       >
         <Image
           src="/../public/arrow_down.svg"

@@ -11,9 +11,13 @@ export default function Home() {
   const sectionCount = 5;
 
   function handleScroll(event) {
+    if (event?.keyCode !== 38 && event.keyCode !== 40) {
+      return;
+    }
+    
     removeListeners(handleScroll, handleTouch);
     setTimeout(() => addListeners(handleScroll, handleTouch), 100);
-
+    
     setCurrentSection((currentSection) => {
       if (event.deltaY > 0 || event.keyCode == 40) {
         if (currentSection === 0) {
@@ -30,10 +34,9 @@ export default function Home() {
           console.log('handleSectionUp');
         }
         return Math.max(currentSection - 1, 0);
-      } else if (event?.keyCode !== 40 && event?.keyCode !== 38) {
-        scrollBottom();
-        return 1;
       }
+
+      return currentSection;
     });
   }
   

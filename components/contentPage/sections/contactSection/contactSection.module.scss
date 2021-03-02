@@ -1,3 +1,43 @@
 .container {
   display: block;
 }
+
+.contact {
+  display: block;
+  float: left;
+  width: 100%;
+  height: min-content;
+  margin-bottom: 50px;
+
+  &_row {
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: min-content;
+
+    & + & {
+      margin-top: 20px;
+    }
+  }
+
+  &_title {
+    display: block;
+    float: left;
+    width: min-content;
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  &_text {
+    display: block;
+    margin-left: 20px;
+    position: absolute;
+    left: 100px;
+    float: left;
+    width: max-content;
+    height: min-content;
+    font-size: 24px;
+    font-weight: 400;
+  }
+}

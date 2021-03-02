@@ -41,3 +41,73 @@
     font-weight: 400;
   }
 }
+
+.form {
+  display: block;
+  float: left;
+  width: 100%;
+  height: max-content;
+
+  &_label {
+    display: block;
+    float: left;
+    width: 100%;
+    height: min-content;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+
+  &_input {
+    display: block;
+    float: left;
+    height: min-content;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 7px 7px 10px 0px rgba(14, 70, 25, 0.473);
+
+    &:focus {
+      outline: none;
+    }
+
+    &__email {
+      padding: 5px;
+      width: 250px;
+    }
+
+    &__message {
+      padding: 5px 10px;
+      width: 600px;
+      height: 250px;
+    }
+  }
+
+  &_submit {
+    display: block;
+    float: left;
+    width: min-content;
+    height: min-content;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(13, 161, 38);
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 30px;
+    color: white;
+    cursor: pointer;
+  }
+
+  &_block {
+    display: block;
+    width: 100%;
+    height: min-content;
+    float: left;
+
+    & + & {
+      margin-top: 30px;
+    }
+  }
+}

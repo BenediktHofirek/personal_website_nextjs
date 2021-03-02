@@ -51,23 +51,30 @@ export default function contactSection() {
       </div>
       <h2 className="subtitle">Leave me a message</h2>
       <form className={styles.form}>
-        <label className={styles.form_label}>
-          Your email:
-        </label>
-        <input 
-          type="email"
-          value={inputEmail}
-          onChange={(e) => setInputEmail(e.target.value)}
-        />
-        <label className={styles.form_label}>
-          Message:
-        </label>
-        <textarea
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-        />
+        <div className={styles.form_block}>
+          <label className={styles.form_label}>
+            Your email:
+          </label>
+          <input 
+            type="email"
+            className={styles.form_input + ' ' + styles.form_input__email}
+            value={inputEmail}
+            onChange={(e) => setInputEmail(e.target.value)}
+          />
+        </div>
+        <div className={styles.form_block}>
+          <label className={styles.form_label}>
+            Message:
+          </label>
+          <textarea
+            value={inputMessage}
+            className={styles.form_input + ' ' + styles.form_input__message}
+            onChange={(e) => setInputMessage(e.target.value)}
+          />
+        </div>
         <button 
           type="submit"
+          className={styles.form_submit}
           disabled={checkIsFormValid()}
           onClick={handleFormSubmit}
         >

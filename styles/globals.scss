@@ -34,7 +34,7 @@ a {
   height: 40px;
   line-height: 40px;
   font-weight: 400 !important;
-  font-size: 24px !important;
+  font-size: 30px !important;
   opacity: 0;
   transition: opacity 1s linear;
   transition-delay: 1s;
@@ -99,7 +99,7 @@ a {
     @extend .tag; 
     position: absolute;
     content: "<img/>";
-    top: -40px;
+    top: -50px;
     left: 0;
   }
 

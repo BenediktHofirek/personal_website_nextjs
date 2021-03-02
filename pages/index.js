@@ -11,7 +11,7 @@ export default function Home() {
   const sectionCount = 5;
 
   function handleScroll(event) {
-    if (event?.keyCode !== 38 && event.keyCode !== 40) {
+    if (event?.keyCode !== 38 && event.keyCode !== 40 && !event?.deltaY) {
       return;
     }
     

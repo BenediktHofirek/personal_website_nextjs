@@ -1,65 +1,76 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import { useEffect, useState } from 'react';
+import styles from '../styles/index.module.scss';
+
+import LandingPage from '../components/landingPage/landingPage';
+import ContentPage from '../components/contentPage/contentPage';
+import { addListeners, removeListeners, scrollBottom, scrollTop } from '../utils/utils';
 
 export default function Home() {
+  const [currentSection, setCurrentSection] = useState(0);
+  const sectionCount = 5;
+
+  function handleScroll(event) {
+    removeListeners(handleScroll, handleTouch);
+    setTimeout(() => addListeners(handleScroll, handleTouch), 100);
+
+    setCurrentSection((currentSection) => {
+      if (event.deltaY > 0 || event.keyCode == 40) {
+        if (currentSection === 0) {
+          scrollBottom();
+        } else {
+          console.log('handleSectionDown');
+        }
+        return Math.min(currentSection + 1, sectionCount);
+      } else if (event.deltaY < 0 || event.keyCode == 38) {
+        console.log('ccc', currentSection);
+        if (currentSection === 1) {
+          scrollTop();
+        } else {
+          console.log('handleSectionUp');
+        }
+        return Math.max(currentSection - 1, 0);
+      } else if (event?.keyCode !== 40 && event?.keyCode !== 38) {
+        scrollBottom();
+        return 1;
+      }
+    });
+  }
+  
+  function handleTouch() {
+    console.log('touch');
+  }
+
+  function handleChangeSection(newSection) {
+    setCurrentSection(newSection);
+
+    if (newSection === 0) {
+      scrollTop();
+    }
+  }
+
+  useEffect(()=> {
+    addListeners(handleScroll, handleTouch);
+
+    return () => removeListeners(handleScroll, handleTouch);
+  },[]);
+  
   return (
-    <div className={styles.container}>
+    <div id="container" className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>Benedikt Hofirek</title>
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"/>
       </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+      <main>
+        <LandingPage handleScroll={handleScroll} />
+        <ContentPage
+          currentSection={currentSection}
+          changeSection={handleChangeSection}  
+        />
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   )
 }

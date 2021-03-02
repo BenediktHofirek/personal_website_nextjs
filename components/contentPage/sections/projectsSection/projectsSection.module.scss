@@ -1,0 +1,130 @@
+.container {
+  display: block;
+}
+
+.technology { 
+  display: block;
+  width: 100%;
+  float: left;
+  height: min-content;
+  
+  & + & {
+    margin-top: 50px;
+  }
+}
+
+.subtitle {
+  display: block;
+  float: left;
+  width: max-content;
+  height: 50px;
+  margin-bottom: 40px;
+
+  &_icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+  }
+
+  &_text {
+    display: inline-block;
+    margin-left: 30px;
+    font-size: 40px;
+    font-weight: 500;
+    width: min-content;
+    height: min-content;
+    vertical-align: bottom;
+  }
+}
+
+.projectGroup {
+  display: block;
+  position: relative;
+  height: max-content;
+  float: left;
+  width: 95%;
+  margin-left: 5%;
+
+  &_project {
+    display: block;
+    float: left;
+    width: 100%;
+    height: max-content;
+
+    & + & {
+      padding-top: 30px;
+    }
+  }
+
+  &_title {
+    display: block;
+    width: max-content;
+    height: min-content;
+    float: left;
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  &_wip {
+    display: block;
+    position: relative;
+    top: -10px;
+    float: left;
+    padding: 5px;
+    font-size: 14px;
+    margin-left: 10px;
+    width: min-content;
+    height: min-content;
+    background-color: rgba(21, 192, 64, 0.61);
+    border-radius: 10px;
+    font-weight: 500  ;
+  }
+
+  &_description {
+    display: block;
+    float: left;
+    width: 100%;
+    height: min-content;
+    margin: 20px 0;
+  }
+
+  &_actions {
+    display: block;
+    float: left;
+    width: max-content;
+    height: min-content;
+  }
+
+  &_repositoryLink {
+    display: block;
+    width: min-content;
+    height: min-content;
+    float: left;
+    cursor: pointer;
+  }
+
+  &_githubIcon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &_demoLink {
+    display: block;
+    height: 20px;
+    width: max-content;
+    float: left;
+    font-size: 18px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+
+  &_divider {
+    display: block;
+    float: left;
+    margin: 0 10px;
+    width: min-content;
+    height: 20px;
+    line-height: 20px;
+  }
+}

@@ -5,7 +5,9 @@ import { faReact, faAngular, faNodeJs, faGithub } from '@fortawesome/free-brands
 export default function projectsSection() {
   return (
     <div className={"section" + ' ' + styles.container}>
-      <h1 className="sectionTitle">Projects</h1>
+      <div className="sectionTitle">
+        <h2 className="sectionTitle_content">Projects</h2>
+      </div>
 
       <div className={styles.technology}>
         <div className={styles.subtitle}>

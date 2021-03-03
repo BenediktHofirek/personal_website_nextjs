@@ -1,3 +1,46 @@
-.container {
+.contentContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  height: min-content;
+}
+
+.text {
   display: block;
+  width: 50%;
+  height: min-content;
+  text-align: justify;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 40%;
+  height: min-content;
+
+  &_photo {
+    display:block;
+  }
+
+  &_infoContainer {
+    display: block;
+    margin-left: 20px;
+    width: max-content;
+    height: min-content;
+    font-size: 25px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &_name {
+    display: block;
+    margin-bottom: 20px;
+  }
 }

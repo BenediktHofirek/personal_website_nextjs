@@ -10,7 +10,7 @@ export default function LandingPage({
     >
       <div className={'image ' + styles.photoContainer}>
         <Image
-          src="/../public/face_placeholder.jpg"
+          src="/../public/Benedikt_Hofirek.jpg"
           alt="Benedikt Hofirek"
           layout="fill"
         />

@@ -1,0 +1,14 @@
+.contentContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.icon {
+  height: 75px;
+  filter: grayscale(100%);
+}

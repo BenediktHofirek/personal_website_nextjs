@@ -38,7 +38,9 @@ export default function contactSection() {
 
   return (
     <div className={"section" + ' ' + styles.container}>
-      <h1 className="sectionTitle">Contact</h1>
+      <div className="sectionTitle">
+        <h2 className="sectionTitle_content">Contact</h2>
+      </div>
       <div className={styles.contact}>
         <div className={styles.contact_row}>
           <h3 className={styles.contact_title}>Email:</h3>

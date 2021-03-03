@@ -5,7 +5,9 @@ import { faReact, faAngular, faNodeJs } from '@fortawesome/free-brands-svg-icons
 export default function technologiesSection() {
   return (
     <div className={"section" + ' ' + styles.container}>
-      <h1 className="sectionTitle">Technologies</h1>
+      <div className="sectionTitle">
+        <h2 className="sectionTitle_content">Technologies</h2>
+      </div>
 
       <div className={styles.technology}>
         <div className={styles.subtitle}>

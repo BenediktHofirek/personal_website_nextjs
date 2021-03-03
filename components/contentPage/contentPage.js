@@ -1,4 +1,5 @@
 import styles from './contentPage.module.scss';
+import ToolsSection from './sections/toolsSection/toolsSection';
 import AboutSection from './sections/aboutSection/aboutSection';
 import ContactSection from './sections/contactSection/contactSection';
 import ExperienceSection from './sections/experienceSection/experienceSection';
@@ -12,10 +13,11 @@ export default function contentPage() {
       id="content"
     >
       <AboutSection />
-      <TechnologiesSection />
+      <ToolsSection />
+      {/* <TechnologiesSection />
       <ExperienceSection />
       <ProjectsSection />
-      <ContactSection />
+      <ContactSection /> */}
     </div>
   )
 }

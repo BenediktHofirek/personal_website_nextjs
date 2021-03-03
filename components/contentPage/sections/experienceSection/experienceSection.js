@@ -3,7 +3,9 @@ import styles from './experienceSection.module.scss';
 export default function experienceSection() {
   return (
     <div className={"section" + ' ' + styles.container}>
-      <h1 className="sectionTitle">Experience</h1>
+      <div className="sectionTitle">
+        <h2 className="sectionTitle_content">Experience</h2>
+      </div>
 
       <div className={styles.technology}>
         <h2 className="subtitle">Flowmon networks</h2>

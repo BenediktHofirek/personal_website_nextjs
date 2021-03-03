@@ -23,6 +23,12 @@ a {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
 }
 
 .tag {
@@ -34,9 +40,9 @@ a {
   line-height: 40px;
   font-weight: 400 !important;
   font-size: 30px !important;
-  opacity: 0;
-  transition: opacity 1s linear;
-  transition-delay: 1s;
+  // opacity: 0;
+  // transition: opacity 1s linear;
+  // transition-delay: 1s;
 }
 
 .section {
@@ -48,33 +54,40 @@ a {
 
 .sectionTitle{
   display: block;
-  width: max-content;
+  width: 100%;
   height: min-content;
-  position: relative;
-  font-size: 60px;
-  font-weight: 600;
   margin-bottom: 50px;
 
-  &::before {
-    @extend .tag; 
-    position: absolute;
-    content: "<h1>";
-    left: -10px;
-    top: 50%;
-    transform: translate(-100%, -50%);
-  }
+  &_content {
+    display: block;
+    width: max-content;
+    height: min-content;
+    position: relative;
+    font-size: 60px;
+    font-weight: 600;
+    margin: auto;
 
-  &::after {
-    @extend .tag; 
-    position: absolute;
-    content: "</h1>";
-    right: -10px;
-    top: 50%;
-    transform: translate(100%, -50%);
-  }
+    &::before {
+      @extend .tag; 
+      position: absolute;
+      content: "<h2>";
+      left: -10px;
+      top: 50%;
+      transform: translate(-100%, -50%);
+    }
 
-  &:hover::before, &:hover::after{
-    opacity: 1;
+    &::after {
+      @extend .tag; 
+      position: absolute;
+      content: "</h2>";
+      right: -10px;
+      top: 50%;
+      transform: translate(100%, -50%);
+    }
+
+    // &:hover::before, &:hover::after{
+    //   opacity: 1;
+    // }
   }
 }
 
@@ -90,9 +103,9 @@ a {
     left: 0;
   }
 
-  &:hover::before{
-    opacity: 1;
-  }
+  // &:hover::before{
+  //   opacity: 1;
+  // }
 }
 
 .paragraph{
@@ -121,9 +134,9 @@ a {
     transform: translate(100%, -50%);
   }
 
-  &:hover::before, &:hover::after{
-    opacity: 1;
-  }
+  // &:hover::before, &:hover::after{
+  //   opacity: 1;
+  // }
 }
 
 .subtitle{
@@ -155,7 +168,7 @@ a {
     transform: translate(100%, -50%);
   }
 
-  &:hover::before, &:hover::after{
-    opacity: 1;
-  }
+  // &:hover::before, &:hover::after{
+  //   opacity: 1;
+  // }
 }

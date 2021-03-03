@@ -1,4 +1,6 @@
 .container {
+  display: block;
+  float: left;
   width: 100%;
   height: 100vh;
   background-image: linear-gradient(to top, rgba(124, 145, 190, 0.8) 40%, 70%, white);

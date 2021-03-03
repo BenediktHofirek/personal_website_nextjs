@@ -4,58 +4,30 @@ import styles from '../styles/index.module.scss';
 
 import LandingPage from '../components/landingPage/landingPage';
 import ContentPage from '../components/contentPage/contentPage';
-import { addListeners, removeListeners, scrollBottom, scrollTop } from '../utils/utils';
+import { addListeners, removeListeners, scroll } from '../utils/utils';
 
 export default function Home() {
-  const [currentSection, setCurrentSection] = useState(0);
-  const sectionCount = 5;
-
   function handleScroll(event) {
-    if (event?.keyCode !== 38 && event.keyCode !== 40 && !event?.deltaY) {
-      return;
-    }
+    console.log('scrolling');
     
-    removeListeners(handleScroll, handleTouch);
-    setTimeout(() => addListeners(handleScroll, handleTouch), 100);
-    
-    setCurrentSection((currentSection) => {
-      if (event.deltaY > 0 || event.keyCode == 40) {
-        if (currentSection === 0) {
-          scrollBottom();
-        } else {
-          console.log('handleSectionDown');
-        }
-        return Math.min(currentSection + 1, sectionCount);
-      } else if (event.deltaY < 0 || event.keyCode == 38) {
-        console.log('ccc', currentSection);
-        if (currentSection === 1) {
-          scrollTop();
-        } else {
-          console.log('handleSectionUp');
-        }
-        return Math.max(currentSection - 1, 0);
-      }
+    if (event.deltaY > 0 || event.keyCode == 40) {
+      const html = document.querySelector('html');
+      html.style.overflowY = 'hidden';
 
-      return currentSection;
-    });
-  }
-  
-  function handleTouch() {
-    console.log('touch');
-  }
-
-  function handleChangeSection(newSection) {
-    setCurrentSection(newSection);
-
-    if (newSection === 0) {
-      scrollTop();
+      const body = document.querySelector('body');
+      
+      html.style.height = 'max-content';
+      body.style.height = 'max-content';
+      
+      setTimeout(() => html.style.overflowY = 'scroll', 500);
+      scroll();
     }
   }
 
   useEffect(()=> {
-    addListeners(handleScroll, handleTouch);
+    addListeners(handleScroll);
 
-    return () => removeListeners(handleScroll, handleTouch);
+    return () => removeListeners(handleScroll);
   },[]);
   
   return (
@@ -68,11 +40,8 @@ export default function Home() {
       </Head>
 
       <main>
-        <LandingPage handleScroll={handleScroll} />
-        <ContentPage
-          currentSection={currentSection}
-          changeSection={handleChangeSection}  
-        />
+        <LandingPage handleScroll={() => handleScroll({ keyCode: 40})} />
+        <ContentPage />
       </main>
     </div>
   )

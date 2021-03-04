@@ -1,0 +1,108 @@
+.project {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  height: 450px;
+  padding: 40px 20px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #996FBB 5%, rgba(109, 69, 173, 0) 100%);
+
+  &_title {
+    display: block;
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  &_wip {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-weight: 500;
+    font-size: 26px;
+    padding: 10px;
+    border-radius: 10px;
+    transform: translateY(-50%);
+    background-color: #9c61cc;
+  }
+
+  &_toolContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &_toolTitle {
+    display: block;
+    font-size: 32px;
+    font-weight: 500;
+    margin-left: 20px;
+  }
+
+  &_toolList {
+    display: flex;
+    margin-left: 20px;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    // position: absolute;
+    // top: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
+    height: 100%;
+  }
+
+  &_toolIcon {
+    display: block;
+    height: 50px;
+
+    & + & {
+      margin-left: 20px;
+    }
+  }
+
+  &_description {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+    margin-top: 30px;
+  }
+
+  &_links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    height: min-content;
+  }
+
+  &_repositoryLink {
+    display: block;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+  }
+
+  &_githubIcon {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_demoLink {
+    display: block;
+    margin-left: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 26px;
+  }
+}

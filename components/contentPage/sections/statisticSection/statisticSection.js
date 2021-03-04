@@ -1,10 +1,8 @@
 import styles from './statisticSection.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faAngular, faNodeJs } from '@fortawesome/free-brands-svg-icons';
 
 export default function statisticSection() {
   return (
-    <div className={"section" + ' ' + styles.container}>
+    <div className="section">
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">Statistic</h2>
       </div>

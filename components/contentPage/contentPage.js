@@ -18,7 +18,6 @@ export default function contentPage() {
       <StatisticSection />
       <ProjectsSection />
       <ContactSection />
-      <div className={styles.shadow}></div>
     </div>
   )
 }

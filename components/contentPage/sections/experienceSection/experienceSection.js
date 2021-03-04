@@ -9,6 +9,7 @@ export default function experienceSection() {
 
       <div className={styles.contentContainer}>
         <div className={styles.company}>
+      <div className={styles.shadow}></div>
           <div className={styles.company_imageContainer}>
             <img
               className={styles.company_image  + ' ' + styles.company_image__flowmon}

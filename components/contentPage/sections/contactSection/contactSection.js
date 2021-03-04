@@ -2,6 +2,7 @@ import { useState } from 'react/cjs/react.development';
 import styles from './contactSection.module.scss';
 
 export default function contactSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
 
@@ -37,52 +38,68 @@ export default function contactSection() {
   }
 
   return (
-    <div className={"section" + ' ' + styles.container}>
+    <div className="section">
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">Contact</h2>
       </div>
-      <div className={styles.contact}>
-        <div className={styles.contact_row}>
-          <h3 className={styles.contact_title}>Email:</h3>
-          <p className={styles.contact_text}>benedikthofirek@gmail.com</p>
+      <div className={styles.contentContainer}>
+        <div className={styles.contact}>
+          <div className={styles.contact_row}>
+            <h3 className={styles.contact_title}>Email:</h3>
+            <p className={styles.contact_text}>benedikthofirek@gmail.com</p>
+          </div>
+          <div className={styles.contact_row}>
+            <h3 className={styles.contact_title}>Phone:</h3>
+            <p className={styles.contact_text}>+420 722 064 999</p>
+          </div>
         </div>
-        <div className={styles.contact_row}>
-          <h3 className={styles.contact_title}>Phone:</h3>
-          <p className={styles.contact_text}>+420 722 064 999</p>
+        <button
+          className={styles.modalButton}
+          onClick={() => setIsModalOpen((isOpen) => !isOpen)}
+        >
+          Send me a message
+        </button>
+      </div>
+      
+      <div className={styles.modalContainer} style={{
+        zIndex: isModalOpen ? 1 : -1,
+        opacity: isModalOpen ? 1 : 0
+      }}>
+        <div className={styles.modal}>
+          <h3 className={styles.modal_title}>Send me a message</h3>
+          <form className={styles.form}>
+            <div className={styles.form_block}>
+              <label className={styles.form_label}>
+                Your email:
+              </label>
+              <input 
+                type="email"
+                className={styles.form_input + ' ' + styles.form_input__email}
+                value={inputEmail}
+                onChange={(e) => setInputEmail(e.target.value)}
+              />
+            </div>
+            <div className={styles.form_block}>
+              <label className={styles.form_label}>
+                Message:
+              </label>
+              <textarea
+                value={inputMessage}
+                className={styles.form_input + ' ' + styles.form_input__message}
+                onChange={(e) => setInputMessage(e.target.value)}
+              />
+            </div>
+            <button 
+              type="submit"
+              className={styles.form_submit}
+              disabled={checkIsFormValid()}
+              onClick={handleFormSubmit}
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </div>
-      <h2 className="subtitle">Leave me a message</h2>
-      <form className={styles.form}>
-        <div className={styles.form_block}>
-          <label className={styles.form_label}>
-            Your email:
-          </label>
-          <input 
-            type="email"
-            className={styles.form_input + ' ' + styles.form_input__email}
-            value={inputEmail}
-            onChange={(e) => setInputEmail(e.target.value)}
-          />
-        </div>
-        <div className={styles.form_block}>
-          <label className={styles.form_label}>
-            Message:
-          </label>
-          <textarea
-            value={inputMessage}
-            className={styles.form_input + ' ' + styles.form_input__message}
-            onChange={(e) => setInputMessage(e.target.value)}
-          />
-        </div>
-        <button 
-          type="submit"
-          className={styles.form_submit}
-          disabled={checkIsFormValid()}
-          onClick={handleFormSubmit}
-        >
-          Submit
-        </button>
-      </form>
     </div>
   )
 }

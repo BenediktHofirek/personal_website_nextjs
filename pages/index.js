@@ -8,18 +8,21 @@ import { addListeners, removeListeners, scroll } from '../utils/utils';
 
 export default function Home() {
   function handleScroll(event) {
-    console.log('scrolling');
-    
-    if (event.deltaY > 0 || event.keyCode == 40) {
-      const html = document.querySelector('html');
-      html.style.overflowY = 'hidden';
+    const html = document.querySelector('html');
 
+    if (event.deltaY < 0 || event.keyCode == 38) {
+      // if (html.scrollTop < window.innerHeight) {
+      //   html.style.overflowY = 'hidden';
+      // }
+    }
+
+    if (event.deltaY > 0 || event.keyCode == 40) {
       const body = document.querySelector('body');
+      setTimeout(() => html.style.overflowY = 'scroll', 500);
       
       html.style.height = 'max-content';
       body.style.height = 'max-content';
       
-      setTimeout(() => html.style.overflowY = 'scroll', 500);
       scroll();
     }
   }

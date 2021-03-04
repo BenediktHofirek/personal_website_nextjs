@@ -11,4 +11,10 @@
 .icon {
   height: 75px;
   filter: grayscale(100%);
+  transition: filter 0.1s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    filter: none;
+  }
 }

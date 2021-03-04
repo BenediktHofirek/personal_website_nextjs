@@ -29,6 +29,10 @@ a {
   padding-block-end: 0;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .tag {

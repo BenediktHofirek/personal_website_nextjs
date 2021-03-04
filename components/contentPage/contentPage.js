@@ -17,7 +17,7 @@ export default function contentPage() {
       <ExperienceSection />
       <StatisticSection />
       <ProjectsSection />
-  
+      <ContactSection />
     </div>
   )
 }

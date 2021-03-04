@@ -1,45 +1,76 @@
-.container {
-  display: block;
+.contentContainer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .contact {
   display: block;
-  float: left;
-  width: 100%;
-  height: min-content;
-  margin-bottom: 50px;
 
   &_row {
     display: block;
-    position: relative;
     float: left;
-    width: 100%;
-    height: min-content;
 
     & + & {
-      margin-top: 20px;
+      margin-top: 30px;
     }
   }
 
   &_title {
     display: block;
     float: left;
-    width: min-content;
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 32px;
+    font-weight: 600;
   }
 
   &_text {
     display: block;
-    margin-left: 20px;
-    position: absolute;
-    left: 100px;
     float: left;
-    width: max-content;
-    height: min-content;
-    font-size: 24px;
-    font-weight: 400;
+    margin-left: 20px;
+    font-size: 32px;
+    font-weight: 500;
   }
+}
+
+.modalButton {
+  display: block;
+  background: linear-gradient(-45deg, #996FBB 5%, rgba(109, 69, 173, 0) 100%);
+  font-size: 32px;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 20px 40px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.modalContainer {
+  position: fixed;
+  display: block;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  z-index: -1;
+  background-color: rgb(128,128,128, 0.6);
+  overflow: hidden;
+}
+
+.modal {
+  display: block;
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .form {

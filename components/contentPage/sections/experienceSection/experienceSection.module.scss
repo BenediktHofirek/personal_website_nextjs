@@ -1,21 +1,74 @@
-.container {
-  display: block;
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.technology { 
-  display: block;
+.company {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
   width: 100%;
   float: left;
-  height: min-content;
-  
-  & + & {
-    margin-top: 50px;
+  margin-top: 50px;
+
+  &_imageContainer {
+    display: block;
+    width: 40%;
   }
-}
 
-.content {
-  display: block;
-  width: 100%;
-  float: left;
-  height: min-content;
+  &_image {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+
+    &__flowmon {
+      width: 341px;
+      height: 66px;
+    }
+
+    &__idsa {
+      width: 180px;
+      height: 142px;
+    }
+  }
+
+  &_content {
+    display: block;
+    width: 50%;
+    height: min-content;
+  }
+
+  &_line {
+    display: block;
+    float: left;
+    width: 100%;
+    height: min-content;
+
+    & + & {
+      margin-top: 30px;
+    }
+  }
+
+  &_title {
+    display: block;
+    float: left;
+    font-size: 28px;
+    height: 30px;
+    font-weight: 600;
+    width: 200px;
+  }
+
+  &_text {
+    display: block;
+    float: left;
+    font-size: 28px;
+    line-height: 1.5;
+    font-weight: 500;
+    width: calc(100% - 200px);
+    height: min-content;
+    text-align: justify;
+  }
 }

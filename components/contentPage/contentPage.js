@@ -14,8 +14,8 @@ export default function contentPage() {
     >
       <AboutSection />
       <ToolsSection />
-      {/* <TechnologiesSection />
       <ExperienceSection />
+      {/* <TechnologiesSection />
       <ProjectsSection />
       <ContactSection /> */}
     </div>

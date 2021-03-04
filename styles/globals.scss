@@ -50,13 +50,17 @@ a {
   width: 100%;
   height: min-content;
   padding: 50px 100px;
+
+  & + & {
+    margin-top: 50px;
+  }
 }
 
 .sectionTitle{
   display: block;
   width: 100%;
   height: min-content;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
 
   &_content {
     display: block;

@@ -1,0 +1,41 @@
+.contentContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+
+  &_number {
+    display: block;
+    width: min-content;
+    margin-top: 10px;
+    color: #8251D1;
+    font-weight: 700;
+    font-size: 80px;
+  }
+
+  &_unit {
+    display: block;
+    width: min-content;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 36px;
+  }
+
+  &_description {
+    display: block;
+    width: 90%;
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 31px;
+    text-align: center;
+  }
+}

@@ -4,7 +4,7 @@ import AboutSection from './sections/aboutSection/aboutSection';
 import ContactSection from './sections/contactSection/contactSection';
 import ExperienceSection from './sections/experienceSection/experienceSection';
 import ProjectsSection from './sections/projectsSection/projectsSection';
-import TechnologiesSection from './sections/technologiesSection/technologiesSection';
+import StatisticSection from './sections/statisticSection/staticticSection';
 
 export default function contentPage() {
   return (
@@ -15,8 +15,8 @@ export default function contentPage() {
       <AboutSection />
       <ToolsSection />
       <ExperienceSection />
-      {/* <TechnologiesSection />
-      <ProjectsSection />
+      <StatisticSection />
+      {/* <ProjectsSection />
       <ContactSection /> */}
     </div>
   )

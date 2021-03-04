@@ -1,6 +1,4 @@
 import styles from './projectsSection.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact, faAngular, faNodeJs, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function projectsSection() {
   return (
@@ -9,7 +7,19 @@ export default function projectsSection() {
         <h2 className="sectionTitle_content">Projects</h2>
       </div>
 
-      <div className={styles.technology}>
+      <div className={styles.contentContainer}>
+        
+      </div>
+
+
+
+
+
+
+
+
+
+      {/* <div className={styles.technology}>
         <div className={styles.subtitle}>
           <FontAwesomeIcon className={styles.subtitle_icon} icon={faReact} color="#61DBFB" />
           <h2 className={styles.subtitle_text}>React</h2>
@@ -56,7 +66,7 @@ export default function projectsSection() {
         </div>
       </div>
       
-      <div className={styles.technology}>
+      <div className={styles.technology}> */}
         <div className={styles.subtitle}>
           <FontAwesomeIcon className={styles.subtitle_icon} icon={faAngular} color="#a6120d" />
           <h2 className={styles.subtitle_text}>Angular</h2>

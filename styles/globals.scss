@@ -56,7 +56,7 @@ a {
   }
 }
 
-.sectionTitle{
+.sectionTitle {
   display: block;
   width: 100%;
   height: min-content;
@@ -87,6 +87,16 @@ a {
       right: -10px;
       top: 50%;
       transform: translate(100%, -50%);
+    }
+
+    &__main {
+      &::before {
+        content: "<h1>";
+      }
+
+      &::after {
+        content: "</h1>";
+      }
     }
 
     // &:hover::before, &:hover::after{

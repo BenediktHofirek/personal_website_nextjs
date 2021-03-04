@@ -11,6 +11,7 @@ export default function toolsSection() {
           ['react', 'angular', 'nodejs', 'mongodb', 'postgresql'].map((iconName) => (
             <img
               src={`/${iconName}.svg`}
+              key={iconName}
               alt={iconName}
               className={styles.icon}
             />

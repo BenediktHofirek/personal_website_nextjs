@@ -9,14 +9,16 @@ export default function LandingPage({
       className={styles.container}
     >
       <div className={'image ' + styles.photoContainer}>
-        <Image
-          src="/../public/Benedikt_Hofirek.jpg"
-          alt="Benedikt Hofirek"
-          layout="fill"
-        />
+        <div className={styles.photo}>
+          <Image
+            src="/../public/Benedikt_Hofirek.jpg"
+            alt="Benedikt Hofirek"
+            layout="fill"
+          />
+        </div>
       </div>
       <div className={styles.textContainer}>
-        <h1 className={'sectionTitle ' + styles.title}>Hello, I'm Benedikt</h1>
+        <h1 className={'sectionTitle_content sectionTitle_content__main ' + styles.title}>Hello, I'm Benedikt</h1>
         <p className={'paragraph ' + styles.description}>I'm a software developer</p>
       </div>
       <div

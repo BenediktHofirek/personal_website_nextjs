@@ -1,8 +1,8 @@
 import styles from './statisticSection.module.scss';
 
-export default function statisticSection() {
+export default function statisticSection({containerClass}) {
   return (
-    <div className="section">
+    <div className={"section " + containerClass}>
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">Statistic</h2>
       </div>

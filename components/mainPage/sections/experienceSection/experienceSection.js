@@ -1,8 +1,8 @@
 import styles from './experienceSection.module.scss';
 
-export default function experienceSection() {
+export default function experienceSection({containerClass}) {
   return (
-    <div className="section">
+    <div className={"section " + containerClass}>
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">Job experience</h2>
       </div>

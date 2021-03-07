@@ -1,0 +1,9 @@
+.container {
+  display: block;
+  position: relative;
+  float: left;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(to top right, rgba(124, 145, 190, 0.8) 40%, 70%, white);
+}

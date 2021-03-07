@@ -1,7 +1,7 @@
 import { useState } from 'react/cjs/react.development';
 import styles from './contactSection.module.scss';
 
-export default function contactSection() {
+export default function contactSection({containerClass}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
@@ -38,7 +38,7 @@ export default function contactSection() {
   }
 
   return (
-    <div className="section">
+    <div className={"section " + containerClass}>
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">Contact</h2>
       </div>

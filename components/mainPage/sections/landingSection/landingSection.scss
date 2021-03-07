@@ -1,11 +1,4 @@
-.container {
-  display: block;
-  float: left;
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(to top right, rgba(124, 145, 190, 0.8) 40%, 70%, white);
-  position: relative;
-}
+@use '../../../../styles/animation.scss';
 
 .photoContainer {
   display: block;
@@ -16,9 +9,8 @@
   left: 40%;
   transform: translate(-100%, -60%);
 
-  &::before, &::after {
-    opacity: 1;
-  }
+  animation: fadeIn 2s ease-in 2s 1;
+  animation-fill-mode: both;
 }
 
 .photo {
@@ -59,10 +51,6 @@
   margin: auto;
   display: block;
   float: none;
-
-  &::before, &::after {
-    opacity: 1;
-  }
 }
 
 .arrowDown {

@@ -1,7 +1,7 @@
 import ProjectCard from './components/projectCard/projectCard';
 import styles from './projectsSection.module.scss';
 
-export default function projectsSection() {
+export default function projectsSection({containerClass}) {
   const projectCardList = [
     {
       name: 'Caterpillar',
@@ -44,7 +44,7 @@ export default function projectsSection() {
   ];
 
   return (
-    <div className="section">
+    <div className={"section " + containerClass}>
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">Personal projects</h2>
       </div>

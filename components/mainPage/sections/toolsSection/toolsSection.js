@@ -1,8 +1,10 @@
 import styles from './toolsSection.module.scss';
 
-export default function toolsSection() {
+export default function toolsSection({
+  containerClass
+}) {
   return (
-    <div className="section">
+    <div className={"section " + containerClass}>
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">My main tools</h2>
       </div>

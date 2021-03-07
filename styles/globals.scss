@@ -1,3 +1,5 @@
+@use './animation.scss';
+
 html,
 body {
   padding: 0;
@@ -44,20 +46,14 @@ a {
   line-height: 40px;
   font-weight: 400 !important;
   font-size: 30px !important;
-  // opacity: 0;
-  // transition: opacity 1s linear;
-  // transition-delay: 1s;
 }
 
 .section {
-  display: block;
+  display: none;
+  position: absolute;
+  opacity: 0;
   width: 100%;
   height: min-content;
-  padding: 50px 100px;
-
-  & + & {
-    margin-top: 50px;
-  }
 }
 
 .sectionTitle {
@@ -102,10 +98,6 @@ a {
         content: "</h1>";
       }
     }
-
-    // &:hover::before, &:hover::after{
-    //   opacity: 1;
-    // }
   }
 }
 
@@ -120,10 +112,6 @@ a {
     top: -50px;
     left: 0;
   }
-
-  // &:hover::before{
-  //   opacity: 1;
-  // }
 }
 
 .paragraph{
@@ -151,42 +139,4 @@ a {
     top: 50%;
     transform: translate(100%, -50%);
   }
-
-  // &:hover::before, &:hover::after{
-  //   opacity: 1;
-  // }
-}
-
-.subtitle{
-  display: block;
-  position: relative;
-  float: left;
-  width: max-content;
-  height: 40px;
-  font-size: 40px;
-  line-height: 40px;
-  font-weight: 500;
-  margin-bottom: 30px;
-
-  &::before {
-    @extend .tag; 
-    position: absolute;
-    content: "<h2>";
-    left: -10px;
-    top: 50%;
-    transform: translate(-100%, -50%);
-  }
-
-  &::after {
-    @extend .tag; 
-    position: absolute;
-    content: "</h2>";
-    right: -10px;
-    top: 50%;
-    transform: translate(100%, -50%);
-  }
-
-  // &:hover::before, &:hover::after{
-  //   opacity: 1;
-  // }
 }

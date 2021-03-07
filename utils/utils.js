@@ -1,7 +1,3 @@
-export function scroll() {
-  window.scrollTo(0, window.innerHeight);
-}
-
 export function addListeners(fncScroll) {
   if (window.addEventListener) {
     window.addEventListener('mousewheel', fncScroll, false);

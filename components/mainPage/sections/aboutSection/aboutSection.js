@@ -1,9 +1,9 @@
 import styles from './aboutSection.module.scss';
 import Image from 'next/image';
 
-export default function aboutSection() {
+export default function aboutSection({containerClass}) {
   return (
-    <div className="section">
+    <div className={"section " + containerClass}>
       <div className="sectionTitle">
         <h2 className="sectionTitle_content">About me</h2>
       </div>

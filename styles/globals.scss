@@ -49,10 +49,14 @@ a {
 }
 
 .section {
-  display: none;
+  display: block;
   position: absolute;
+  background: transparent;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
   opacity: 0;
-  width: 100%;
+  width: max-content;
   height: min-content;
 }
 

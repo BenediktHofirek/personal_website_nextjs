@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import styles from './mainPage.module.scss';
 import ToolsSection from './sections/toolsSection/toolsSection';
 import AboutSection from './sections/aboutSection/aboutSection';
@@ -8,11 +9,10 @@ import StatisticSection from './sections/statisticSection/statisticSection';
 import LandingSection from './sections/landingSection/landingSection';
 
 import { addListeners, removeListeners} from '../../utils/utils';
-import { useEffect } from 'react/cjs/react.development';
 
 export default function mainPage() {
   const sectionCount = 6;
-  const scrollAnimationDuration = 2000;
+  const scrollAnimationDuration = 100;
 
   const [currentSection, setCurrentSection] = useState(0);
   const [previousSection, setPreviousSection] = useState(0);
@@ -38,9 +38,10 @@ export default function mainPage() {
   },[]);
 
   function handleChangeSection(direction) {
-    setDirection(direction);
-    setPreviousSection(currentSection);
+    setDirection(direction);    
     setCurrentSection((currentSection) => {
+      setPreviousSection(currentSection);
+      
       return direction === "down" ?
         Math.min(currentSection + 1, sectionCount) : 
         Math.max(currentSection - 1, 0) 
@@ -106,15 +107,16 @@ export default function mainPage() {
           let containerClass = '';
 
           if (index === currentSection) {
-            containerClass = direction === 'down' ? 'inUp' : 'inDown';
-          } else if (index === previousSection) {
-            containerClass = direction === 'down' ? 'outUp' : 'outDown';
+            containerClass = direction === 'down' ? 'animationInUp' : 'animationInDown';
+          } else if (index === previousSection && previousSection !== currentSection) {
+            containerClass = direction === 'down' ? 'animationOutUp' : 'animationOutDown';
           }
 
           return React.createElement(
             section.component,
             {
               ...section.defaultProps,
+              key: index,
               containerClass
             }
           )

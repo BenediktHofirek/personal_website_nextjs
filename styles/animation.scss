@@ -10,6 +10,81 @@
 
 @keyframes inDown {
   from {
-    
+    opacity: 0;
+    transform: translate(-50%,-100%);
   }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%,calc(50vh - 50%));
+  }
+}
+
+@keyframes inUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%,100vh);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%,calc(50vh - 50%));
+  }
+}
+
+@keyframes outDown {
+  from {
+    opacity: 1;
+    transform: translate(-50%,calc(50vh - 50%));
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%,100vh);
+  }
+}
+
+@keyframes outUp {
+  from {
+    opacity: 1;
+    transform: translate(-50%,calc(50vh - 50%));
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%,100%);
+  }
+}
+
+//animation
+
+.animation {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.animationInDown {
+  @extend .animation;
+  
+  animation-name: inDown;
+}
+
+.animationOutDown {
+  @extend .animation;
+
+  animation-name: outDown;
+}
+
+.animationInUp {
+  @extend .animation;
+
+  animation-name: inUp;
+}
+
+.animationOutUp {
+  @extend .animation;
+
+  animation-name: outUp;
 }

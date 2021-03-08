@@ -14,7 +14,9 @@ export default function menu({
             key={item.name}
             onClick={item.handleClick}
           >
-            {item.name}
+            <a href='#'>
+              {item.name}
+            </a>
           </li>
         ))
       }

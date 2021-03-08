@@ -1,0 +1,75 @@
+.container {
+  opacity: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5vw;
+  z-index: 10000;
+  background: transparent;
+  list-style-type: none;
+
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+}
+
+.item {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  & + & {
+    margin-top: 30px;
+  }
+}
+
+$colorCurrent: rgb(68, 60, 180);
+$colorPrevious: grey;
+$normalSize: 20px;
+$biggerSize: 25px;
+
+@keyframes current {
+  from {
+    background-color: $colorPrevious;
+  }
+
+  to {
+    background-color: $colorCurrent;
+  }
+}
+
+@keyframes previous {
+  from {
+    background-color: $colorCurrent;
+  }
+
+  to {
+    background-color: $colorPrevious;
+  }
+}
+
+.dot {
+  display: block;
+  width: $normalSize;
+  height: $normalSize;
+  border-radius: 50%;
+  background-color: grey;
+
+  &__current {
+    animation-name: current;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  &__previous {
+    animation-name: previous;
+    animation-timing-function: linear;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+}

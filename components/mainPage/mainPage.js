@@ -7,13 +7,13 @@ import ExperienceSection from './sections/experienceSection/experienceSection';
 import ProjectsSection from './sections/projectsSection/projectsSection';
 import StatisticSection from './sections/statisticSection/statisticSection';
 import LandingSection from './sections/landingSection/landingSection';
-
+import DotNavigation from '../dotNavigation/dotNavigation';
 import Menu from '../menu/menu';
 
 import { addListeners, removeListeners} from '../../utils/utils';
 
 export default function mainPage() {
-  const sectionCount = 6;
+  const sectionCount = 7;
   const scrollAnimationDuration = 100;
 
   const [currentSection, setCurrentSection] = useState(null);
@@ -43,11 +43,16 @@ export default function mainPage() {
     setDirection(direction);    
     setCurrentSection((section) => {
       const currentSection = section || 0; //first time is null
-      setPreviousSection(currentSection);
       
-      return direction === "down" ?
-        Math.min(currentSection + 1, sectionCount) : 
-        Math.max(currentSection - 1, 0) 
+      const newCurrentSection = direction === "down" ?
+        Math.min(currentSection + 1, sectionCount - 1) : 
+        Math.max(currentSection - 1, 0);
+
+      if (newCurrentSection !== currentSection) {
+        setPreviousSection(currentSection);
+      }
+
+      return newCurrentSection;
     });
   }
 
@@ -137,14 +142,21 @@ export default function mainPage() {
         itemList={menuItemList}
         className={(currentSection !== null && 'fadeIn') || ''}
       />
+      <DotNavigation 
+        count={sectionCount}
+        currentItem={currentSection}
+        previousItem={previousSection}
+        handleSelectItem={handleMenuClick}
+        className={(currentSection !== null && 'fadeIn') || ''}
+      />
       {
-        Array.from({length: sectionCount + 1}).map((_, index) => {
+        Array.from({length: sectionCount}).map((_, index) => {
           const section = sectionMap[`${index}`];
           let containerClass = '';
 
           if (index === currentSection) {
             containerClass = direction === 'down' ? 'animationInUp' : 'animationInDown';
-          } else if (index === previousSection && previousSection !== currentSection) {
+          } else if (index === previousSection) {
             containerClass = direction === 'down' ? 'animationOutUp' : 'animationOutDown';
           } else if (index === 0 && currentSection === null) {
             containerClass = 'display';

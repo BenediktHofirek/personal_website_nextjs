@@ -8,22 +8,13 @@
   }
 }
 
+$offset: 100px;
+$delay: 1s;
+
 @keyframes inDown {
   from {
     opacity: 0;
-    transform: translate(-50%,-100%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translate(-50%,calc(50vh - 50%));
-  }
-}
-
-@keyframes inUp {
-  from {
-    opacity: 0;
-    transform: translate(-50%,100vh);
+    transform: translate(-50%,calc(50vh - 50% - #{$offset}));
   }
 
   to {
@@ -40,7 +31,19 @@
 
   to {
     opacity: 0;
-    transform: translate(-50%,100vh);
+    transform: translate(-50%,calc(50vh - 50% + #{$offset}));
+  }
+}
+
+@keyframes inUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%,calc(50vh - 50% + #{$offset}));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%,calc(50vh - 50%));
   }
 }
 
@@ -52,7 +55,7 @@
 
   to {
     opacity: 0;
-    transform: translate(-50%,-100%);
+    transform: translate(-50%,calc(50vh - 50% - #{$offset}));
   }
 }
 
@@ -62,14 +65,14 @@
   animation-fill-mode: both;
   animation-duration: 1s;
   animation-iteration-count: 1;
-  animation-timing-function: linear;
+  animation-timing-function: ease;
 
   will-change: transform, opacity;
 }
 
 .animationInDown {
   @extend .animation;
-  
+  animation-delay: $delay;
   animation-name: inDown;
 }
 
@@ -81,7 +84,7 @@
 
 .animationInUp {
   @extend .animation;
-
+  animation-delay: $delay;
   animation-name: inUp;
 }
 

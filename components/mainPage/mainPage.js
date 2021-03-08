@@ -102,7 +102,7 @@ export default function mainPage() {
       id="content"
     >
       {
-        Array.from({length: sectionCount}).map((_, index) => {
+        Array.from({length: sectionCount + 1}).map((_, index) => {
           const section = sectionMap[`${index}`];
           let containerClass = '';
 

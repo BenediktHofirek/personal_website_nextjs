@@ -9,7 +9,8 @@
 }
 
 $offset: 100px;
-$delay: 1s;
+$duration: 0.8s;
+$delay: 0.65s;
 
 @keyframes inDown {
   from {
@@ -36,24 +37,32 @@ $delay: 1s;
 }
 
 @keyframes inUp {
-  from {
+  0% {
     opacity: 0;
     transform: translate(-50%,calc(50vh - 50% + #{$offset}));
   }
 
-  to {
+  30% {
+    opacity: 50%;
+  }
+
+  100% {
     opacity: 1;
     transform: translate(-50%,calc(50vh - 50%));
   }
 }
 
 @keyframes outUp {
-  from {
+  0% {
     opacity: 1;
     transform: translate(-50%,calc(50vh - 50%));
   }
 
-  to {
+  70% {
+    opacity: 0.5;
+  }
+
+  100% {
     opacity: 0;
     transform: translate(-50%,calc(50vh - 50% - #{$offset}));
   }
@@ -63,9 +72,9 @@ $delay: 1s;
 
 .animation {
   animation-fill-mode: both;
-  animation-duration: 1s;
+  animation-duration: $duration;
   animation-iteration-count: 1;
-  animation-timing-function: ease;
+  animation-timing-function: linear;
 
   will-change: transform, opacity;
 }

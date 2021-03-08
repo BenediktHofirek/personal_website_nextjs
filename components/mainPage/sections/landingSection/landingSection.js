@@ -21,7 +21,7 @@ export default function LandingSection({
 
   return (
     <div 
-      className={"section " + containerClass}
+      className={"section " + containerClass + ' ' + styles.container}
     >
       <div className={'image ' + styles.photoContainer}>
         <div className={styles.photo}>

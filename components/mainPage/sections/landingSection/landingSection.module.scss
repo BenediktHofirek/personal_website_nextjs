@@ -1,5 +1,15 @@
 @use '../../../../styles/animation.scss';
 
+.container {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .photoContainer {
   display: block;
   width: 45vh;

@@ -8,14 +8,16 @@ import ProjectsSection from './sections/projectsSection/projectsSection';
 import StatisticSection from './sections/statisticSection/statisticSection';
 import LandingSection from './sections/landingSection/landingSection';
 
+import Menu from '../menu/menu';
+
 import { addListeners, removeListeners} from '../../utils/utils';
 
 export default function mainPage() {
   const sectionCount = 6;
   const scrollAnimationDuration = 100;
 
-  const [currentSection, setCurrentSection] = useState(0);
-  const [previousSection, setPreviousSection] = useState(0);
+  const [currentSection, setCurrentSection] = useState(null);
+  const [previousSection, setPreviousSection] = useState(null);
   const [direction, setDirection] = useState("down");
 
   function handleScroll(event) {
@@ -39,13 +41,24 @@ export default function mainPage() {
 
   function handleChangeSection(direction) {
     setDirection(direction);    
-    setCurrentSection((currentSection) => {
+    setCurrentSection((section) => {
+      const currentSection = section || 0; //first time is null
       setPreviousSection(currentSection);
       
       return direction === "down" ?
         Math.min(currentSection + 1, sectionCount) : 
         Math.max(currentSection - 1, 0) 
     });
+  }
+
+  function handleMenuClick(newCurrentSection) {
+    if (newCurrentSection === currentSection) {
+      return;
+    }
+
+    setDirection(newCurrentSection > currentSection ? 'down' : 'up');
+    setPreviousSection(currentSection);
+    setCurrentSection(newCurrentSection);
   }
 
   //handleColorChange
@@ -96,11 +109,34 @@ export default function mainPage() {
     },
   }
 
+  const menuItemList = [
+    {
+      name: 'Home',
+      handleClick: () => handleMenuClick(0),
+    },
+    {
+      name: 'About',
+      handleClick: () => handleMenuClick(1),
+    },
+    {
+      name: 'Tools',
+      handleClick: () => handleMenuClick(2),
+    },
+    {
+      name: 'Experience',
+      handleClick: () => handleMenuClick(6),
+    },
+  ];
+
   return (
     <div 
       className={styles.container}
       id="content"
     >
+      <Menu 
+        itemList={menuItemList}
+        className={(currentSection !== null && 'fadeIn') || ''}
+      />
       {
         Array.from({length: sectionCount + 1}).map((_, index) => {
           const section = sectionMap[`${index}`];
@@ -110,6 +146,8 @@ export default function mainPage() {
             containerClass = direction === 'down' ? 'animationInUp' : 'animationInDown';
           } else if (index === previousSection && previousSection !== currentSection) {
             containerClass = direction === 'down' ? 'animationOutUp' : 'animationOutDown';
+          } else if (index === 0 && currentSection === null) {
+            containerClass = 'display';
           }
 
           return React.createElement(

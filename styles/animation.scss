@@ -8,14 +8,42 @@
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeAnimation {
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.fadeIn {
+  @extend .fadeAnimation;
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  @extend .fadeAnimation;
+  animation-name: fadeOut;
+}
+
+//pageAnimation
+
 $offset: 100px;
 $duration: 0.8s;
-$delay: 0.65s;
+$delay: calc(#{$duration} * 0.8);
 
 @keyframes inDown {
   from {
     opacity: 0;
-    transform: translate(-50%,calc(50vh - 50% - #{$offset}));
+    transform: translate(-50%,calc(50vh - 50%));
   }
 
   to {
@@ -39,7 +67,7 @@ $delay: 0.65s;
 @keyframes inUp {
   0% {
     opacity: 0;
-    transform: translate(-50%,calc(50vh - 50% + #{$offset}));
+    transform: translate(-50%,calc(50vh - 50%));
   }
 
   30% {
@@ -70,7 +98,7 @@ $delay: 0.65s;
 
 //animation
 
-.animation {
+.pageAnimation {
   animation-fill-mode: both;
   animation-duration: $duration;
   animation-iteration-count: 1;
@@ -80,25 +108,25 @@ $delay: 0.65s;
 }
 
 .animationInDown {
-  @extend .animation;
+  @extend .pageAnimation;
   animation-delay: $delay;
   animation-name: inDown;
 }
 
 .animationOutDown {
-  @extend .animation;
+  @extend .pageAnimation;
 
   animation-name: outDown;
 }
 
 .animationInUp {
-  @extend .animation;
+  @extend .pageAnimation;
   animation-delay: $delay;
   animation-name: inUp;
 }
 
 .animationOutUp {
-  @extend .animation;
+  @extend .pageAnimation;
 
   animation-name: outUp;
 }

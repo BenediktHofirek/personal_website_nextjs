@@ -1,0 +1,33 @@
+.container {
+  opacity: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 5vh;
+  right: 5vw;
+  z-index: 10000;
+  background: transparent;
+  
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in;
+}
+
+.item {
+  display: block;
+  width: max-content;
+  font-size: 32px;
+  font-weight: 600;
+  cursor: pointer;  
+  color: black;
+  // transition: color 0.2s ease;
+
+  & + & {
+    margin-left: 50px;
+  }
+
+  &:hover {
+    color: rgb(60, 98, 180);
+  }
+}

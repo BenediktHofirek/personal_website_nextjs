@@ -5,7 +5,7 @@ export default function aboutSection({containerClass}) {
   return (
     <div className={"section " + containerClass}>
       <div className="sectionTitle">
-        <h2 className="sectionTitle_content">About me</h2>
+        <h2 className="sectionTitle_content">About</h2>
       </div>
       <div className={styles.contentContainer}>
         <p className={styles.text}>

@@ -46,7 +46,7 @@ export default function projectsSection({containerClass}) {
   return (
     <div className={"section " + containerClass}>
       <div className="sectionTitle">
-        <h2 className="sectionTitle_content">Personal projects</h2>
+        <h2 className="sectionTitle_content">Projects</h2>
       </div>
 
       <div className={styles.contentContainer}>

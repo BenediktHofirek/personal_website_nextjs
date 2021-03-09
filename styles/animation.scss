@@ -71,14 +71,19 @@ $delay: calc(#{$duration} * 0.8);
 }
 
 @keyframes outDown {
-  from {
+  0% {
     opacity: 1;
     transform: translate(-50%,calc(50vh - 50%));
   }
 
-  to {
+  99% {
     opacity: 0;
     transform: translate(-50%,calc(50vh - 50% + #{$offset}));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%,-100%);
   }
 }
 
@@ -108,9 +113,14 @@ $delay: calc(#{$duration} * 0.8);
     opacity: 0.5;
   }
 
-  100% {
+  99% {
     opacity: 0;
     transform: translate(-50%,calc(50vh - 50% - #{$offset}));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%,-100%);
   }
 }
 
@@ -129,22 +139,26 @@ $delay: calc(#{$duration} * 0.8);
   @extend .pageAnimation;
   animation-delay: $delay;
   animation-name: inDown;
+  z-index: 1 !important;
 }
 
 .animationOutDown {
   @extend .pageAnimation;
 
   animation-name: outDown;
+  z-index: 1 !important;
 }
 
 .animationInUp {
   @extend .pageAnimation;
   animation-delay: $delay;
   animation-name: inUp;
+  z-index: 1 !important;
 }
 
 .animationOutUp {
   @extend .pageAnimation;
 
   animation-name: outUp;
+  z-index: 1 !important;
 }

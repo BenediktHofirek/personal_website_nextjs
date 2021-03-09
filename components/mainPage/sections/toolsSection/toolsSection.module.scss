@@ -1,20 +1,20 @@
 .contentContainer {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
+  flex-flow: row wrap;
   justify-content: space-between;
   margin: auto;
-  width: 100%;
-  max-width: 1200px;
+  width: 80vw;
+  max-width: 1440px;
 }
 
 .icon {
-  height: 75px;
+  z-index: 1000;
+  height: 7.5vh;
   filter: grayscale(100%);
   transition: filter 0.1s ease-in;
   cursor: pointer;
 
   &:hover {
-    filter: none;
+    filter: grayscale(0%);
   }
 }

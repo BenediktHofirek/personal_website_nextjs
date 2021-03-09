@@ -4,7 +4,7 @@ export default function experienceSection({containerClass}) {
   return (
     <div className={"section " + containerClass}>
       <div className="sectionTitle">
-        <h2 className="sectionTitle_content">Job experience</h2>
+        <h2 className="sectionTitle_content">Experience</h2>
       </div>
 
       <div className={styles.contentContainer}>

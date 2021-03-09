@@ -6,7 +6,7 @@ export default function toolsSection({
   return (
     <div className={"section " + containerClass}>
       <div className="sectionTitle">
-        <h2 className="sectionTitle_content">My main tools</h2>
+        <h2 className="sectionTitle_content">Dev tools</h2>
       </div>
       <div className={styles.contentContainer}>
         {

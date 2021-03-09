@@ -30,7 +30,7 @@
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 15px 15px 15px #0c89a8;
+  box-shadow: 30px 30px 15px #3f727f;
 }
 
 .textContainer {
@@ -38,17 +38,17 @@
   width: min-content;
   height: min-content;
   position: absolute;
-  top: 55%;
+  top: 32%;
   left: 50%;
-  transform: translate(0, -100%);
 }
 
 .title {
-  margin-bottom: 60px;
   width: max-content;
   display: block;
-  font-weight: 600;
-  font-size: 70px;
+  font-weight: 700;
+  font-size: 92px;
+  color:  #0f2a66;
+  text-shadow: 30px 30px 15px #3f727f;
 }
 
 .descriptionContainer {
@@ -61,8 +61,11 @@
 }
 
 .description {
-  font-size: 40px;
+  font-size: 68px;
+  font-weight: 600;
+  font-style: italic;
   display: block;
+  color: white;
 }
 
 .arrowDown {
@@ -73,6 +76,5 @@
   left: 50%;
   cursor: pointer;
   transform: translate(-50%,0);
-  fill: white;
   animation-fill-mode: both;
 }

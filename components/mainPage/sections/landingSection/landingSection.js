@@ -89,6 +89,20 @@ export default function LandingSection({
     animationDuration: `${arrowAnimationTime}ms`,
   };
 
+  function renderText(text) {
+    return text.split('').map((char, index) => (
+      <span
+        className="fadeIn"
+        style={{
+          display: 'inline',
+          animationTimingFunction: 'ease',
+          animationDuration: char === '|' ? '0s' : '50ms',
+        }}
+        key={`${char}_${index}`}
+      >{char}</span>
+    ))
+  }
+
   return (
     <div 
       className={"section " + containerClass + ' ' + styles.container}
@@ -112,7 +126,7 @@ export default function LandingSection({
             display: isTitleDisplayed ? 'block' : 'none',
           }}
         >
-          {titleText}
+          {renderText(titleText)}
         </h1>
         <div className={styles.descriptionContainer}>
           <p 
@@ -121,7 +135,7 @@ export default function LandingSection({
               display: isParagraphDisplayed ? 'block' : 'none',
             }}
           >
-            {paragraphText}
+            {renderText(paragraphText)}
           </p>
           <p 
             className={'paragraph ' + styles.description}

@@ -9,11 +9,10 @@ export default function experienceSection({containerClass}) {
 
       <div className={styles.contentContainer}>
         <div className={styles.company}>
-      <div className={styles.shadow}></div>
           <div className={styles.company_imageContainer}>
             <img
               className={styles.company_image  + ' ' + styles.company_image__flowmon}
-              src="/flowmon_networks.png"
+              src="/Flowmon_Networks.png"
               alt="Flowmon Networks company logo"
             />
           </div>
@@ -40,7 +39,7 @@ export default function experienceSection({containerClass}) {
           <div className={styles.company_imageContainer}>
             <img
               className={styles.company_image + ' ' + styles.company_image__idsa}
-              src="/ids_advisory.png"
+              src="/IDS_Advisory.jpg"
               alt="IDS Advisory company logo"
             />
           </div>

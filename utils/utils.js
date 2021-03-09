@@ -29,3 +29,7 @@ export function removeListeners(fncScroll) {
       window.detachEvent('onkeyup', fncScroll, false);
   }
 }
+
+export function cc(...clasList) {
+  return clasList.join(' ');
+}

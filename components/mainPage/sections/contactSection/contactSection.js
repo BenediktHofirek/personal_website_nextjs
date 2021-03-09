@@ -1,8 +1,10 @@
 import { useState } from 'react/cjs/react.development';
 import styles from './contactSection.module.scss';
+import {cc} from '../../../../utils/utils';
 
 export default function contactSection({containerClass}) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [inputName, setInputName] = useState('');
+  const [inputSubject, setInputSubject] = useState('');
   const [inputEmail, setInputEmail] = useState('');
   const [inputMessage, setInputMessage] = useState('');
 
@@ -40,65 +42,71 @@ export default function contactSection({containerClass}) {
   return (
     <div className={"section " + containerClass}>
       <div className="sectionTitle">
-        <h2 className="sectionTitle_content">Contact</h2>
+        <h2 className="sectionTitle_content">Contact me</h2>
       </div>
       <div className={styles.contentContainer}>
-        <div className={styles.contact}>
-          <div className={styles.contact_row}>
-            <h3 className={styles.contact_title}>Email:</h3>
-            <p className={styles.contact_text}>benedikthofirek@gmail.com</p>
+        <form className={styles.form}>
+          <div className={cc(styles.form_block,styles.form_block__name)}>
+            <input
+              placeholder="placeholder" 
+              type="text"
+              className={cc(styles.form_input, styles.form_input__text)}
+              value={inputName}
+              onChange={(e) => setInputName(e.target.value)}
+            />
+            <div className="outline"></div>
+            <label className={styles.form_label}>
+              Name
+            </label>
           </div>
-          <div className={styles.contact_row}>
-            <h3 className={styles.contact_title}>Phone:</h3>
-            <p className={styles.contact_text}>+420 722 064 999</p>
+          <div className={cc(styles.form_block,styles.form_block__email)}>
+            <input
+              placeholder="placeholder" 
+              type="email"
+              className={cc(styles.form_input, styles.form_input__text)}
+              value={inputEmail}
+              onChange={(e) => setInputEmail(e.target.value)}
+            />
+            <div className="outline"></div>
+            <label className={styles.form_label}>
+              Email
+            </label>
           </div>
-        </div>
-        <button
-          className={styles.modalButton}
-          onClick={() => setIsModalOpen((isOpen) => !isOpen)}
-        >
-          Send me a message
-        </button>
-      </div>
-      
-      <div className={styles.modalContainer} style={{
-        zIndex: isModalOpen ? 1 : -1,
-        opacity: isModalOpen ? 1 : 0
-      }}>
-        <div className={styles.modal}>
-          <h3 className={styles.modal_title}>Send me a message</h3>
-          <form className={styles.form}>
-            <div className={styles.form_block}>
-              <label className={styles.form_label}>
-                Your email:
-              </label>
-              <input 
-                type="email"
-                className={styles.form_input + ' ' + styles.form_input__email}
-                value={inputEmail}
-                onChange={(e) => setInputEmail(e.target.value)}
-              />
-            </div>
-            <div className={styles.form_block}>
-              <label className={styles.form_label}>
-                Message:
-              </label>
-              <textarea
-                value={inputMessage}
-                className={styles.form_input + ' ' + styles.form_input__message}
-                onChange={(e) => setInputMessage(e.target.value)}
-              />
-            </div>
-            <button 
-              type="submit"
-              className={styles.form_submit}
-              disabled={checkIsFormValid()}
-              onClick={handleFormSubmit}
-            >
-              Submit
-            </button>
-          </form>
-        </div>
+          <div className={cc(styles.form_block,styles.form_block__subject)}>
+            <input
+              placeholder="placeholder"
+              type="email"
+              className={cc(styles.form_input, styles.form_input__text)}
+              value={inputSubject}
+              onChange={(e) => setInputSubject(e.target.value)}
+            />
+            <div className="outline"></div>
+            <label className={styles.form_label}>
+              Subject
+            </label>
+          </div>
+          <div className={cc(styles.form_block,styles.form_block__message)}>
+            <textarea
+              placeholder="placeholder"
+              value={inputMessage}
+              rows={7}
+              className={cc(styles.form_input, styles.form_input__textarea)}
+              onChange={(e) => setInputMessage(e.target.value)}
+            />
+            <div className="outline"></div>
+            <label className={styles.form_label}>
+              Message:
+            </label>
+          </div>
+          <button 
+            type="submit"
+            className={styles.form_submit}
+            disabled={checkIsFormValid()}
+            onClick={handleFormSubmit}
+          >
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   )

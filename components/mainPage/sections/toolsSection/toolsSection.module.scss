@@ -11,10 +11,9 @@
   z-index: 1000;
   height: 7.5vh;
   filter: grayscale(100%);
-  transition: filter 0.1s ease-in;
   cursor: pointer;
 
   &:hover {
-    filter: grayscale(0%);
+    filter: none;
   }
 }

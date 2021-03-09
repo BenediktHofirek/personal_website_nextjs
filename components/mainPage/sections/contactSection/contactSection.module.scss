@@ -1,144 +1,148 @@
 .contentContainer {
   display: flex;
   position: relative;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: column;
   width: 100%;
   max-width: 1440px;
   margin: auto;
+  align-items: center;
 }
 
-.contact {
+.info {
   display: block;
-
-  &_row {
-    display: block;
-    float: left;
-
-    & + & {
-      margin-top: 30px;
-    }
-  }
-
-  &_title {
-    display: block;
-    float: left;
-    font-size: 32px;
-    font-weight: 600;
-  }
-
-  &_text {
-    display: block;
-    float: left;
-    margin-left: 20px;
-    font-size: 32px;
-    font-weight: 500;
-  }
+  width: max-content;
+  max-width: 800px;
+  margin-bottom: 60px;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
-.modalButton {
-  display: block;
-  background: linear-gradient(-45deg, #996FBB 5%, rgba(109, 69, 173, 0) 100%);
-  font-size: 32px;
-  font-weight: 500;
-  border-radius: 20px;
-  padding: 20px 40px;
-  border: none;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-.modalContainer {
-  position: fixed;
-  display: block;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; 
-  z-index: -1;
-  background-color: rgb(128,128,128, 0.6);
-  overflow: hidden;
-}
-
-.modal {
-  display: block;
-  background-color: white;
-  padding: 40px;
-  border-radius: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+$inputPadding: 20px;
+$inputBorder: 4px;
+$inputBorderRadius: 5px;
 
 .form {
   display: block;
-  float: left;
   width: 100%;
-  height: max-content;
+  max-width: 800px;
 
   &_label {
     display: block;
-    float: left;
-    width: 100%;
+    position: absolute;
+    top: $inputPadding;
+    left: $inputPadding;
+    width: max-content;
     height: min-content;
     font-size: 24px;
-    font-weight: 400;
-    margin-bottom: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
   }
 
   &_input {
     display: block;
     float: left;
     height: min-content;
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 600;
     line-height: 1.5;
-    border-radius: 10px;
+    border-radius: $inputBorderRadius;
     border: none;
-    box-shadow: 7px 7px 10px 0px rgba(14, 70, 25, 0.473);
+    box-shadow: 7px 7px 10px 0px #3f727f;
+    cursor: text;
+    border-bottom: $inputBorder solid white;
+    overflow: hidden;
+
+    width: 100%;
+    padding: $inputPadding;
+
+    & + [class='outline'] {
+      display: block;
+      width: 0;
+      height: $inputBorder;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
 
     &:focus {
       outline: none;
+
+      & + [class='outline'] {
+        transition: width 0.3s ease;
+        background-color: blue !important;
+        width: 100%;
+      }
+
+      & ~ label {
+        transform: translate(-10px, calc((30% + #{$inputPadding}) * -1)) scale(0.9);
+      }
     }
 
-    &__email {
-      padding: 5px;
-      width: 250px;
+    &::placeholder {
+      opacity: 0;
     }
 
-    &__message {
-      padding: 5px 10px;
-      width: 600px;
-      height: 250px;
+    &:not(:placeholder-shown) ~ label {
+      transform: translate(-10px, calc((30% + #{$inputPadding}) * -1)) scale(0.9);
+    }
+
+    &[error] + [class='outline'] {
+      transition: width 0.3s ease;
+      background-color: red;
+      width: 100%;
+    }
+
+    &__text {
+      
+    }
+
+    &__textarea {
+      overflow-y: auto;
+      resize: none;
     }
   }
 
   &_submit {
     display: block;
-    float: left;
-    width: min-content;
-    height: min-content;
-    padding: 15px;
+    float: right;
+    width: 150px;
+    height: 80px; 
+    text-align: center;
     border-radius: 10px;
     border: none;
-    background-color: rgb(13, 161, 38);
-    font-weight: 400;
+    background-color: #3f727f;
+    font-weight: 600;
     font-size: 24px;
-    margin-top: 30px;
+    margin-top: 50px;
     color: white;
     cursor: pointer;
   }
 
   &_block {
+    z-index: 0;
     display: block;
+    position: relative;
     width: 100%;
     height: min-content;
     float: left;
 
-    & + & {
-      margin-top: 30px;
+    &__name {
+      width: 45%;
+    }
+
+    &__email {
+      width: 45%;
+      float: left;
+      margin-left: 10%;
+    }
+
+    &__subject {
+      margin-top: 50px;
+    }
+
+    &__message {
+      margin-top: 50px;
     }
   }
 }

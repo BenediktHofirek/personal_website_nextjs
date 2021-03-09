@@ -14,7 +14,7 @@ import { addListeners, removeListeners} from '../../utils/utils';
 
 export default function mainPage() {
   const sectionCount = 7;
-  const scrollAnimationDuration = 100;
+  const scrollAnimationDuration = 200;
 
   const [currentSection, setCurrentSection] = useState(null);
   const [previousSection, setPreviousSection] = useState(null);
@@ -34,8 +34,6 @@ export default function mainPage() {
   }
 
   useEffect(()=> {
-    addListeners(handleScroll);
-
     return () => removeListeners(handleScroll);
   },[]);
 
@@ -84,7 +82,8 @@ export default function mainPage() {
     0: {
       component: LandingSection,
       defaultProps: {
-        handleScroll: () => handleScroll({ keyCode: 40})
+        handleScroll: () => handleScroll({ keyCode: 40}),
+        activateScroll: () => addListeners(handleScroll),
       },
       index: 0,
     },

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from './landingSection.module.scss';
 
 export default function LandingSection({
+  activateScroll,
   handleScroll,
   containerClass
 }) {
@@ -23,8 +24,9 @@ export default function LandingSection({
   //loading animation
   useEffect(() => {
     (async() => {
+      activateScroll();
+
       // title
-      await pause(500);
       setIsTitleDisplayed(true);
       await write(setTitleText, titleTextSource);
       
@@ -39,6 +41,7 @@ export default function LandingSection({
       await write(setParagraphText, paragraphTextSource);
       await pause(500);
       setIsArrowDisplayed(true);
+      // activateScroll();
     })()
   }, []);
 

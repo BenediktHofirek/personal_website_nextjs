@@ -6,14 +6,17 @@ export default function LandingSection({
   handleScroll,
   containerClass
 }) {
-  const imageAnimationTime = 2000;
-  const arrowAnimationTime = 1000;
-  const writeSpeed = 120;
+  const imageAnimationTime = 1000;
+  const arrowAnimationTime = 750;
+  const tagAnimationTime = 500;
+  const writeSpeed = 80;
 
   const titleTextSource = "Hello, I'm Benedikt";
   const paragraphTextSource = "I'm a full-stack developer";
 
   const [isArrowDisplayed, setIsArrowDisplayed] = useState(false);
+  const [isH1Displayed, setIsH1Displayed] = useState(false);
+  const [isPTagDisplayed, setIsPTagDisplayed] = useState(false);
   const [isImageDisplayed, setIsImageDisplayed] = useState(false);
   const [isTitleDisplayed, setIsTitleDisplayed] = useState(false);
   const [isParagraphDisplayed, setIsParagraphDisplayed] = useState(false);
@@ -31,14 +34,17 @@ export default function LandingSection({
       //image
       await pause(500);
       setIsImageDisplayed(true);
-      await pause(imageAnimationTime);
       await pause(500);
+      setIsH1Displayed(true);
+      await pause(imageAnimationTime - 500);
 
       //paragraph
       setIsParagraphDisplayed(true);
       await write(setParagraphText, paragraphTextSource);
       await pause(500);
       setIsArrowDisplayed(true);
+      await pause(500);
+      setIsPTagDisplayed(true);
     })()
   }, []);
 
@@ -107,7 +113,7 @@ export default function LandingSection({
       </div>
       <div className={styles.textContainer}>
         <h1 
-          className={'sectionTitle_content sectionTitle_content__main ' + styles.title}
+          className={'title ' + styles.title + (isH1Displayed ? ' pseudoFadeIn' : '')}
           style={{
             display: isTitleDisplayed ? 'block' : 'none',
           }}
@@ -115,7 +121,7 @@ export default function LandingSection({
           {titleText}
         </h1>
         <p 
-          className={'paragraph ' + styles.description}
+          className={'paragraph ' + styles.description + (isPTagDisplayed ? ' pseudoFadeIn' : '')}
           style={{
             display: isParagraphDisplayed ? 'block' : 'none',
           }}

@@ -30,7 +30,7 @@
   height: 100%;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 15px 15px 15px rgb(88, 102, 146);
+  box-shadow: 15px 15px 15px #0c89a8;
 }
 
 .textContainer {
@@ -49,10 +49,6 @@
   display: block;
   font-weight: 600;
   font-size: 70px;
-
-  &::before, &::after {
-    opacity: 1;
-  }
 }
 
 .description {
@@ -71,5 +67,6 @@
   left: 50%;
   cursor: pointer;
   transform: translate(-50%,0);
+  fill: white;
   animation-fill-mode: both;
 }

@@ -21,7 +21,7 @@
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translate(-50%, -50px);
+    transform: translate(-50%, -100px);
   }
 
   to {
@@ -39,6 +39,15 @@
 .fadeIn {
   @extend .fadeAnimation;
   animation-name: fadeIn;
+}
+
+.pseudoFadeIn {
+  &::before, &::after {
+    @extend .fadeAnimation;
+    animation-name: fadeIn;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+  }
 }
 
 .fadeOut {

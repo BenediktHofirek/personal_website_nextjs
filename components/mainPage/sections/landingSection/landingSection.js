@@ -8,20 +8,17 @@ export default function LandingSection({
 }) {
   const imageAnimationTime = 1000;
   const arrowAnimationTime = 750;
-  const tagAnimationTime = 500;
   const writeSpeed = 80;
 
   const titleTextSource = "Hello, I'm Benedikt";
   const paragraphTextSource = "I'm a full-stack developer";
 
   const [isArrowDisplayed, setIsArrowDisplayed] = useState(false);
-  const [isH1Displayed, setIsH1Displayed] = useState(false);
-  const [isPTagDisplayed, setIsPTagDisplayed] = useState(false);
   const [isImageDisplayed, setIsImageDisplayed] = useState(false);
   const [isTitleDisplayed, setIsTitleDisplayed] = useState(false);
   const [isParagraphDisplayed, setIsParagraphDisplayed] = useState(false);
-  const [titleText, setTitleText] = useState('');
-  const [paragraphText, setParagraphText] = useState('');
+  const [titleText, setTitleText] = useState('|');
+  const [paragraphText, setParagraphText] = useState('|');
 
   //loading animation
   useEffect(() => {
@@ -35,16 +32,13 @@ export default function LandingSection({
       await pause(500);
       setIsImageDisplayed(true);
       await pause(500);
-      setIsH1Displayed(true);
-      await pause(imageAnimationTime - 500);
+      await pause(imageAnimationTime);
 
       //paragraph
       setIsParagraphDisplayed(true);
       await write(setParagraphText, paragraphTextSource);
       await pause(500);
       setIsArrowDisplayed(true);
-      await pause(500);
-      setIsPTagDisplayed(true);
     })()
   }, []);
 
@@ -73,7 +67,7 @@ export default function LandingSection({
 
     return new Promise(async(resolve) => {
       //add cursor
-      await addChar();
+      // await addChar();
 
       for (let x = 0; x < charListLength; x++) {
         await addChar(charList[x]);
@@ -113,21 +107,32 @@ export default function LandingSection({
       </div>
       <div className={styles.textContainer}>
         <h1 
-          className={'title ' + styles.title + (isH1Displayed ? ' pseudoFadeIn' : '')}
+          className={'title ' + styles.title}
           style={{
             display: isTitleDisplayed ? 'block' : 'none',
           }}
         >
           {titleText}
         </h1>
-        <p 
-          className={'paragraph ' + styles.description + (isPTagDisplayed ? ' pseudoFadeIn' : '')}
-          style={{
-            display: isParagraphDisplayed ? 'block' : 'none',
-          }}
-        >
-          {paragraphText}
-        </p>
+        <div className={styles.descriptionContainer}>
+          <p 
+            className={'paragraph ' + styles.description}
+            style={{
+              display: isParagraphDisplayed ? 'block' : 'none',
+            }}
+          >
+            {paragraphText}
+          </p>
+          <p 
+            className={'paragraph ' + styles.description}
+            style={{
+              display: 'block',
+              visibility: 'hidden'
+            }}
+          >
+            {paragraphTextSource}
+          </p>
+        </div>
       </div>
       <div
         className={styles.arrowDown}

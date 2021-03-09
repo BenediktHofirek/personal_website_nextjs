@@ -41,15 +41,6 @@
   animation-name: fadeIn;
 }
 
-.pseudoFadeIn {
-  &::before, &::after {
-    @extend .fadeAnimation;
-    animation-name: fadeIn;
-    animation-timing-function: linear;
-    animation-duration: 1s;
-  }
-}
-
 .fadeOut {
   @extend .fadeAnimation;
   animation-name: fadeOut;

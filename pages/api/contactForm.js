@@ -5,6 +5,7 @@ export default (req, res) => {
     const {
       email: senderEmail,
       message,
+      subject,
     } = req.body;
    
     var transporter = nodemailer.createTransport({
@@ -19,7 +20,9 @@ export default (req, res) => {
       from: process.env.EMAIL,
       to: process.env.EMAIL,
       subject: 'CONTACT FORM ' + senderEmail,
-      text: message
+      text: `sender: ${senderEmail}\n 
+             subject: ${subject} \n
+             message: ${message}`
     };
 
     transporter.sendMail(mailOptions, function(error, info){

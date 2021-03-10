@@ -77,6 +77,12 @@ export function truncateDecimal(number, template) {
     return number;
   } 
 
-  const decimalLeght = `${template}`.slice(dotIndex).length;
-  return Number(`${number}`.slice(0, `${number}`.indexOf('.') + decimalLeght));
+  const decimalLeght = `${template}`.slice(dotIndex + 1).length;
+  const dotIndexNumber = `${number}`.indexOf('.');
+
+  if (dotIndexNumber < 0) {
+    return `${number}.${'0'.repeat(decimalLeght)}`;
+  }
+
+  return `${number}`.slice(0, dotIndexNumber + decimalLeght + 1);
 }

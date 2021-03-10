@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './landingSection.module.scss';
+import { write, pause } from '../../../../utils/utils';
 
 export default function LandingSection({
   activateScroll,
@@ -28,7 +29,7 @@ export default function LandingSection({
 
       // title
       setIsTitleDisplayed(true);
-      await write(setTitleText, titleTextSource);
+      await write(setTitleText, titleTextSource, writeSpeed);
       
       //image
       await pause(500);
@@ -38,49 +39,12 @@ export default function LandingSection({
 
       //paragraph
       setIsParagraphDisplayed(true);
-      await write(setParagraphText, paragraphTextSource);
+      await write(setParagraphText, paragraphTextSource, writeSpeed);
       await pause(500);
       setIsArrowDisplayed(true);
       // activateScroll();
     })()
   }, []);
-
-  function pause(timeout) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, timeout);
-    });
-  }
-
-  function write(func, text, time = writeSpeed) {
-    const charList = text.split('');
-    const charListLength = charList.length;
-
-    function getTimeout() {
-      return Math.round(time);
-    }
-
-    function addChar(char = '') {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          func((value) => value.slice(0,-1) + char + '|');
-          resolve();
-        }, getTimeout());
-      });
-    }
-
-    return new Promise(async(resolve) => {
-      //add cursor
-      // await addChar();
-
-      for (let x = 0; x < charListLength; x++) {
-        await addChar(charList[x]);
-      }
-
-      //removeCursor
-      func((value) => value.slice(0, -1));
-      resolve();
-    });
-  }
 
   const imageAnimationStyle = {
     animationName: 'fadeIn',

@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1440px;
   margin: auto;
 }
 
@@ -22,11 +21,16 @@
     width: 40%;
   }
 
+  $imageScale: 0.8;
+
   &_image {
     display: block;
+    margin: auto;
     max-width: 100%;
-    height: 342px;
-    width: 400px;
+    height: 342px * $imageScale;
+    width: 400px * $imageScale;
+    border-radius: 10px;
+    box-shadow: 15px 15px 10px #3f727f;
 
     &__flowmon {
       

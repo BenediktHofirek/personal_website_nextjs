@@ -6,7 +6,7 @@
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 5vw;
+  right: 5vh;
   z-index: 10000;
   background: transparent;
   list-style-type: none;
@@ -25,8 +25,8 @@
   }
 }
 
-$colorCurrent: rgb(68, 60, 180);
-$colorPrevious: grey;
+$colorCurrent: #2321b0;
+$colorPrevious: rgb(150, 150, 150);
 $normalSize: 20px;
 $biggerSize: 25px;
 
@@ -55,7 +55,7 @@ $biggerSize: 25px;
   width: $normalSize;
   height: $normalSize;
   border-radius: 50%;
-  background-color: grey;
+  background-color: $colorPrevious;
 
   &__current {
     animation-name: current;

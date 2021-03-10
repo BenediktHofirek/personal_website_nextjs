@@ -1,5 +1,6 @@
 import ProjectCard from './components/projectCard/projectCard';
 import styles from './projectsSection.module.scss';
+import { cc } from '../../../../utils/utils';
 
 export default function projectsSection({containerClass}) {
   const projectCardList = [
@@ -45,7 +46,7 @@ export default function projectsSection({containerClass}) {
 
   return (
     <div className={"section " + containerClass}>
-      <div className="sectionTitle">
+      <div className={cc('sectionTitle', styles.title)}>
         <h2 className="sectionTitle_content">Projects</h2>
       </div>
 

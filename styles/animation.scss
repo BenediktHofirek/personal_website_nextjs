@@ -57,28 +57,29 @@
 $offset: 100px;
 $duration: 0.8s;
 $delay: calc(#{$duration} * 0.8);
+$maxOffsetTop: 25vh;
 
 @keyframes inDown {
   from {
     opacity: 0;
-    transform: translate(-50%,calc(50vh - 50%));
+    transform: translate(-50%,min(calc(50vh - 50%), #{$maxOffsetTop}));
   }
 
   to {
     opacity: 1;
-    transform: translate(-50%,calc(50vh - 50%));
+    transform: translate(-50%,min(calc(50vh - 50%), #{$maxOffsetTop}));
   }
 }
 
 @keyframes outDown {
   0% {
     opacity: 1;
-    transform: translate(-50%,calc(50vh - 50%));
+    transform: translate(-50%,min(calc(50vh - 50%), #{$maxOffsetTop}));
   }
 
   99% {
     opacity: 0;
-    transform: translate(-50%,calc(50vh - 50% + #{$offset}));
+    transform: translate(-50%,calc(min(calc(50vh - 50%), #{$maxOffsetTop}) + #{$offset}));
   }
 
   100% {
@@ -90,7 +91,7 @@ $delay: calc(#{$duration} * 0.8);
 @keyframes inUp {
   0% {
     opacity: 0;
-    transform: translate(-50%,calc(50vh - 50%));
+    transform: translate(-50%,min(calc(50vh - 50%), #{$maxOffsetTop}));
   }
 
   30% {
@@ -99,14 +100,14 @@ $delay: calc(#{$duration} * 0.8);
 
   100% {
     opacity: 1;
-    transform: translate(-50%,calc(50vh - 50%));
+    transform: translate(-50%,min(calc(50vh - 50%), #{$maxOffsetTop}));
   }
 }
 
 @keyframes outUp {
   0% {
     opacity: 1;
-    transform: translate(-50%,calc(50vh - 50%));
+    transform: translate(-50%,min(calc(50vh - 50%), #{$maxOffsetTop}));
   }
 
   70% {
@@ -115,7 +116,7 @@ $delay: calc(#{$duration} * 0.8);
 
   99% {
     opacity: 0;
-    transform: translate(-50%,calc(50vh - 50% - #{$offset}));
+    transform: translate(-50%,calc(min(calc(50vh - 50%), #{$maxOffsetTop}) - #{$offset}));
   }
 
   100% {

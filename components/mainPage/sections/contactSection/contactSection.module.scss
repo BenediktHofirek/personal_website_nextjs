@@ -1,11 +1,8 @@
 .contentContainer {
-  display: flex;
+  display: block;
   position: relative;
-  flex-direction: column;
   width: 100%;
-  max-width: 1440px;
   margin: auto;
-  align-items: center;
 }
 
 .info {
@@ -19,36 +16,50 @@
 }
 
 $inputPadding: 20px;
-$inputBorder: 4px;
+$inputBorder: 5px;
 $inputBorderRadius: 5px;
+$inputFontSize: 24px;
 
 .form {
   display: block;
+  float: left;
   width: 100%;
   max-width: 800px;
 
   &_label {
     display: block;
     position: absolute;
-    top: $inputPadding;
+    top: $inputFontSize + ($inputBorder / 2);
     left: $inputPadding;
     width: max-content;
     height: min-content;
-    font-size: 24px;
+    font-size: $inputFontSize;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    color: #0f2a66;
+  }
+
+  &_outline {
+    display: block;
+    transition: width 0.2s ease;
+    width: 0;
+    height: $inputBorder;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   &_input {
     display: block;
     float: left;
     height: min-content;
-    font-size: 20px;
+    font-size: $inputFontSize;
     font-weight: 600;
     line-height: 1.5;
     border-radius: $inputBorderRadius;
     border: none;
-    box-shadow: 7px 7px 10px 0px #3f727f;
     cursor: text;
     border-bottom: $inputBorder solid white;
     overflow: hidden;
@@ -56,26 +67,16 @@ $inputBorderRadius: 5px;
     width: 100%;
     padding: $inputPadding;
 
-    & + [class='outline'] {
-      display: block;
-      width: 0;
-      height: $inputBorder;
-      position: absolute;
-      left: 0;
-      bottom: 0;
-    }
-
     &:focus {
       outline: none;
 
-      & + [class='outline'] {
-        transition: width 0.3s ease;
-        background-color: blue;
+      & + [class*='outline'] {
+        background: #113d9c;
         width: 100%;
       }
 
       & ~ label {
-        transform: translate(-10px, calc((30% + #{$inputPadding}) * -1)) scale(0.9);
+        transform: translate(-10px, calc((10% + #{$inputPadding}) * -1)) scale(0.8);
       }
     }
 
@@ -84,12 +85,11 @@ $inputBorderRadius: 5px;
     }
 
     &:not(:placeholder-shown) ~ label {
-      transform: translate(-10px, calc((30% + #{$inputPadding}) * -1)) scale(0.9);
+      transform: translate(-10px, calc((10% + #{$inputPadding}) * -1)) scale(0.8);
     }
 
-    &[error] + [class='outline'] {
-      transition: width 0.3s ease;
-      background-color: red;
+    &[error] + [class*='outline'] {
+      background: rgb(255, 123, 0);
       width: 100%;
     }
 
@@ -100,6 +100,10 @@ $inputBorderRadius: 5px;
     &__textarea {
       overflow-y: auto;
       resize: none;
+
+      & + [class*='outline'] {
+        height: $inputBorder + 1px;
+      }
     }
   }
 
@@ -112,7 +116,7 @@ $inputBorderRadius: 5px;
     border-radius: 10px;
     border: none;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 26px;
     margin-top: 50px;
     color: white;
     cursor: pointer;

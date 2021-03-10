@@ -59,7 +59,8 @@ a {
   transform: translateX(-50%);
   opacity: 0;
   z-index: -10;
-  width: max-content;
+  width: 90%;
+  max-width: 1440px;
   height: min-content;
 }
 
@@ -79,9 +80,11 @@ a {
     width: max-content;
     height: min-content;
     position: relative;
-    font-size: 70px;
-    font-weight: 600;
-    margin: auto;
+    width: max-content;
+    font-weight: 700;
+    font-size: 92px;
+    color:  #0f2a66;
+    text-shadow: 20px 20px 10px rgba(63, 114, 127, 0.5);
   }
 }
 

@@ -1,10 +1,13 @@
 .contentContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
-  max-width: 1400px;
   margin: auto;
-  align-content: space-between;
-  height: 1000px;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.title {
+  margin-top: 80px;
 }

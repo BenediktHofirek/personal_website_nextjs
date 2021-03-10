@@ -128,6 +128,10 @@ export default function mainPage() {
     },
     {
       name: 'Experience',
+      handleClick: () => handleMenuClick(3),
+    },
+    {
+      name: 'Contact',
       handleClick: () => handleMenuClick(6),
     },
   ];
@@ -152,8 +156,9 @@ export default function mainPage() {
         Array.from({length: sectionCount}).map((_, index) => {
           const section = sectionMap[`${index}`];
           let containerClass = '';
+          const isFocused = index === currentSection;
 
-          if (index === currentSection) {
+          if (isFocused) {
             containerClass = direction === 'down' ? 'animationInUp' : 'animationInDown';
           } else if (index === previousSection) {
             containerClass = direction === 'down' ? 'animationOutUp' : 'animationOutDown';
@@ -166,7 +171,8 @@ export default function mainPage() {
             {
               ...section.defaultProps,
               key: index,
-              containerClass
+              containerClass,
+              isFocused,
             }
           )
         })

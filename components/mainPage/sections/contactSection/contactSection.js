@@ -65,7 +65,7 @@ export default function contactSection({containerClass}) {
               value={inputName}
               onChange={(e) => setInputName(e.target.value)}
             />
-            <div className="outline"></div>
+            <div className={styles.form_outline}></div>
             <label className={styles.form_label}>
               Name
             </label>
@@ -85,7 +85,7 @@ export default function contactSection({containerClass}) {
               }}
               {...(isEmailValid === false ? {error: 'error'} : {})}
             />
-            <div className="outline"></div>
+            <div className={styles.form_outline}></div>
             <label className={styles.form_label}>
               Email
             </label>
@@ -98,7 +98,7 @@ export default function contactSection({containerClass}) {
               value={inputSubject}
               onChange={(e) => setInputSubject(e.target.value)}
             />
-            <div className="outline"></div>
+            <div className={styles.form_outline}></div>
             <label className={styles.form_label}>
               Subject
             </label>
@@ -118,7 +118,7 @@ export default function contactSection({containerClass}) {
               }}
               {...(isMessageValid === false ? {error: 'error'} : {})}
             />
-            <div className="outline"></div>
+            <div className={styles.form_outline}></div>
             <label className={styles.form_label}>
               Message
             </label>
@@ -128,7 +128,7 @@ export default function contactSection({containerClass}) {
             className={styles.form_submit}
             disabled={checkIsFormValid()}
             style={{
-              backgroundColor: checkIsFormValid() ? '#47bad6' : '#3f727f',
+              backgroundColor: checkIsFormValid() ? '#0f2a66' : 'rgba(63, 114, 127, 0.8)',
             }}
             onClick={handleFormSubmit}
           >

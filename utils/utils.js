@@ -58,9 +58,6 @@ export function write(func, text, time) {
   }
 
   return new Promise(async(resolve) => {
-    //add cursor
-    // await addChar();
-
     for (let x = 0; x < charListLength; x++) {
       await addChar(charList[x]);
     }

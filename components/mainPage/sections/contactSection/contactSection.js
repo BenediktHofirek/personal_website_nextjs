@@ -128,7 +128,7 @@ export default function contactSection({containerClass}) {
             className={styles.form_submit}
             disabled={checkIsFormValid()}
             style={{
-              backgroundColor: checkIsFormValid() ? '#0f2a66' : 'rgba(63, 114, 127, 0.8)',
+              backgroundColor: checkIsFormValid() ? '$blueHeavy' : 'rgba(63, 114, 127, 0.8)',
             }}
             onClick={handleFormSubmit}
           >

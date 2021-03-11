@@ -1,3 +1,5 @@
+@use '../../../../styles/variables.scss' as *;
+
 .contentContainer {
   display: flex;
   flex-flow: row nowrap;
@@ -29,7 +31,7 @@
     width: max-content;
     margin-top: 10px;
     color: white;
-    text-shadow: 0px 0px 10px #113d9c;
+    text-shadow: 0px 0px 10px $blueMedium;
     font-weight: 700;
     font-size: 80px;
   }
@@ -40,7 +42,7 @@
     margin-top: 15px;
     font-weight: 600;
     font-size: 60px;
-    color: #113d9c;
+    color: $blueMedium;
   }
 
   &_description {

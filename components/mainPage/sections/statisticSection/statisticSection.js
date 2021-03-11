@@ -27,7 +27,7 @@ export default function statisticSection({
       name: 'programming',
       index: 1,
       target: 2.5,
-      step: 0.5,
+      step: 0.1,
       unit: 'years',
       description: 'of_programming',
     },

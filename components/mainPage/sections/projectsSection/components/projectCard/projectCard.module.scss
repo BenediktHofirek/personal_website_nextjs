@@ -1,3 +1,5 @@
+@use '../../../../../../styles/variables.scss' as *;
+
 .project {
   display: flex;
   position: relative;
@@ -10,14 +12,14 @@
   border-radius: 5px;
   background-color: white;
   // background: linear-gradient(45deg, white 5%, rgba(109, 69, 173, 0) 100%);
-  // box-shadow: 30px 30px 15px #3f727f;
+  // box-shadow: 30px 30px 15px $shadowPrimary;
   
   $width: 30px;
 
   &::before {
     display: block;
     content: "";
-    background-color: #3f727f;
+    background-color: $shadowPrimary;
     position: absolute;
     left: 0;
     width: calc(100% + $width);

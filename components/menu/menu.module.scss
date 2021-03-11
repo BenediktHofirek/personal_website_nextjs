@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as *;
+
 .container {
   opacity: 0;
   display: flex;
@@ -19,7 +21,7 @@
   font-size: 32px;
   font-weight: 600;
   cursor: pointer;  
-  color: rgb(150, 150, 150);
+  color: $greyPrimary;
   // transition: color 0.2s ease;
 
   & + & {

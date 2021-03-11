@@ -1,3 +1,5 @@
+@use '../../../../styles/variables.scss' as *;
+
 .contentContainer {
   display: block;
   position: relative;
@@ -17,7 +19,6 @@
 
 $inputPadding: 20px;
 $inputBorder: 5px;
-$inputBorderRadius: 5px;
 $inputFontSize: 24px;
 
 .form {
@@ -36,7 +37,7 @@ $inputFontSize: 24px;
     font-size: $inputFontSize;
     font-weight: 600;
     transition: all 0.2s ease;
-    color: #0f2a66;
+    color: $blueHeavy;
   }
 
   &_outline {
@@ -47,8 +48,8 @@ $inputFontSize: 24px;
     position: absolute;
     left: 0;
     bottom: 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-bottom-left-radius:  $borderRadiusPrimary;
+    border-bottom-right-radius:  $borderRadiusPrimary;
   }
 
   &_input {
@@ -58,7 +59,7 @@ $inputFontSize: 24px;
     font-size: $inputFontSize;
     font-weight: 600;
     line-height: 1.5;
-    border-radius: $inputBorderRadius;
+    border-radius: $borderRadiusPrimary;
     border: none;
     cursor: text;
     border-bottom: $inputBorder solid white;
@@ -71,7 +72,7 @@ $inputFontSize: 24px;
       outline: none;
 
       & + [class*='outline'] {
-        background: #113d9c;
+        background: $blueMedium;
         width: 100%;
       }
 

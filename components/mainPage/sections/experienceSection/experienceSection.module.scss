@@ -1,3 +1,9 @@
+@use '../../../../styles/variables.scss' as *;
+
+$imageScale: 0.8;
+$imageWidth: 400px;
+$imageSize: $imageScale * $imageWidth;
+
 .contentContainer {
   display: flex;
   flex-direction: column;
@@ -7,8 +13,9 @@
 
 .company {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
+  flex-direction: row wrap;
+  justify-content: flex-start;
+  position: relative;
   width: 100%;
   float: left;
 
@@ -18,19 +25,18 @@
 
   &_imageContainer {
     display: block;
-    width: 40%;
+    width: $imageSize;
   }
 
-  $imageScale: 0.8;
 
   &_image {
     display: block;
     margin: auto;
     max-width: 100%;
     height: 342px * $imageScale;
-    width: 400px * $imageScale;
-    border-radius: 10px;
-    box-shadow: 15px 15px 10px #3f727f;
+    width: $imageSize;
+    border-radius: $borderRadiusPrimary;
+    // box-shadow: 15px 15px 10px $shadowPrimary;
 
     &__flowmon {
       
@@ -40,9 +46,12 @@
     }
   }
 
+  $marginLeft: 200px;
   &_content {
     display: block;
-    width: 50%;
+    align-self: center;
+    width: calc(100% - #{$imageSize} - #{$marginLeft});
+    margin-left: $marginLeft;
     height: min-content;
   }
 
@@ -60,20 +69,22 @@
   &_title {
     display: block;
     float: left;
-    font-size: 28px;
+    font-size: 38px;
     height: 30px;
     font-weight: 600;
     width: 200px;
+    color: white; 
   }
 
   &_text {
     display: block;
     float: left;
-    font-size: 28px;
+    font-size: 38px;
     line-height: 1.5;
-    font-weight: 500;
+    font-weight: 600;
     width: calc(100% - 200px);
     height: min-content;
     text-align: justify;
+    color: $blueHeavy;
   }
 }

@@ -1,0 +1,21 @@
+//colors
+$blueHeavy: #0f2a66;
+$blueMedium: #113d9c;
+
+$shadowPrimary: rgb(63, 114, 127);
+
+$greyPrimary: rgb(150,150,150);
+
+//others
+$borderRadiusPrimary: 4px;
+
+//3d text
+@mixin threedshadow($color, $depth) {
+  $all: ();
+  @for $i from 1 through $depth {
+    $all: append($all, append($i*1px $i*1px 0, darken($color, $i+14%)), comma);
+  $all: append($all, 3px 8px 15px rgba(0,0,0,.1), comma);
+  $all: append($all, 3px 8px 5px rgba(0,0,0,.3));
+  text-shadow: $all
+  }
+}

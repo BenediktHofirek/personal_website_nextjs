@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as *;
+
 .container {
   opacity: 0;
   display: flex;
@@ -25,8 +27,9 @@
   }
 }
 
-$colorCurrent: #2321b0;
-$colorPrevious: rgb(150, 150, 150);
+// $colorCurrent: #2321b0;
+$colorCurrent: $blueMedium;
+$colorPrevious: $greyPrimary;
 $normalSize: 20px;
 $biggerSize: 25px;
 

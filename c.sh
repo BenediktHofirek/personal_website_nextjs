@@ -1,1 +1,1 @@
-git add . && git commit -m "wip" && git push
+git add . && git commit -m "wip"

@@ -1,3 +1,5 @@
+@use '../../../../styles/variables.scss' as *;
+
 .contentContainer {
   display: flex;
   flex-flow: row nowrap;
@@ -25,9 +27,9 @@
 
   &_photo {
     display:block;
-    height: 200px * 1.3;
-    width: 152px * 1.3;
-    border-radius: 5px;
+    height: 260px;
+    width: 197.6px;
+    border-radius:  $borderRadiusPrimary;
     overflow: hidden;
   }
 
@@ -38,7 +40,7 @@
     height: min-content;
     font-size: 30px;
     font-weight: 600;
-    color:  #0f2a66;
+    color:  $blueHeavy;
     font-size: 34px;
     white-space: nowrap;
     font-style: italic;

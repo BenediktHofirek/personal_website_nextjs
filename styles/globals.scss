@@ -1,5 +1,6 @@
 @use './animation.scss';
 @use './variables.scss' as *;
+@use './spiner.scss';
 @use '../node_modules/normalize.css/normalize.css';
 
 html,
@@ -12,6 +13,9 @@ body {
   scroll-behavior: smooth;
   height: 100vh;
   overflow: hidden;
+
+  --diagonal-size: max(200vw, 200vh);
+  --height-size: max(200vw, 200vh);
 }
 
 body::-webkit-scrollbar {

@@ -90,7 +90,7 @@ $inputFontSize: 24px;
     }
 
     &[error] + [class*='outline'] {
-      background-color: rgb(255, 123, 0);
+      background-color: $errorColor;
       width: 100%;
     }
 
@@ -154,32 +154,69 @@ $inputFontSize: 24px;
 
 @keyframes showInfo {
   to {
-    transform: translateX(200%);
+    transform: translateX(0);
     opacity: 1;
   }
 }
 
+$infoPadding: 20px;
 .info {
   display: block;
   position: absolute;
-  top: 20%;
-  right: -100%;
-  animation: showInfo 2s ease 0s 1 normal forwards;
+  top: 30px;
+  right: 0;
+  transform: translateX(25%);
+  transition: background-color 0.5s;
+  animation: showInfo 0.5s ease 0s 1 normal forwards;
 
-  width: 300px;
-  height: 100px;
+  width: 430px;
+  height: min-content;
   opacity: 0;
   border-radius: $borderRadiusPrimary;
+  padding: $infoPadding;
 
   &[success] {
-    background-color: green;
+    background-color: #287b28;
   }
 
   &[error] {
-    background-color:rgb(255, 123, 0);
+    background-color: lighten($errorColor, 10%);
   }
 
   &[sending] {
-    background-color: $blueMedium;
+    background-color: #11314e;
+  }
+
+  &_content {
+    display: inline-block;
+    max-width: calc(80% - #{$infoPadding} * 3);
+    margin-left: $infoPadding;
+  }
+
+  &_title {
+    display: block;
+    font-size: 30px;
+    color: white;
+  }
+
+  &_message {
+    display: block;
+    margin-top: 10px; 
+    font-size: 24px;
+    color: white;
+  }
+
+  $iconSize: 20%;
+  &_icon {
+    display: inline-block;
+    vertical-align: top;
+    width: $iconSize;
+    height: $iconSize;
+
+    & > * {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
   }
 }

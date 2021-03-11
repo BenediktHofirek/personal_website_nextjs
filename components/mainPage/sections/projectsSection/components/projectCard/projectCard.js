@@ -1,4 +1,5 @@
 import styles from './projectCard.module.scss';
+import {cc} from '../../../../../../utils/utils';
 
 export default function projectCard({
   name,
@@ -10,7 +11,7 @@ export default function projectCard({
 }) {
 
   return (
-    <div className={styles.project}>
+    <div className={cc(styles.project,isWip ? styles.project__wip : '')}>
       {(isWip || null) && (
         <div className={styles.project_wip}>
           WIP
@@ -18,9 +19,6 @@ export default function projectCard({
       )}
       <h3 className={styles.project_title}>{name}</h3>
       <div className={styles.project_toolContainer}>
-        <div className={styles.project_toolTitle}>
-          Tools:
-        </div>
         <div className={styles.project_toolList}>
           {
             toolList.map((iconName) => (

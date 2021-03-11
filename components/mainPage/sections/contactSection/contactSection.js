@@ -14,7 +14,7 @@ export default function contactSection({containerClass}) {
   const [isEmailTouched, setIsEmailTouched] = useState(false);
 
   const [isFormValid, setIsFormValid] = useState(false);
-  const [formState, setFormState] = useState(undefined); //undefined|sending|success|error
+  const [formState, setFormState] = useState('success'); //undefined|sending|success|error
   const formStateMap = {
     sending: 'sending',
     success: 'success',
@@ -25,17 +25,23 @@ export default function contactSection({containerClass}) {
     sending: {
       title: 'Sending...',
       message: 'Waiting for server response.',
-      icon: null,
+      icon: <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>,
     },
     error: {
       title: 'Error',
       message: 'An error occured while sending your message. Please try again later.',
-      icon: null,
+      icon: <img 
+        src="/error.svg"
+        alt="error"
+      />,
     },
-    sending: {
+    success: {
       title: 'Success',
       message: 'Your message was sended successfully.',
-      icon: null,
+      icon: <img 
+        src="/success.svg"
+        alt="success"
+      />,
     }, 
   }
 
@@ -190,8 +196,13 @@ export default function contactSection({containerClass}) {
       </div>
       {(currentInfo || null) && (
         <div className={styles.info} {...{[formState]: formState}}>
-          <h5 className={styles.info_title}>{currentInfo.title}</h5>
-          <p>{currentInfo.message}</p>
+          <div className={styles.info_icon}>
+            {currentInfo.icon}
+          </div>
+          <div className={styles.info_content}>
+            <h5 className={styles.info_title}>{currentInfo.title}</h5>
+            <p className={styles.info_message}>{currentInfo.message}</p>
+          </div>
         </div>
       )}
     </div>

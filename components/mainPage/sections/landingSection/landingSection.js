@@ -19,6 +19,7 @@ export default function LandingSection({
   const [isImageDisplayed, setIsImageDisplayed] = useState(false);
   const [isTitleDisplayed, setIsTitleDisplayed] = useState(false);
   const [isParagraphDisplayed, setIsParagraphDisplayed] = useState(false);
+ 
   const [titleText, setTitleText] = useState('|');
   const [paragraphText, setParagraphText] = useState('|');
 
@@ -26,7 +27,7 @@ export default function LandingSection({
   useEffect(() => {
     (async() => {
       activateScroll();
-
+      await pause(2000);
       // title
       setIsTitleDisplayed(true);
       await write(setTitleText, titleTextSource, writeSpeed);

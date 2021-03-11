@@ -31,13 +31,14 @@ $imageSize: $imageScale * $imageWidth;
 
   &_image {
     display: block;
+    position: relative;
     margin: auto;
     max-width: 100%;
     height: 342px * $imageScale;
     width: $imageSize;
     border-radius: $borderRadiusPrimary;
-    // box-shadow: 15px 15px 10px $shadowPrimary;
-
+    box-shadow: 30px 30px 15px $shadowPrimary;
+    
     &__flowmon {
       
     }
@@ -46,10 +47,9 @@ $imageSize: $imageScale * $imageWidth;
     }
   }
 
-  $marginLeft: 200px;
+  $marginLeft: 150px;
   &_content {
     display: block;
-    align-self: center;
     width: calc(100% - #{$imageSize} - #{$marginLeft});
     margin-left: $marginLeft;
     height: min-content;
@@ -68,12 +68,14 @@ $imageSize: $imageScale * $imageWidth;
 
   &_title {
     display: block;
+    line-height: 30px;
     float: left;
+    line-height: 1.5;
     font-size: 38px;
     height: 30px;
     font-weight: 600;
     width: 200px;
-    color: white; 
+    color: $blueHeavy; 
   }
 
   &_text {
@@ -85,6 +87,6 @@ $imageSize: $imageScale * $imageWidth;
     width: calc(100% - 200px);
     height: min-content;
     text-align: justify;
-    color: $blueHeavy;
+    color: white;
   }
 }

@@ -1,7 +1,8 @@
 @use '../../../../styles/variables.scss' as *;
 
-$projectWidth: 350px;
+$projectWidth: 400px;
 $rowElementCount: 3;
+$margin: 80px;
 
 .contentContainer {
   display: flex;
@@ -11,11 +12,12 @@ $rowElementCount: 3;
   width: 100%;
   align-items: flex-start;
   align-content: flex-start;
-  width: $projectWidth * $rowElementCount;
+  width: ($projectWidth + $margin) * $rowElementCount;
 
   & > div {
     width: $projectWidth;
     height: $projectWidth;
+    margin: 0 $margin $margin 0;
   }
 }
 

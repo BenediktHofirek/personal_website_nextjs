@@ -1,29 +1,20 @@
 @use '../../../../../../styles/variables.scss' as *;
 
+$size: 350px;
+
 .project {
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: center;
-  width: 350px;
-  height: 400px;
   padding: 40px 20px;
-  margin: 0 80px 80px 0;
-  border-radius: 5px;
   background-color: white;
+  overflow: hidden;
   // background: linear-gradient(45deg, white 5%, rgba(109, 69, 173, 0) 100%);
   // box-shadow: 30px 30px 15px $shadowPrimary;
-  
-  $width: 30px;
 
-  &::before {
-    display: block;
-    content: "";
-    background-color: $shadowPrimary;
-    position: absolute;
-    left: 0;
-    width: calc(100% + $width);
-    height: $width;
+  &:nth-child(odd) {
+    background-color: rgb(160, 225, 241);
   }
 
   &_title {
@@ -33,10 +24,11 @@
   }
 
   &_wip {
+    z-index: 1;
     display: block;
     position: absolute;
-    top: -20px;
-    right: -10px;
+    top: 5px;
+    right: 5px;
     width: 70px;
     height: 70px;
     line-height: 70px;
@@ -95,21 +87,57 @@
     width: calc(100% - 40px);
   }
 
-  &_links {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  $linksSize: 120px;
+  $linksTransform: translate(-50%, -50%) scale(0.3, 0.3);
+
+  &::before {
+    z-index: 10;
+    display: block;
+    content: "";
     position: absolute;
-    bottom: 20px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    width: max-content;
-    height: min-content;
+    transform: $linksTransform;
+    background-color: rgba(128, 128, 128, 0.5);
+    width: $linksSize;
+    height: $linksSize;
+    border-radius: 50%;
+    transition: all 0.5s;
+    opacity: 0;
+  }
+
+  &:hover > &_links {
+    transform: translate(-50%, -50%) scale(1, 1);
+    opacity: 1;
+  }
+
+  &:hover::before {
+    transform: translate(-50%, -50%) scale(5, 5);
+    opacity: 1;
+  }
+
+  &_links {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: $linksTransform;
+    width: $linksSize;
+    height: $linksSize;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s;
   }
 
   &_repositoryLink {
     display: block;
-    cursor: pointer;
     width: 40px;
     height: 40px;
   }
@@ -122,7 +150,7 @@
 
   &_demoLink {
     display: block;
-    margin-left: 20px;
+    margin-top: 20px;
     cursor: pointer;
     font-weight: 600;
     font-size: 22px;

@@ -1,13 +1,22 @@
 @use '../../../../styles/variables.scss' as *;
 
+$projectWidth: 350px;
+$rowElementCount: 3;
+
 .contentContainer {
   display: flex;
+  float: left;
   flex-flow: row wrap;
   justify-content: flex-start;
   width: 100%;
-  margin: auto;
   align-items: flex-start;
   align-content: flex-start;
+  width: $projectWidth * $rowElementCount;
+
+  & > div {
+    width: $projectWidth;
+    height: $projectWidth;
+  }
 }
 
 .title {

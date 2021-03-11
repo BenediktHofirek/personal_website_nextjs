@@ -37,7 +37,10 @@ export default function projectCard({
       <p className={styles.project_description}>
         {description}
       </p>
-      <div className={styles.project_links}>
+      <div
+        className={styles.project_links}
+        onClick={() => window.open(githubLink, '_blank')}
+      >
         <a
           className={styles.project_repositoryLink}
           href={githubLink}
@@ -53,10 +56,11 @@ export default function projectCard({
         {(demoLink || null) && (
           <a
             className={styles.project_demoLink}
+            onClick={() => window.open(demoLink, '_blank')}
             href={demoLink}
             target="_blank"
           >
-            Live demo
+            Demo
           </a>
         )}
       </div>

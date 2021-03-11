@@ -1,0 +1,58 @@
+@use '../../../../styles/variables.scss' as *;
+
+.contentContainer {
+  display: flex;
+  float: left;
+  flex-flow: column nowrap;
+  margin: auto;
+  width: 100%;
+  height: min-content;
+}
+
+$padding: 30px;
+$titleHeight: 50px;
+$bodyHeight: $padding * 2 + 32px;
+
+.question {
+  display: block;
+  transition: height 0.2s linear;
+  height: $titleHeight;
+  overflow: hidden;
+  width: 100%;
+
+  & + & {
+    margin-top: 50px;
+  }
+
+  &_titleContainer {
+    display: block;
+    width: 100%;
+    height: $titleHeight;
+    float: left;
+    cursor: pointer;
+  }
+
+  &_title {
+    display: inline;
+    vertical-align: middle;
+    font-size: 38px;
+    color: white;
+    font-weight: 600;
+  }
+
+  &_answer {
+    display: block;
+    float: left;
+    height: calc(100% - #{$titleHeight});
+    width: 100%;
+    max-height: min-content;
+    font-size: 32px;
+    color: $blueHeavy;
+    font-weight: 600;
+    padding: $padding 0;
+  }
+
+  &[active] {
+    height: $titleHeight + $bodyHeight;
+  }
+}

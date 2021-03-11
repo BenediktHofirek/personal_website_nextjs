@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './mainPage.module.scss';
 import ToolsSection from './sections/toolsSection/toolsSection';
 import AboutSection from './sections/aboutSection/aboutSection';
+import FaqSection from './sections/faqSection/faqSection';
 import ContactSection from './sections/contactSection/contactSection';
 import ExperienceSection from './sections/experienceSection/experienceSection';
 import ProjectsSection from './sections/projectsSection/projectsSection';
@@ -13,7 +14,7 @@ import Menu from '../menu/menu';
 import { addListeners, removeListeners} from '../../utils/utils';
 
 export default function mainPage() {
-  const sectionCount = 7;
+  const sectionCount = 8;
   const scrollAnimationDuration = 200;
 
   const [currentSection, setCurrentSection] = useState(null);
@@ -69,15 +70,6 @@ export default function mainPage() {
 
   // }, [currentSection]);
 
-  //handle menu and dots display
-  useEffect(() => {
-    if (currentSection === 1 && previousSection === 0){
-      console.log('display');
-    } else if (currentSection === 0 && previousSection === 1) {
-      console.log('hide');
-    }
-  }, [currentSection, previousSection]);
-
   const sectionMap = {
     0: {
       component: LandingSection,
@@ -108,8 +100,12 @@ export default function mainPage() {
       index: 5,
     },
     6: {
-      component: ContactSection,
+      component: FaqSection,
       index: 6,
+    },
+    7: {
+      component: ContactSection,
+      index: 7,
     },
   }
 

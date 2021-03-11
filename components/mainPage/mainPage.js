@@ -23,12 +23,9 @@ export default function mainPage() {
 
   useEffect(() => {
     const diagonalSize = Math.sqrt(Math.pow(window.innerHeight, 2) + Math.pow(window.innerWidth, 2));
-    const p = (window.innerWidth + window.innerHeight + diagonalSize) / 2;
-    const heightSize = (2 / diagonalSize) * Math.sqrt(p * (p - diagonalSize) * (p - window.innerWidth) * (p - window.innerHeight));
-    console.log('tth', heightSize, document.getElementsByTagName('html'));
+    
     const htmlStyle = document.getElementsByTagName('html')[0]?.style;
     htmlStyle.setProperty('--diagonal-size',diagonalSize);
-    htmlStyle.setProperty('--height-size',heightSize);
   }, []);
 
   function handleScroll(event) {

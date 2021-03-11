@@ -3,12 +3,26 @@
 
 @keyframes scrollBackground {
   0% {
+    background-position: center;
+    background-size: 100vw 100vh;
     width: 0;
     height: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   100% {
     width: var(--diagonal-size);
     height: var(--diagonal-size);
+    background-position: center;
+    background-size: 100vw 100vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
@@ -20,15 +34,8 @@
   width: 100vw;
   overflow: hidden;
   background: linear-gradient(to top right, #2193b0, #6dd5ed46);
-  background-position: center;
-  background-size: 100vw 100vh;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: scrollBackground 3s ease-out 0s 1 forwards;
-
+  
+  animation: scrollBackground 3s ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: backwards;
 }

@@ -128,7 +128,7 @@ export default function mainPage() {
     },
     {
       name: 'Contact',
-      handleClick: () => handleMenuClick(6),
+      handleClick: () => handleMenuClick(7),
     },
   ];
 

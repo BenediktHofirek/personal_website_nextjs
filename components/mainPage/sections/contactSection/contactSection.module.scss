@@ -42,7 +42,7 @@ $inputFontSize: 24px;
 
   &_outline {
     display: block;
-    transition: width 0.2s ease;
+    transition: width 0.2s, background-color 0.5s;
     width: 0;
     height: $inputBorder;
     position: absolute;
@@ -72,7 +72,7 @@ $inputFontSize: 24px;
       outline: none;
 
       & + [class*='outline'] {
-        background: $blueMedium;
+        background-color: $blueMedium;
         width: 100%;
       }
 
@@ -90,7 +90,7 @@ $inputFontSize: 24px;
     }
 
     &[error] + [class*='outline'] {
-      background: rgb(255, 123, 0);
+      background-color: rgb(255, 123, 0);
       width: 100%;
     }
 
@@ -121,6 +121,7 @@ $inputFontSize: 24px;
     margin-top: 50px;
     color: white;
     cursor: pointer;
+    transition: background-color 0.5s;
   }
 
   &_block {
@@ -148,5 +149,37 @@ $inputFontSize: 24px;
     &__message {
       margin-top: 50px;
     }
+  }
+}
+
+@keyframes showInfo {
+  to {
+    transform: translateX(200%);
+    opacity: 1;
+  }
+}
+
+.info {
+  display: block;
+  position: absolute;
+  top: 20%;
+  right: -100%;
+  animation: showInfo 2s ease 0s 1 normal forwards;
+
+  width: 300px;
+  height: 100px;
+  opacity: 0;
+  border-radius: $borderRadiusPrimary;
+
+  &[success] {
+    background-color: green;
+  }
+
+  &[error] {
+    background-color:rgb(255, 123, 0);
+  }
+
+  &[sending] {
+    background-color: $blueMedium;
   }
 }

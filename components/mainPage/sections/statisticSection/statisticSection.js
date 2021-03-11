@@ -9,9 +9,6 @@ export default function statisticSection({
   const writeSpeed = 80;
   const afterStatePause = 200;
 
-  const [currentStat, setCurrentStat] = useState({});
-  const [isAnimated, setIsAnimated] = useState(false);
-
   const statMap = {
     0: {
       time: 0,
@@ -50,6 +47,24 @@ export default function statisticSection({
       description: 'of code written',
     },
   };
+
+  const [currentStat, setCurrentStat] = useState({ index: Object.values(statMap).length });
+  const [isAnimated, setIsAnimated] = useState(false);
+  const [statWidthMap, setStatWidthMap] = useState({});
+
+  //set stat width
+  useEffect(() => {
+    const newStatWidthMap = {};
+    Object.values(statMap).map(({name}) => {
+      const element = document.getElementById(`stat_${name}`);
+      if (element) {
+        const elWidth = element.getBoundingClientRect().width;
+        newStatWidthMap[name] = elWidth;
+      }
+    });
+
+    setStatWidthMap(newStatWidthMap);
+  }, []);
 
   useEffect(() => {
     if (isFocused && !isAnimated) {
@@ -129,8 +144,8 @@ export default function statisticSection({
     }
     return (
       <>
-        {text.split('_').map((line) => (
-          <p>{line}</p>
+        {text.split('_').map((line, i) => (
+          <p key={i}>{line}</p>
         ))}
       </>
     )
@@ -146,11 +161,13 @@ export default function statisticSection({
         {
           Object.values(statMap).map((_, index) => {
             let stat = index === currentStat.index ? currentStat : statMap[`${index}`];
-            
+            const statWidth = statWidthMap[stat.name];
+
             return (
               <div 
                 className={cc(styles.stat, index <= currentStat.index ? 'fadeIn' : '')}
                 key={stat.name}
+                style={statWidth ? { width: `${statWidth}px`} : {}}
                 id={`stat_${stat.name}`}
               >
                 <div

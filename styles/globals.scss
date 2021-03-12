@@ -13,9 +13,6 @@ body {
   scroll-behavior: smooth;
   height: 100vh;
   overflow: hidden;
-
-  --diagonal-size: max(200vw, 200vh);
-  --height-size: max(200vw, 200vh);
 }
 
 body::-webkit-scrollbar {

@@ -26,7 +26,7 @@ export default function LandingSection({
   //loading animation
   useEffect(() => {
     (async() => {
-      await pause(3000);
+      // await pause(3000);
       // title
       setIsTitleDisplayed(true);
       await write(setTitleText, titleTextSource, writeSpeed);

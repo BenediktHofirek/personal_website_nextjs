@@ -20,12 +20,14 @@ export default function mainPage() {
   const [currentSection, setCurrentSection] = useState(null);
   const [previousSection, setPreviousSection] = useState(null);
   const [direction, setDirection] = useState("down");
+  const [isPageStart, setIsPageStart] = useState(false);
 
   useEffect(() => {
-    const diagonalSize = Math.sqrt(Math.pow(window.innerHeight, 2) + Math.pow(window.innerWidth, 2));
+    const diagonalSize = Math.sqrt((Math.pow(window.innerHeight, 2) + Math.pow(window.innerWidth, 2)));
     
     const htmlStyle = document.getElementsByTagName('html')[0]?.style;
     htmlStyle.setProperty('--diagonal-size',diagonalSize);
+    setIsPageStart(true);
   }, []);
 
   function handleScroll(event) {
@@ -143,6 +145,7 @@ export default function mainPage() {
     <div 
       className={styles.container}
       id="content"
+      {...(isPageStart ? {start: 'start'} : {})}
     >
       <Menu 
         itemList={menuItemList}

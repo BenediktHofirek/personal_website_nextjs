@@ -33,9 +33,12 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  background: linear-gradient(to top right, #2193b0, #6dd5ed46);
+  background: transparent;
   
-  animation: scrollBackground 3s ease;
-  animation-iteration-count: 1;
-  animation-fill-mode: backwards;
+  &[start] {
+    background: linear-gradient(to top right, #2193b0, #6dd5ed46);
+    animation: scrollBackground 3s ease;
+    animation-iteration-count: 1;
+    animation-fill-mode: backwards;
+  }
 }

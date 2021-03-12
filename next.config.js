@@ -6,7 +6,7 @@ module.exports = {
       loader: "file-loader",
       options: {
       outputPath: '../public/assets/', // if you don't use ../ it will put it inside ".next" folder by default
-      publicPath: 'assets/',
+      publicPath: '/',
       }
   });
 

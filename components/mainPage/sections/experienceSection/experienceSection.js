@@ -12,7 +12,7 @@ export default function experienceSection({containerClass}) {
           <div className={styles.company_imageContainer}>
             <img
               className={styles.company_image  + ' ' + styles.company_image__flowmon}
-              src="/Flowmon_Networks.png"
+              src="/flowmon_networks.png"
               alt="Flowmon Networks company logo"
             />
           </div>
@@ -39,7 +39,7 @@ export default function experienceSection({containerClass}) {
           <div className={styles.company_imageContainer}>
             <img
               className={styles.company_image + ' ' + styles.company_image__idsa}
-              src="/IDS_Advisory.jpg"
+              src="/ids_advisory.jpg"
               alt="IDS Advisory company logo"
             />
           </div>

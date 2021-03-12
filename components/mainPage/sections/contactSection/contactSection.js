@@ -104,6 +104,7 @@ export default function contactSection({containerClass}) {
       redirect: 'follow',
       referrerPolicy: 'no-referrer',
       body: JSON.stringify({
+        name: inputName,
         email: inputEmail,
         subject: inputSubject,
         message: inputMessage,

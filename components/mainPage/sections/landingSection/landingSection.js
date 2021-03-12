@@ -124,8 +124,8 @@ export default function LandingSection({
         <Image
           src="/arrow_down.svg"
           alt="Next page"
-          width={75}
-          height={75}
+          width={56}
+          height={56}
         />
       </div>
     </div>

@@ -3,6 +3,7 @@ var nodemailer = require('nodemailer');
 export default (req, res) => {
   if (req.method === 'POST') {
     const {
+      name: senderName,
       email: senderEmail,
       message,
       subject,
@@ -19,8 +20,9 @@ export default (req, res) => {
     var mailOptions = {
       from: process.env.EMAIL,
       to: process.env.EMAIL,
-      subject: 'CONTACT FORM ' + senderEmail,
-      text: `sender: ${senderEmail}\n 
+      subject: 'CONTACT FORM from' + senderEmail,
+      text: `sender: ${senderEmail}\n
+             name: ${senderName}
              subject: ${subject} \n
              message: ${message}`
     };

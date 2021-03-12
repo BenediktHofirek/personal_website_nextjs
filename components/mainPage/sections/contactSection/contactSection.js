@@ -68,12 +68,12 @@ export default function contactSection({containerClass}) {
   }, [inputEmail]);
 
   function resetForm() {
+    setIsEmailTouched(false);
+    setIsMessageTouched(false);
     setInputEmail('');
     setInputMessage('');
     setInputName('');
     setInputSubject('');
-    setIsEmailTouched(false);
-    setIsMessageTouched(false);
   }
 
   useEffect(() => {
@@ -117,7 +117,7 @@ export default function contactSection({containerClass}) {
       setFormState(formStateMap.error);
     }
 
-    setTimeout(() => setFormState(undefined), 3000);
+    setTimeout(() => setFormState(undefined), 4000);
   }
 
   function inSubmitDisabled() {

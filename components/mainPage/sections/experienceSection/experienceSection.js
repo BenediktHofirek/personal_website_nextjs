@@ -39,7 +39,7 @@ export default function experienceSection({containerClass}) {
           <div className={styles.company_imageContainer}>
             <img
               className={styles.company_image + ' ' + styles.company_image__idsa}
-              src="/ids_advisory.jpg"
+              src="/IDS_Advisory.jpg"
               alt="IDS Advisory company logo"
             />
           </div>

@@ -81,7 +81,7 @@ export default function LandingSection({
       >
         <div className={styles.photo}>
           <Image
-            src="/../public/Benedikt_Hofirek.jpg"
+            src="/Benedikt_Hofirek.jpg"
             alt="Benedikt Hofirek"
             layout="fill"
           />
@@ -122,7 +122,7 @@ export default function LandingSection({
         onClick={handleScroll} //scroll down  
       >
         <Image
-          src="/../public/arrow_down.svg"
+          src="/arrow_down.svg"
           alt="Next page"
           width={75}
           height={75}

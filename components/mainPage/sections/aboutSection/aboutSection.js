@@ -11,7 +11,7 @@ export default function aboutSection({containerClass}) {
         <div className={styles.description}>
           <div className={styles.description_photo}>
             <Image
-              src="/../public/Benedikt_Hofirek.jpg"
+              src="/Benedikt_Hofirek.jpg"
               alt="Benedikt Hofirek"
               width={197.6}
               height={260}

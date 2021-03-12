@@ -154,9 +154,25 @@ $inputFontSize: 24px;
 
 @keyframes showInfo {
   to {
-    transform: translateX(0);
     opacity: 1;
   }
+}
+
+.showInfo {
+  animation: showInfo 1s ease 0s 1 normal forwards !important;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.hide {
+  animation: hide 1s ease 0s 1 normal both; 
 }
 
 $infoPadding: 20px;
@@ -165,9 +181,6 @@ $infoPadding: 20px;
   position: absolute;
   top: 30px;
   right: 0;
-  transform: translateX(25%);
-  transition: background-color 0.5s;
-  animation: showInfo 0.5s ease 0s 1 normal forwards;
 
   width: 430px;
   height: min-content;
@@ -177,14 +190,29 @@ $infoPadding: 20px;
 
   &[success] {
     background-color: #287b28;
+    @extend .hide;
+  }
+
+  &[success=active] {
+    @extend .showInfo;
   }
 
   &[error] {
     background-color: lighten($errorColor, 10%);
+    @extend .hide;
+  }
+
+  &[error=active] {
+    @extend .showInfo;
   }
 
   &[sending] {
     background-color: #11314e;
+    @extend .hide;
+  }
+
+  &[sending=active] {
+    @extend .showInfo;
   }
 
   &_content {

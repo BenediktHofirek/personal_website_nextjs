@@ -14,7 +14,7 @@ export default function contactSection({containerClass}) {
   const [isEmailTouched, setIsEmailTouched] = useState(false);
 
   const [isFormValid, setIsFormValid] = useState(false);
-  const [formState, setFormState] = useState('success'); //undefined|sending|success|error
+  const [formState, setFormState] = useState(undefined); //undefined|sending|success|error
   const formStateMap = {
     sending: 'sending',
     success: 'success',
@@ -25,7 +25,7 @@ export default function contactSection({containerClass}) {
     sending: {
       title: 'Sending...',
       message: 'Waiting for server response.',
-      icon: <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>,
+      icon: <div className="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>,
     },
     error: {
       title: 'Error',
@@ -67,6 +67,15 @@ export default function contactSection({containerClass}) {
     }
   }, [inputEmail]);
 
+  function resetForm() {
+    setInputEmail('');
+    setInputMessage('');
+    setInputName('');
+    setInputSubject('');
+    setIsEmailTouched(false);
+    setIsMessageTouched(false);
+  }
+
   useEffect(() => {
     setIsFormValid(validateForm());
     
@@ -78,6 +87,10 @@ export default function contactSection({containerClass}) {
 
   async function handleFormSubmit(e) {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
+
     setFormState(formStateMap.sending);
 
     const response = await fetch('/api/contactForm', {
@@ -98,19 +111,18 @@ export default function contactSection({containerClass}) {
     });
 
     if (response.status === 200) {
-      setInputEmail('');
-      setInputMessage('');
+      resetForm();
       setFormState(formStateMap.success);
     } else {
       setFormState(formStateMap.error);
     }
+
+    setTimeout(() => setFormState(undefined), 3000);
   }
 
   function inSubmitDisabled() {
     return !isFormValid || formState === formStateMap.sending;
   }
-
-  const currentInfo = infoMap[formState];
 
   return (
     <div className={"section " + containerClass}>
@@ -194,17 +206,17 @@ export default function contactSection({containerClass}) {
           </button>
         </form>
       </div>
-      {(currentInfo || null) && (
-        <div className={styles.info} {...{[formState]: formState}}>
+      {Object.entries(infoMap).map(([name, info]) => (
+        <div key={name} className={styles.info} {...{[name]: formState === name ? 'active' : 'disabled'}}>
           <div className={styles.info_icon}>
-            {currentInfo.icon}
+            {info.icon}
           </div>
           <div className={styles.info_content}>
-            <h5 className={styles.info_title}>{currentInfo.title}</h5>
-            <p className={styles.info_message}>{currentInfo.message}</p>
+            <h5 className={styles.info_title}>{info.title}</h5>
+            <p className={styles.info_message}>{info.message}</p>
           </div>
         </div>
-      )}
+      ))}
     </div>
   )
 }

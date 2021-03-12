@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import anime from 'animejs/lib/anime';
 import styles from './mainPage.module.scss';
 import ToolsSection from './sections/toolsSection/toolsSection';
 import AboutSection from './sections/aboutSection/aboutSection';
@@ -24,10 +25,29 @@ export default function mainPage() {
 
   useEffect(() => {
     const diagonalSize = Math.sqrt((Math.pow(window.innerHeight, 2) + Math.pow(window.innerWidth, 2)));
-    
-    const htmlStyle = document.getElementsByTagName('html')[0]?.style;
-    htmlStyle.setProperty('--diagonal-size',diagonalSize);
-    setIsPageStart(true);
+    const contentEl = document.querySelector('#content');
+    anime({
+      targets: contentEl,
+      width: diagonalSize,
+      height: diagonalSize,
+      easing: 'easeInOutQuart',
+      duration: 1500,
+      complete: () => {
+        contentEl.setAttribute('style',`
+          display: block;
+          overflow: hidden;
+          float: left;
+          width: 100vw;
+          height: 100vh;
+          border-radius: 0px;
+          position: relative;
+          transform: none;
+          top: 0;
+          left: 0;
+        `)
+        setIsPageStart(true);
+      }
+    });
   }, []);
 
   function handleScroll(event) {
@@ -145,44 +165,47 @@ export default function mainPage() {
     <div 
       className={styles.container}
       id="content"
-      {...(isPageStart ? {start: 'start'} : {})}
     >
-      <Menu 
-        itemList={menuItemList}
-        className={(currentSection !== null && 'fadeIn') || ''}
-      />
-      <DotNavigation 
-        count={sectionCount}
-        currentItem={currentSection}
-        previousItem={previousSection}
-        handleSelectItem={handleMenuClick}
-        className={(currentSection !== null && 'fadeIn') || ''}
-      />
-      {
-        Array.from({length: sectionCount}).map((_, index) => {
-          const section = sectionMap[`${index}`];
-          let containerClass = '';
-          const isFocused = index === currentSection;
+      {(isPageStart || null) && (
+        <>
+          <Menu 
+            itemList={menuItemList}
+            className={(currentSection !== null && 'fadeIn') || ''}
+          />
+          <DotNavigation 
+            count={sectionCount}
+            currentItem={currentSection}
+            previousItem={previousSection}
+            handleSelectItem={handleMenuClick}
+            className={(currentSection !== null && 'fadeIn') || ''}
+          />
+          {
+            Array.from({length: sectionCount}).map((_, index) => {
+              const section = sectionMap[`${index}`];
+              let containerClass = '';
+              const isFocused = index === currentSection;
 
-          if (isFocused) {
-            containerClass = direction === 'down' ? 'animationInUp' : 'animationInDown';
-          } else if (index === previousSection) {
-            containerClass = direction === 'down' ? 'animationOutUp' : 'animationOutDown';
-          } else if (index === 0 && currentSection === null) {
-            containerClass = 'display';
+              if (isFocused) {
+                containerClass = direction === 'down' ? 'animationInUp' : 'animationInDown';
+              } else if (index === previousSection) {
+                containerClass = direction === 'down' ? 'animationOutUp' : 'animationOutDown';
+              } else if (index === 0 && currentSection === null) {
+                containerClass = 'display';
+              }
+
+              return React.createElement(
+                section.component,
+                {
+                  ...section.defaultProps,
+                  key: index,
+                  containerClass,
+                  isFocused,
+                }
+              )
+            })
           }
-
-          return React.createElement(
-            section.component,
-            {
-              ...section.defaultProps,
-              key: index,
-              containerClass,
-              isFocused,
-            }
-          )
-        })
-      }
+        </>
+      )}
     </div>
   )
 }

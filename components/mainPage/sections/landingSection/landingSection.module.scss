@@ -1,10 +1,39 @@
 @use '../../../../styles/animation.scss';
 @use '../../../../styles/variables.scss' as *;
 
+//global
+$referenceLandscapeHeight: 1009px;
+$referenceLandscapeWidth: 1450px;
+
+@function rLandscapeSize($size) {
+  @return responsiveSize($size, $referenceLandscapeHeight, $referenceLandscapeWidth);
+}
+
+$referencePortraitHeight: 1009px;
+$referencePortraitWidth: 1450px;
+
+@function rPortraitSize($size) {
+  @return responsiveSize($size, $referencePortraitHeight, $referencePortraitWidth);
+}
+
+.tag {
+  display: block;
+  position: relative;
+  font-family: 'Caveat', cursive;
+  width: min-content;
+  height: rLandscapeSize(30px);
+  line-height: rLandscapeSize(30px);
+  font-weight: 400 !important;
+  font-size: rLandscapeSize(22.5px) !important;
+  color: white !important;
+}
+
+//content
+
 .container {
   display: block;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -14,14 +43,22 @@
 .photoContainer {
   display: block;
   opacity: 0;
-  width: 45vh;
-  height: 60vh;
+  width: min(45vh, 45vw * 0.75);
+  height: min(60vh, 60vw * 0.75);
   position: absolute;
   top: 47.5%;
   left: 40%;
   transform: translate(-100%, -60%);
   animation-timing-function: ease-in;
   animation-fill-mode: both;
+
+  &::before {
+    @extend .tag; 
+    position: absolute;
+    content: "<img/>";
+    top: rLandscapeSize(-37.5px);
+    left: 0;
+  }
 }
 
 .photo {
@@ -29,9 +66,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 7.5px;
+  border-radius: rLandscapeSize(7.5px);
   overflow: hidden;
-  box-shadow: 22.5px 22.5px 11.25px $shadowPrimary;
+  box-shadow: rLandscapeSize(22.5px) 
+    rLandscapeSize(22.5px) 
+    rLandscapeSize(11.25px) 
+    $shadowPrimary;
 }
 
 .textContainer {
@@ -46,10 +86,36 @@
 .title {
   width: max-content;
   display: block;
+  position: relative;
+  margin: 0;
+  margin-bottom: rLandscapeSize(35px);
   font-weight: 700;
-  font-size: 69px;
+  font-size: rLandscapeSize(69px);
   color:  $blueHeavy;
-  text-shadow: 22.5px 22.5px 11.25px rgb(63, 114, 127);
+  text-shadow: rLandscapeSize(22.5px) 
+    rLandscapeSize(22.5px) 
+    rLandscapeSize(11.25px) 
+    rgb(63, 114, 127);
+
+  &::before {
+    display: block;
+    @extend .tag;
+    position: absolute;
+    content: "<h1>";
+    left: rLandscapeSize(-7.5px);
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
+
+  &::after {
+    display: block;
+    @extend .tag; 
+    position: absolute;
+    content: "</h1>";
+    right: rLandscapeSize(-7.5px);
+    top: 50%;
+    transform: translate(100%, -50%);
+  }
 }
 
 .descriptionContainer {
@@ -62,11 +128,32 @@
 }
 
 .description {
-  font-size: 51px;
+  font-size: rLandscapeSize(51px);
   font-weight: 600;
   font-style: italic;
   display: block;
   color: white;
+  float: left;
+  position: relative;
+  line-height: 1.7;
+
+  &::before {
+    @extend .tag;
+    position: absolute;
+    content: "<p>";
+    left: rLandscapeSize(-7.5px);
+    top: 50%;
+    transform: translate(-100%, -50%);
+  }
+
+  &::after {
+    @extend .tag;
+    position: absolute;
+    content: "</p>";
+    right: rLandscapeSize(-7.5px);
+    top: 50%;
+    transform: translate(100%, -50%);
+  }
 }
 
 .arrowDown {
@@ -78,4 +165,24 @@
   cursor: pointer;
   transform: translate(-50%,0);
   animation-fill-mode: both;
+
+  &_icon {
+    width: rLandscapeSize(56px);
+    height: rLandscapeSize(56px);
+  }
+}
+
+//portait screen
+
+@media (orientation: portrait) {
+  .photoContainer {
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .textContainer {
+    top: 50%;
+    transform: translate(-50%);
+  }
 }

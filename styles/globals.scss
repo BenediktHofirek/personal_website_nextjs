@@ -40,17 +40,6 @@ a {
   }
 }
 
-.tag {
-  display: block;
-  position: relative;
-  font-family: 'Caveat', cursive;
-  width: min-content;
-  height: 40px;
-  line-height: 40px;
-  font-weight: 400 !important;
-  font-size: 30px !important;
-  color: white !important;
-}
 
 .section {
   display: block;
@@ -62,7 +51,7 @@ a {
   opacity: 0;
   z-index: -10;
   width: 90%;
-  max-width: 1440px;
+  max-width: 1080px;
   height: min-content;
 }
 
@@ -75,7 +64,7 @@ a {
   display: block;
   width: 100%;
   height: min-content;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 
   &_content {
     display: block;
@@ -84,72 +73,8 @@ a {
     position: relative;
     width: max-content;
     font-weight: 700;
-    font-size: 92px;
+    font-size: 69px;
     color:  $blueHeavy;
-    text-shadow: 20px 20px 10px rgba(63, 114, 127, 0.5);
-  }
-}
-
-.title {
-  position: relative;
-
-  &::before {
-    display: block;
-    @extend .tag;
-    position: absolute;
-    content: "<h1>";
-    left: -10px;
-    top: 50%;
-    transform: translate(-100%, -50%);
-  }
-
-  &::after {
-    display: block;
-    @extend .tag; 
-    position: absolute;
-    content: "</h1>";
-    right: -10px;
-    top: 50%;
-    transform: translate(100%, -50%);
-  }
-}
-
-.image {
-  display: block;
-  position: relative;
-
-  &::before {
-    @extend .tag; 
-    position: absolute;
-    content: "<img/>";
-    top: -50px;
-    left: 0;
-  }
-}
-
-.paragraph{
-  display: block;
-  float: left;
-  position: relative;
-  font-size: 24px;
-  line-height: 1.7;
-  font-weight: 500;
-
-  &::before {
-    @extend .tag;
-    position: absolute;
-    content: "<p>";
-    left: -10px;
-    top: 50%;
-    transform: translate(-100%, -50%);
-  }
-
-  &::after {
-    @extend .tag;
-    position: absolute;
-    content: "</p>";
-    right: -10px;
-    top: 50%;
-    transform: translate(100%, -50%);
+    text-shadow: 15px 15px 7.5px rgba(63, 114, 127, 0.5);
   }
 }

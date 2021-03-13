@@ -36,6 +36,7 @@ export default function faqSection({containerClass}) {
         {
           Object.values(questionMap).map((question) => (
             <div
+              key={question.index}
               className={styles.question}
               onClick={() => setCurrentQuestion(question.index)}
               {...(question.index === currentQuestion ? {active: 'active'} : {})}

@@ -18,14 +18,13 @@
 .item {
   display: block;
   width: max-content;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 600;
   cursor: pointer;  
   color: $greyPrimary;
-  // transition: color 0.2s ease;
 
   & + & {
-    margin-left: 50px;
+    margin-left: 37.5px;
   }
 
   &:hover {

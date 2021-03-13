@@ -37,7 +37,7 @@ $imageSize: $imageScale * $imageWidth;
     height: 342px * $imageScale;
     width: $imageSize;
     border-radius: $borderRadiusPrimary;
-    box-shadow: 30px 30px 15px $shadowPrimary;
+    @extend .boxShadowPrimary;
     
     &__flowmon {
       

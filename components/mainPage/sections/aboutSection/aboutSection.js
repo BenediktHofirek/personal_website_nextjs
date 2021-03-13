@@ -13,8 +13,8 @@ export default function aboutSection({containerClass}) {
             <Image
               src="/Benedikt_Hofirek.jpg"
               alt="Benedikt Hofirek"
-              width={197.6}
-              height={260}
+              width={148.2}
+              height={195}
             />
           </div>
           <div className={styles.description_infoContainer}>

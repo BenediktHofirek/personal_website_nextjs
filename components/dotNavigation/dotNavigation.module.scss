@@ -23,15 +23,15 @@
   cursor: pointer;
 
   & + & {
-    margin-top: 30px;
+    margin-top: 22.5px;
   }
 }
 
 // $colorCurrent: #2321b0;
 $colorCurrent: $blueMedium;
 $colorPrevious: $greyPrimary;
-$normalSize: 20px;
-$biggerSize: 25px;
+$normalSize: 15px;
+$biggerSize: 18.75px;
 
 @keyframes current {
   from {

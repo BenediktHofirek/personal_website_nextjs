@@ -21,7 +21,7 @@
 @keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translate(-50%, -100px);
+    transform: translate(-50%, -75px);
   }
 
   to {
@@ -54,7 +54,7 @@
 
 //pageAnimation
 
-$offset: 100px;
+$offset: 75px;
 $duration: 0.8s;
 $delay: calc(#{$duration} * 0.8);
 $maxOffsetTop: 25vh;

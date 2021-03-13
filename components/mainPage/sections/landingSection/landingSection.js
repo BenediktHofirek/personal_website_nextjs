@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './landingSection.module.scss';
-import { write, pause } from '../../../../utils/utils';
+import { write, pause, cc } from '../../../../utils/utils';
 
 export default function LandingSection({
   activateScroll,
@@ -73,10 +73,10 @@ export default function LandingSection({
 
   return (
     <div 
-      className={"section " + containerClass + ' ' + styles.container}
+      className={cc(containerClass, styles.container)}
     >
       <div
-        className={'image ' + styles.photoContainer}
+        className={styles.photoContainer}
         style={isImageDisplayed ? imageAnimationStyle : {}}
       >
         <div className={styles.photo}>
@@ -89,7 +89,7 @@ export default function LandingSection({
       </div>
       <div className={styles.textContainer}>
         <h1 
-          className={'title ' + styles.title}
+          className={styles.title}
           style={{
             display: isTitleDisplayed ? 'block' : 'none',
           }}
@@ -98,7 +98,7 @@ export default function LandingSection({
         </h1>
         <div className={styles.descriptionContainer}>
           <p 
-            className={'paragraph ' + styles.description}
+            className={styles.description}
             style={{
               display: isParagraphDisplayed ? 'block' : 'none',
             }}
@@ -106,7 +106,7 @@ export default function LandingSection({
             {renderText(paragraphText)}
           </p>
           <p 
-            className={'paragraph ' + styles.description}
+            className={styles.description}
             style={{
               display: 'block',
               visibility: 'hidden'
@@ -121,11 +121,10 @@ export default function LandingSection({
         style={isArrowDisplayed ? arrowAnimationStyle : {}}
         onClick={handleScroll} //scroll down  
       >
-        <Image
+        <img
+          className={styles.arrowDown_icon}
           src="/arrow_down.svg"
           alt="Next page"
-          width={56}
-          height={56}
         />
       </div>
     </div>

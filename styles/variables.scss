@@ -11,9 +11,13 @@ $greyPrimary: rgb(150,150,150);
 $errorColor: rgb(255, 123, 0);
 
 //others
-$borderRadiusPrimary: 4px;
+$borderRadiusPrimary: 3px;
 
-//3d text
+.boxShadowPrimary {
+  box-shadow: 22.5px 22.5px 11.25px $shadowPrimary;
+}
+
+//mixin & functions
 @mixin threedshadow($color, $depth) {
   $all: ();
   @for $i from 1 through $depth {
@@ -21,3 +25,45 @@ $borderRadiusPrimary: 4px;
   }
   text-shadow: $all;
 }
+
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+@function rWidth($size, $max-width) {
+  @return calc((100vw / #{strip-unit($max-width)}) * #{strip-unit($size)});
+}
+
+@function rHeight($size, $max-height) {
+  @return calc((100vh / #{strip-unit($max-height)}) * #{strip-unit($size)});
+}
+
+@function responsiveSize($size, $refHeight, $refWidth) {
+  @return min(#{rHeight($size, $refHeight)}, #{rWidth($size, $refWidth)});
+}
+
+@function responsive($size) {
+  @return responsiveSize($size, 1009px, 1918px);
+}
+
+
+

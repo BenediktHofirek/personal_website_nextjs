@@ -9,7 +9,7 @@
   background-color: white;
   color: $blueHeavy;
   overflow: hidden;
-  box-shadow: 30px 30px 15px $shadowPrimary;
+  @extend .boxShadowPrimary;
 
   &:nth-child(odd) {
     background-color: $blueHeavy;

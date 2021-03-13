@@ -11,21 +11,21 @@
   display: block;
   width: max-content;
   max-width: 800px;
-  margin-bottom: 60px;
-  font-size: 40px;
+  margin-bottom: 45px;
+  font-size: 30px;
   font-weight: 600;
   line-height: 1.5;
 }
 
-$inputPadding: 20px;
-$inputBorder: 5px;
-$inputFontSize: 24px;
+$inputPadding: 15px;
+$inputBorder: 3.75px;
+$inputFontSize: 18px;
 
 .form {
   display: block;
   float: left;
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
 
   &_label {
     display: block;
@@ -77,7 +77,7 @@ $inputFontSize: 24px;
       }
 
       & ~ label {
-        transform: translate(-10px, calc((10% + #{$inputPadding}) * -1)) scale(0.8);
+        transform: translate(-7.5px, calc((10% + #{$inputPadding}) * -1)) scale(0.8);
       }
     }
 
@@ -86,7 +86,7 @@ $inputFontSize: 24px;
     }
 
     &:not(:placeholder-shown) ~ label {
-      transform: translate(-10px, calc((10% + #{$inputPadding}) * -1)) scale(0.8);
+      transform: translate(-7.5px, calc((10% + #{$inputPadding}) * -1)) scale(0.8);
     }
 
     &[error] + [class*='outline'] {
@@ -107,14 +107,14 @@ $inputFontSize: 24px;
   &_submit {
     display: block;
     float: right;
-    width: 150px;
-    height: 80px; 
+    width: 112.5px;
+    height: 60px; 
     text-align: center;
-    border-radius: 10px;
+    border-radius: 7.5px;
     border: none;
     font-weight: 600;
-    font-size: 26px;
-    margin-top: 50px;
+    font-size: 19.5px;
+    margin-top: 37.5px;
     color: white;
     cursor: pointer;
     transition: background-color 0.5s;
@@ -139,11 +139,11 @@ $inputFontSize: 24px;
     }
 
     &__subject {
-      margin-top: 50px;
+      margin-top: 37.5px;
     }
 
     &__message {
-      margin-top: 50px;
+      margin-top: 37.5px;
     }
   }
 }
@@ -171,14 +171,14 @@ $inputFontSize: 24px;
   animation: hide 1s ease 0s 1 normal both; 
 }
 
-$infoPadding: 20px;
+$infoPadding: 15px;
 .info {
   display: block;
   position: absolute;
-  top: 30px;
+  top: 22.5px;
   right: 0;
 
-  width: 430px;
+  width: 322.5px;
   height: min-content;
   opacity: 0;
   border-radius: $borderRadiusPrimary;
@@ -219,14 +219,14 @@ $infoPadding: 20px;
 
   &_title {
     display: block;
-    font-size: 30px;
+    font-size: 22.5px;
     color: white;
   }
 
   &_message {
     display: block;
-    margin-top: 10px; 
-    font-size: 24px;
+    margin-top: 7.5px; 
+    font-size: 18px;
     color: white;
   }
 

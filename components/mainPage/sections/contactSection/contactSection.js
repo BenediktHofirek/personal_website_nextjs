@@ -14,7 +14,7 @@ export default function contactSection({containerClass}) {
   const [isEmailTouched, setIsEmailTouched] = useState(false);
 
   const [isFormValid, setIsFormValid] = useState(false);
-  const [formState, setFormState] = useState(undefined); //undefined|sending|success|error
+  const [formState, setFormState] = useState('sending'); //undefined|sending|success|error
   const formStateMap = {
     sending: 'sending',
     success: 'success',

@@ -60,10 +60,3 @@ $borderRadiusPrimary: 3px;
 @function responsiveSize($size, $refHeight, $refWidth) {
   @return min(#{rHeight($size, $refHeight)}, #{rWidth($size, $refWidth)});
 }
-
-@function responsive($size) {
-  @return responsiveSize($size, 1009px, 1918px);
-}
-
-
-

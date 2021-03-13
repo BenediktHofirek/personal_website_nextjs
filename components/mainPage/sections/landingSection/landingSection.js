@@ -8,9 +8,9 @@ export default function LandingSection({
   handleScroll,
   containerClass
 }) {
-  const imageAnimationTime = 1000;
+  const imageAnimationTime = 1000 * 0.75;
   const arrowAnimationTime = 750;
-  const writeSpeed = 80;
+  const writeSpeed = 50;
 
   const titleTextSource = "Hello, I'm Benedikt";
   const paragraphTextSource = "I'm a full-stack developer";
@@ -53,7 +53,7 @@ export default function LandingSection({
   };
 
   const arrowAnimationStyle = {
-    animationName: 'fadeInDown',
+    animationName: `arrowFadeIn${window.innerHeight > window.innerWidth ? 'Portrait' : 'Landscape'}`,
     animationDuration: `${arrowAnimationTime}ms`,
   };
 
@@ -88,15 +88,26 @@ export default function LandingSection({
         </div>
       </div>
       <div className={styles.textContainer}>
-        <h1 
-          className={styles.title}
-          style={{
-            display: isTitleDisplayed ? 'block' : 'none',
-          }}
-        >
-          {renderText(titleText)}
-        </h1>
-        <div className={styles.descriptionContainer}>
+        <div className={styles.writtenTextContainer}>
+          <h1 
+            className={styles.title}
+            style={{
+              display: isTitleDisplayed ? 'block' : 'none',
+            }}
+          >
+            {renderText(titleText)}
+          </h1>
+          <h1 
+            className={styles.title}
+            style={{
+              display: 'block',
+              visibility: 'hidden'
+            }}
+          >
+            {titleTextSource}
+          </h1>
+        </div>
+        <div className={styles.writtenTextContainer}>
           <p 
             className={styles.description}
             style={{

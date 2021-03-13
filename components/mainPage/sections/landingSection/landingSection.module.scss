@@ -2,6 +2,7 @@
 @use '../../../../styles/variables.scss' as *;
 
 //global
+
 $referenceLandscapeHeight: 1009px;
 $referenceLandscapeWidth: 1450px;
 
@@ -9,8 +10,8 @@ $referenceLandscapeWidth: 1450px;
   @return responsiveSize($size, $referenceLandscapeHeight, $referenceLandscapeWidth);
 }
 
-$referencePortraitHeight: 1009px;
-$referencePortraitWidth: 1450px;
+$referencePortraitHeight: 2048px;
+$referencePortraitWidth: 1536px;
 
 @function rPortraitSize($size) {
   @return responsiveSize($size, $referencePortraitHeight, $referencePortraitWidth);
@@ -88,7 +89,6 @@ $referencePortraitWidth: 1450px;
   display: block;
   position: relative;
   margin: 0;
-  margin-bottom: rLandscapeSize(35px);
   font-weight: 700;
   font-size: rLandscapeSize(69px);
   color:  $blueHeavy;
@@ -96,6 +96,11 @@ $referencePortraitWidth: 1450px;
     rLandscapeSize(22.5px) 
     rLandscapeSize(11.25px) 
     rgb(63, 114, 127);
+
+  &:last-child {
+    height: 1px;
+    margin-bottom: rLandscapeSize(35px);
+  }
 
   &::before {
     display: block;
@@ -118,7 +123,7 @@ $referencePortraitWidth: 1450px;
   }
 }
 
-.descriptionContainer {
+.writtenTextContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -136,6 +141,10 @@ $referencePortraitWidth: 1450px;
   float: left;
   position: relative;
   line-height: 1.7;
+
+  &:last-child {
+    height: 1px;
+  }
 
   &::before {
     @extend .tag;
@@ -165,6 +174,8 @@ $referencePortraitWidth: 1450px;
   cursor: pointer;
   transform: translate(-50%,0);
   animation-fill-mode: both;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
 
   &_icon {
     width: rLandscapeSize(56px);
@@ -172,17 +183,101 @@ $referencePortraitWidth: 1450px;
   }
 }
 
+//******************************************************************
+//******************************************************************
 //portait screen
 
+
 @media (orientation: portrait) {
+  $tagFactor: 60px;
+  $tagDistance: -30px;
+  .tag {
+    height: rPortraitSize($tagFactor);
+    line-height: rPortraitSize($tagFactor);
+    font-size: rPortraitSize($tagFactor * 0.75) !important;
+  }
+
+  $photoSize: 90;
+  $photoFactor: 0.4;
   .photoContainer {
-    top: 10%;
+    top: 22.5%;
     left: 50%;
     transform: translate(-50%);
+    width: min(calc(#{$photoSize} * 1vw), calc(#{$photoSize} * #{$photoFactor} * 1vh));
+    height: min(calc(#{$photoSize} * (4/3) * 1vw), calc(#{$photoSize} * (4/3) * #{$photoFactor} * 1vh));
+
+    &::before {
+      top: rPortraitSize(-60px);
+      left: 0;
+    }
+  }
+
+  .photo {
+    border-radius: rPortraitSize(7.5px);
+    box-shadow: rPortraitSize(22.5px) 
+      rPortraitSize(22.5px) 
+      rPortraitSize(11.25px) 
+      $shadowPrimary;
   }
 
   .textContainer {
-    top: 50%;
+    top: 10%;
     transform: translate(-50%);
+  }
+
+  
+  .title {
+    font-size: rPortraitSize(130px);
+    text-shadow: rPortraitSize(22.5px) 
+      rPortraitSize(22.5px) 
+      rPortraitSize(11.25px) 
+      rgb(63, 114, 127);
+
+    &:last-child {
+      height: 1px;
+      margin-bottom: 60vh;
+    }
+
+    &::before {
+      left: rPortraitSize($tagDistance);
+      top: 50%;
+      transform: translate(-100%, -50%);
+    }
+
+    &::after {
+      right: rPortraitSize($tagDistance);
+      top: 50%;
+      transform: translate(100%, -50%);
+    }
+  }
+
+  .description {
+    font-size: rPortraitSize(80px);
+    &:last-child {
+      height: 1px;
+    }
+
+    &::before {
+      left: rPortraitSize($tagDistance);
+      top: 50%;
+      transform: translate(-100%, -50%);
+    }
+
+    &::after {
+      right: rPortraitSize($tagDistance);
+      top: 50%;
+      transform: translate(100%, -50%);
+    }
+  }
+
+  .arrowDown {
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%,0);
+
+    &_icon {
+      width: rPortraitSize(100px);
+      height: rPortraitSize(100px);
+    }
   }
 }

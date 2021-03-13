@@ -6,10 +6,10 @@ export function addListeners(fncScroll) {
     window.addEventListener('touchstart', fncScroll, false);
     window.addEventListener('touchend', fncScroll, false);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        if (!('ontouchstart' in window)) {
-            window.body.style = "overflow: scroll;";
-            window.documentElement.style = "overflow: scroll;";
-        }
+        // if (!('ontouchstart' in window)) {
+        //     window.body.style = "overflow: scroll;";
+        //     window.documentElement.style = "overflow: scroll;";
+        // }
     }
   } else {
       window.attachEvent('onmousewheel', fncScroll, false);

@@ -1,7 +1,7 @@
 @use '../../../../styles/variables.scss' as *;
 
 $imageScale: 0.8;
-$imageWidth: 400px;
+$imageWidth: 300px;
 $imageSize: $imageScale * $imageWidth;
 
 .contentContainer {
@@ -20,7 +20,7 @@ $imageSize: $imageScale * $imageWidth;
   float: left;
 
   & + & {
-    margin-top: 50px;
+    margin-top: 37.5px;
   }
 
   &_imageContainer {
@@ -34,7 +34,7 @@ $imageSize: $imageScale * $imageWidth;
     position: relative;
     margin: auto;
     max-width: 100%;
-    height: 342px * $imageScale;
+    height: 342px * $imageScale * 0.75;
     width: $imageSize;
     border-radius: $borderRadiusPrimary;
     @extend .boxShadowPrimary;
@@ -47,7 +47,7 @@ $imageSize: $imageScale * $imageWidth;
     }
   }
 
-  $marginLeft: 150px;
+  $marginLeft: 137.5px * 0.75;
   &_content {
     display: block;
     width: calc(100% - #{$imageSize} - #{$marginLeft});
@@ -62,29 +62,29 @@ $imageSize: $imageScale * $imageWidth;
     height: min-content;
 
     & + & {
-      margin-top: 30px;
+      margin-top: 22.5px;
     }
   }
 
   &_title {
     display: block;
-    line-height: 30px;
+    line-height: 22.5px;
     float: left;
     line-height: 1.5;
-    font-size: 38px;
-    height: 30px;
+    font-size: 28.5px;
+    height: 22.5px;
     font-weight: 600;
-    width: 200px;
+    width: 150px;
     color: $blueHeavy; 
   }
 
   &_text {
     display: block;
     float: left;
-    font-size: 38px;
+    font-size: 28.5px;
     line-height: 1.5;
     font-weight: 600;
-    width: calc(100% - 200px);
+    width: calc(100% - 150px);
     height: min-content;
     text-align: justify;
     color: white;

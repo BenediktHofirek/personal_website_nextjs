@@ -12,6 +12,7 @@ $errorColor: rgb(255, 123, 0);
 
 //others
 $borderRadiusPrimary: 3px;
+$sectionWidth: 1080px;
 
 .boxShadowPrimary {
   box-shadow: 22.5px 22.5px 11.25px $shadowPrimary;
@@ -59,4 +60,14 @@ $borderRadiusPrimary: 3px;
 
 @function responsiveSize($size, $refHeight, $refWidth) {
   @return min(#{rHeight($size, $refHeight)}, #{rWidth($size, $refWidth)});
+}
+
+//responsive section landscape
+@function rsl($size) {
+  @return responsiveSize($size, 1009px, $sectionWidth);
+}
+
+//responsive section portrait
+@function rsp($size) {
+  @return responsiveSize($size, 2048px, 1536px);
 }

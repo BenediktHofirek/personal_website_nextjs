@@ -18,7 +18,7 @@ export default function faqSection({containerClass}) {
     2: {
       index: 2,
       question: "Are you currently looking for a job?",
-      answer: "Yes, I am. If you have one, please leave me a message."
+      answer: "Yes, I'm. If you have one, please leave me a message."
     },
     3: {
       index: 3,

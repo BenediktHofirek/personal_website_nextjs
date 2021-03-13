@@ -51,7 +51,7 @@ a {
   opacity: 0;
   z-index: -10;
   width: 90%;
-  max-width: 1080px;
+  max-width: $sectionWidth;
   height: min-content;
 }
 
@@ -64,7 +64,7 @@ a {
   display: block;
   width: 100%;
   height: min-content;
-  margin-bottom: 60px;
+  margin-bottom: 45px;
 
   &_content {
     display: block;

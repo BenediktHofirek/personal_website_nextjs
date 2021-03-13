@@ -73,7 +73,7 @@ export default function LandingSection({
 
   return (
     <div 
-      className={cc(containerClass, styles.container)}
+      className={cc(styles.container, containerClass)}
     >
       <div
         className={styles.photoContainer}

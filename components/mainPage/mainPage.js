@@ -19,7 +19,6 @@ export default function mainPage() {
   const scrollAnimationDuration = 200;
 
   const [touchStart, setTouchStart] = useState(null);
-  const [touchDirection, setTouchDirection] = useState(null);
   const [currentSection, setCurrentSection] = useState(null);
   const [previousSection, setPreviousSection] = useState(null);
   const [direction, setDirection] = useState("down");
@@ -53,24 +52,16 @@ export default function mainPage() {
   }, []);
 
   function handleTouch(event) {
-    setTouchDirection((currentDirection) => {
-      if (event.type === 'touchend' && currentDirection) {
-        console.log('pruchod', currentDirection);
-        handleChangeSection(touchDirection);
+    setTouchStart((currentTouchStart) => {
+      const touchClientY = event.touches?.[0]?.clientY;
+      if (event.type === 'touchmove' && currentTouchStart !== null) {
+        handleChangeSection(currentTouchStart < touchClientY ? 'down' : 'up');
         return null;
-      } else {
-        const touchClientY = event.touches?.[0]?.clientY;
-        if (!touchClientY) {
-          return currentDirection;
-        }
-        if (event.type === 'touchstart') {
-          setTouchStart(touchClientY);
-        } else {
-          return touchStart < touchClientY ? 'down' : 'up';
-        }
+      } if (event.type === 'touchstart') {
+        return touchClientY;
       }
 
-      return currentDirection;
+      return null;
     });
   }
 

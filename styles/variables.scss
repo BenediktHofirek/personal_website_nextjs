@@ -77,5 +77,5 @@ $sectionWidth: 1080px;
 
 //responsive section portrait
 @function rp($size) {
-  @return responsiveSize($size, 2048px, 1536px);
+  @return responsiveSize($size, 1440px, $sectionWidth);
 }

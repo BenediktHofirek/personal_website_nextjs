@@ -1,10 +1,11 @@
-export function addListeners(fncScroll) {
+export function addListeners(fncScroll, fncTouch) {
   if (window.addEventListener) {
     window.addEventListener('mousewheel', fncScroll, false);
     window.addEventListener('wheel', fncScroll, false);
     window.addEventListener('keyup', fncScroll, false);
-    window.addEventListener('touchstart', fncScroll, false);
-    window.addEventListener('touchend', fncScroll, false);
+    window.addEventListener('touchstart', fncTouch, false);
+    window.addEventListener('touchmove', fncTouch, false);
+    window.addEventListener('touchend', fncTouch, false);
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
         // if (!('ontouchstart' in window)) {
         //     window.body.style = "overflow: scroll;";
@@ -17,13 +18,14 @@ export function addListeners(fncScroll) {
   }
 }
 
-export function removeListeners(fncScroll) {
+export function removeListeners(fncScroll, fncTouch) {
   if (window.addEventListener) {
     window.removeEventListener('mousewheel', fncScroll, false);
     window.removeEventListener('wheel', fncScroll, false);
     window.removeEventListener('keyup', fncScroll, false);
-    window.removeEventListener('touchstart', fncScroll, false);
-    window.removeEventListener('touchend', fncScroll, false);
+    window.removeEventListener('touchstart', fncTouch, false);
+    window.removeEventListener('touchmove', fncTouch, false);
+    window.removeEventListener('touchend', fncTouch, false);
   } else {
       window.detachEvent('onmousewheel', fncScroll, false);
       window.detachEvent('onkeyup', fncScroll, false);

@@ -18,6 +18,8 @@ export default function mainPage() {
   const sectionCount = 8;
   const scrollAnimationDuration = 200;
 
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchDirection, setTouchDirection] = useState(null);
   const [currentSection, setCurrentSection] = useState(null);
   const [previousSection, setPreviousSection] = useState(null);
   const [direction, setDirection] = useState("down");
@@ -50,24 +52,46 @@ export default function mainPage() {
     });
   }, []);
 
-  function handleScroll(event) {
-    removeListeners(handleScroll);
-    setTimeout(() => addListeners(handleScroll), scrollAnimationDuration);
+  function handleTouch(event) {
+    setTouchDirection((currentDirection) => {
+      if (event.type === 'touchend' && currentDirection) {
+        console.log('pruchod', currentDirection);
+        handleChangeSection(touchDirection);
+        return null;
+      } else {
+        const touchClientY = event.touches?.[0]?.clientY;
+        if (!touchClientY) {
+          return currentDirection;
+        }
+        if (event.type === 'touchstart') {
+          setTouchStart(touchClientY);
+        } else {
+          return touchStart < touchClientY ? 'down' : 'up';
+        }
+      }
 
+      return currentDirection;
+    });
+  }
+
+  function handleScroll(event) {
     if (event.deltaY < 0 || event.keyCode == 38) {
       handleChangeSection('up');
     }
-
+    
     if (event.deltaY > 0 || event.keyCode == 40) {
       handleChangeSection('down');
-    }
+    } 
   }
 
   useEffect(()=> {
-    return () => removeListeners(handleScroll);
+    return () => removeListeners(handleScroll, handleTouch);
   },[]);
 
   function handleChangeSection(direction) {
+    removeListeners(handleScroll, handleTouch);
+    setTimeout(() => addListeners(handleScroll, handleTouch), scrollAnimationDuration);
+
     setDirection(direction);    
     setCurrentSection((section) => {
       const currentSection = section || 0; //first time is null
@@ -104,7 +128,7 @@ export default function mainPage() {
       component: LandingSection,
       defaultProps: {
         handleScroll: () => handleScroll({ keyCode: 40}),
-        activateScroll: () => addListeners(handleScroll),
+        activateScroll: () => addListeners(handleScroll, handleTouch),
       },
       index: 0,
     },

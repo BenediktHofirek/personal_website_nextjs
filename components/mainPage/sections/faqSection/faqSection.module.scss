@@ -9,9 +9,9 @@
   height: min-content;
 }
 
-$padding: 22.5px;
-$titleHeight: 37.5px;
-$bodyHeight: $padding * 2 + 24px;
+$padding: rl(22.5px);
+$titleHeight: rl(37.5px);
+$bodyHeight: calc(#{$padding} * 2 + #{rl(24px)});
 
 .question {
   display: block;
@@ -21,7 +21,7 @@ $bodyHeight: $padding * 2 + 24px;
   width: 100%;
 
   & + & {
-    margin-top: 37.5px;
+    margin-top: $titleHeight;
   }
 
   &_titleContainer {
@@ -35,7 +35,7 @@ $bodyHeight: $padding * 2 + 24px;
   &_title {
     display: inline;
     vertical-align: middle;
-    font-size: 28.5px;
+    font-size: rl(28.5px);
     color: white;
     font-weight: 600;
   }
@@ -46,7 +46,7 @@ $bodyHeight: $padding * 2 + 24px;
     height: calc(100% - #{$titleHeight});
     width: 100%;
     max-height: min-content;
-    font-size: 26px;
+    font-size: rl(26px);
     color: $blueHeavy;
     font-weight: 600;
     padding: $padding 0;

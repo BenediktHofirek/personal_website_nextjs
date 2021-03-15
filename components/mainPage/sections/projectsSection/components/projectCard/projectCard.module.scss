@@ -5,7 +5,7 @@
   position: relative;
   flex-direction: column;
   align-items: center;
-  padding: 30px 15px;
+  padding: rl(30px) rl(20px);
   background-color: white;
   color: $blueHeavy;
   overflow: hidden;
@@ -18,7 +18,7 @@
 
   &_title {
     display: block;
-    font-size: 28.5px;
+    font-size: rl(28.5px);
     font-weight: 800;
     @include threedshadow(rgba(63, 114, 127, 0.3), 5);
 
@@ -39,14 +39,14 @@
     position: absolute;
     top: 0px;
     right: 0px;
-    width: 52.5px;
-    height: 52.5px;
-    line-height: 52.5px;
+    width: rl(52.5px);
+    height: rl(52.5px);
+    line-height: rl(52.5px);
     color: white;
 
     text-align: center;
     font-weight: 500;
-    font-size: 19.5px;
+    font-size: rl(19.5px);
   }
 
   &_toolContainer {
@@ -55,7 +55,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-top: 22.5px;
+    margin-top: rl(22.5px);
   }
 
 
@@ -69,10 +69,10 @@
 
   &_toolIcon {
     display: block;
-    height: 30px;
+    height: rl(30px);
 
     & + & {
-      margin-left: 15px;
+      margin-left: rl(15px);
     }
   }
 
@@ -80,13 +80,13 @@
     display: block;
     text-align: left;
     font-weight: 400;
-    font-size: 22.5px;
-    margin-top: 22.5px;
-    width: calc(100% - 30px);
+    font-size: rl(22.5px);
+    margin-top: rl(22.5px);
+    width: calc(100% - rl(30px));
     font-style: italic;
   }
 
-  $linksSize: 90px;
+  $linksSize: rl(90px);
   $linksTransform: translate(-50%, -50%) scale(0.3, 0.3);
 
   &::before {
@@ -137,8 +137,8 @@
 
   &_repositoryLink {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: rl(30px);
+    height: rl(30px);
   }
 
   &_githubIcon {
@@ -149,10 +149,10 @@
 
   &_demoLink {
     display: block;
-    margin-top: 15px;
+    margin-top: rl(15px);
     cursor: pointer;
     font-weight: 600;
-    font-size: 16px;
+    font-size: rl(16px);
     color: $blueHeavy;
   }
 }

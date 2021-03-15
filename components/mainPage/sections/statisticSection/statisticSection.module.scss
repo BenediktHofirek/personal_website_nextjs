@@ -29,29 +29,29 @@
   &_number {
     display: block;
     width: max-content;
-    margin-top: 7.5px;
+    margin-top: rl(7.5px);
     color: white;
-    text-shadow: 0px 0px 7.5px $blueMedium;
+    text-shadow: rl(0px) rl(0px) rl(7.5px) $blueMedium;
     font-weight: 700;
-    font-size: 60px;
+    font-size: rl(60px);
   }
 
   &_unit {
     display: block;
     width: min-content;
-    margin-top: 11.25px;
+    margin-top: rl(11.25px);
     font-weight: 600;
-    font-size: 45px;
+    font-size: rl(45px);
     color: $blueMedium;
   }
 
   &_description {
     display: block;
     width: 100%;
-    min-width: 150px;
-    margin-top: 11.25px;
+    min-width: rl(150px);
+    margin-top: rl(11.25px);
     font-weight: 500;
-    font-size: 24px;
+    font-size: rl(24px);
     text-align: center;
     color: white;
     font-style: italic;

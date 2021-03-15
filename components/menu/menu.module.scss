@@ -31,3 +31,25 @@
     color: rgb(13, 36, 87); 
   }
 }
+
+$hamburgerBreakpoint: 600px;
+@media (orientation: portrait) {
+  .container {
+    align-items: flex-start;
+    justify-content: space-between;
+    top: 5vh;
+    right: 5vw;
+    width: 60vw;
+    min-width: $hamburgerBreakpoint * 0.9;
+  }
+  
+  .item {
+    font-size: max(2.5vw, #{$hamburgerBreakpoint} / 30);
+  }
+
+  @media only screen and (max-width: $hamburgerBreakpoint - 1px) {
+    .container {
+      display: none;
+    }
+  }
+}

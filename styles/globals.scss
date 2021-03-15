@@ -40,7 +40,6 @@ a {
   }
 }
 
-
 .section {
   display: block;
   position: absolute;
@@ -50,9 +49,12 @@ a {
   transform: translateX(-50%);
   opacity: 0;
   z-index: -10;
-  width: 90%;
-  max-width: $sectionWidth;
   height: min-content;
+  width: 85%;
+
+  @media (orientation: landscape) {
+    max-width: 150vh;
+  }
 }
 
 .display {
@@ -64,7 +66,7 @@ a {
   display: block;
   width: 100%;
   height: min-content;
-  margin-bottom: 45px;
+  margin-bottom: rl(45px);
 
   &_content {
     display: block;
@@ -73,8 +75,8 @@ a {
     position: relative;
     width: max-content;
     font-weight: 700;
-    font-size: 69px;
-    color:  $blueHeavy;
-    text-shadow: 15px 15px 7.5px rgba(63, 114, 127, 0.5);
+    font-size: rl(69px);
+    color: $blueHeavy;
+    text-shadow: rl(15px) rl(15px) rl(7.5px) rgba(63, 114, 127, 0.5);
   }
 }

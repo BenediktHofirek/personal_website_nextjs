@@ -8,11 +8,10 @@
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: 5vh;
   z-index: 10000;
   background: transparent;
   list-style-type: none;
-
+  @include alignRight;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
 }
@@ -23,15 +22,15 @@
   cursor: pointer;
 
   & + & {
-    margin-top: 22.5px;
+    margin-top: rl(22.5px);
   }
 }
 
 // $colorCurrent: #2321b0;
 $colorCurrent: $blueMedium;
 $colorPrevious: $greyPrimary;
-$normalSize: 15px;
-$biggerSize: 18.75px;
+$normalSize: rl(15px);
+$biggerSize: rl(18.75px);
 
 @keyframes current {
   from {

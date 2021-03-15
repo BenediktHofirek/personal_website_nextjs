@@ -14,7 +14,7 @@
   width: 65%;
   height: min-content;
   text-align: justify;
-  font-size: rsl(28.5px);
+  font-size: rl(28.5px);
   font-weight: 600;
   line-height: 1.5;
   color: white;
@@ -27,27 +27,27 @@
 
   &_photo {
     display:block;
-    height: rsl(195px);
-    width: rsl(148.2px);
+    height: rl(195px);
+    width: rl(148.2px);
     border-radius:  $borderRadiusPrimary;
     overflow: hidden;
   }
 
   &_infoContainer {
     display: block;
-    margin-top: rsl(37.5px);
+    margin-top: rl(37.5px);
     width: max-content;
     height: min-content;
     font-weight: 600;
     color:  $blueHeavy;
-    font-size: rsl(25.5px);
+    font-size: rl(25.5px);
     white-space: nowrap;
     font-style: italic;
   }
 
   &_name {
     display: block;
-    margin-bottom: rsl(15px);
+    margin-bottom: rl(15px);
   }
 }
 
@@ -57,7 +57,7 @@
     width: 65%;
     height: min-content;
     text-align: justify;
-    font-size: rsp(28.5px);
+    font-size: rp(28.5px);
   }
   
   .description {
@@ -67,27 +67,27 @@
   
     &_photo {
       display:block;
-      height: rsp(195px);
-      width: rsp(148.2px);
+      height: rp(195px);
+      width: rp(148.2px);
       border-radius:  $borderRadiusPrimary;
       overflow: hidden;
     }
   
     &_infoContainer {
       display: block;
-      margin-top: rsp(37.5px);
+      margin-top: rp(37.5px);
       width: max-content;
       height: min-content;
       font-weight: 600;
       color:  $blueHeavy;
-      font-size: rsp(25.5px);
+      font-size: rp(25.5px);
       white-space: nowrap;
       font-style: italic;
     }
   
     &_name {
       display: block;
-      margin-bottom: rsp(15px);
+      margin-bottom: rp(15px);
     }
   }
 }

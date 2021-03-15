@@ -18,6 +18,14 @@ $sectionWidth: 1080px;
   box-shadow: 22.5px 22.5px 11.25px $shadowPrimary;
 }
 
+@mixin alignRight() {
+  right: 2.5vw;
+
+  @media only screen and (min-width: 1921px) {
+    right: calc(50vw - (min(42.5vw, 75vh) * 1.125));
+  }
+}
+
 //mixin & functions
 @mixin threedshadow($color, $depth) {
   $all: ();
@@ -63,11 +71,11 @@ $sectionWidth: 1080px;
 }
 
 //responsive section landscape
-@function rsl($size) {
+@function rl($size) {
   @return responsiveSize($size, 1009px, $sectionWidth);
 }
 
 //responsive section portrait
-@function rsp($size) {
+@function rp($size) {
   @return responsiveSize($size, 2048px, 1536px);
 }

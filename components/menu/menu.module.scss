@@ -7,7 +7,7 @@
   align-items: center;
   position: fixed;
   top: 5vh;
-  right: 5vh;
+  @include alignRight;
   z-index: 10000;
   background: transparent;
   
@@ -18,13 +18,13 @@
 .item {
   display: block;
   width: max-content;
-  font-size: 24px;
+  font-size: rl(24px);
   font-weight: 600;
   cursor: pointer;  
   color: $greyPrimary;
 
   & + & {
-    margin-left: 37.5px;
+    margin-left: rl(37.5px);
   }
 
   &:hover {

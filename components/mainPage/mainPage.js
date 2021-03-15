@@ -19,6 +19,7 @@ export default function mainPage() {
   const scrollAnimationDuration = 200;
 
   const [touchStart, setTouchStart] = useState(null);
+  const [touchDirection, setTouchDirection] = useState(null);
   const [currentSection, setCurrentSection] = useState(null);
   const [previousSection, setPreviousSection] = useState(null);
   const [direction, setDirection] = useState("down");
@@ -55,10 +56,24 @@ export default function mainPage() {
     setTouchStart((currentTouchStart) => {
       const touchClientY = event.touches?.[0]?.clientY;
       if (event.type === 'touchmove' && currentTouchStart !== null) {
-        handleChangeSection(currentTouchStart < touchClientY ? 'down' : 'up');
+        setTouchDirection(currentTouchStart < touchClientY ? 'up' : 'down');
         return null;
-      } if (event.type === 'touchstart') {
+      } else if (event.type === 'touchstart') {
         return touchClientY;
+      } else if (event.type === 'touchend') {
+        let direction = null;
+
+        setTouchDirection((currentDirection) => {
+          if (currentDirection) {
+            direction = currentDirection;
+          }
+          return null;
+        });
+
+        if (direction) {
+          console.log('touchend', direction);
+          handleChangeSection(direction);
+        }
       }
 
       return null;

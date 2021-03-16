@@ -74,6 +74,11 @@ $referencePortraitWidth: 1536px;
     rLandscapeSize(22.5px) 
     rLandscapeSize(11.25px) 
     $shadowPrimary;
+
+  & > img {
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .textContainer {

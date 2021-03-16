@@ -52,35 +52,51 @@
 }
 
 @media (orientation: portrait) {
+  .contentContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    height: min-content;
+  }
+  
   .text {
     display: block;
-    width: 65%;
+    width: 100%;
     height: min-content;
     text-align: justify;
-    font-size: rp(28.5px);
+    font-size: rp(35px);
+    margin-top: 5vh;
   }
   
   .description {
-    display: block;
-    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min-content;
     height: max-content;
   
+    $photoFactor: 1.5;
     &_photo {
-      display:block;
-      height: rp(195px);
-      width: rp(148.2px);
+      display: block;
+      height: rp(195px * $photoFactor);
+      width: rp(148.2px * $photoFactor);
       border-radius:  $borderRadiusPrimary;
       overflow: hidden;
     }
   
     &_infoContainer {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-top: rp(37.5px);
       width: max-content;
       height: min-content;
       font-weight: 600;
       color:  $blueHeavy;
-      font-size: rp(25.5px);
+      font-size: rp(28px);
       white-space: nowrap;
       font-style: italic;
     }

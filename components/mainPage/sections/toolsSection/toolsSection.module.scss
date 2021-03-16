@@ -1,20 +1,33 @@
 @use '../../../../styles/variables.scss' as *;
 
+$marginL: rl(100px);
 .contentContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  margin: auto;
   width: 100%;
+  justify-content: center;
+  margin-left: calc(#{$marginL} * -1);
+  width: calc(100% + #{$marginL} * 2);
 }
 
 .icon {
+  display: block;
   z-index: 1000;
-  height: 7.5vh;
-  filter: grayscale(100%);
+  height: 10vh;
   cursor: pointer;
+  margin: 0 $marginL;
+  margin-bottom: calc(#{$marginL} / 2);
+}
 
-  &:hover {
-    filter: none;
+@media (orientation: portrait) {
+  $marginP: rp(60px);
+  .icon {
+    margin: $marginP;
+  }
+
+  .contentContainer {
+    justify-content: center;
+    margin-left: calc(#{$marginP} * -1);
+    width: calc(100% + #{$marginP} * 2);
   }
 }

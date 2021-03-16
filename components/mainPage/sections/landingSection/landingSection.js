@@ -82,7 +82,7 @@ export default function LandingSection({
       >
         <div className={styles.photo}>
           <Image
-            src="/Benedikt_Hofirek.jpg"
+            src="/Benedikt_Hofirek.webp"
             loading="eager"
             alt="Benedikt Hofirek"
             layout="fill"

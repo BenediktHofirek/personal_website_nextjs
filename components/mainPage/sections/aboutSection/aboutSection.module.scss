@@ -27,6 +27,7 @@
 
   &_photo {
     display:block;
+    position: relative;
     height: rl(195px);
     width: rl(148.2px);
     border-radius:  $borderRadiusPrimary;

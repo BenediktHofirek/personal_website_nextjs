@@ -1,4 +1,5 @@
 import styles from './aboutSection.module.scss';
+import Image from 'next/image';
 
 export default function aboutSection({containerClass}) {
   return (
@@ -8,11 +9,13 @@ export default function aboutSection({containerClass}) {
       </div>
       <div className={styles.contentContainer}>
         <div className={styles.description}>
-          <img
-            src="/Benedikt_Hofirek.webp"
-            alt="Benedikt Hofirek"
-            className={styles.description_photo}
-          />
+          <div className={styles.description_photo}>
+            <Image
+              src="/Benedikt_Hofirek.webp"
+              alt="Benedikt Hofirek"
+              layout="fill"
+            />
+          </div>
           <div className={styles.description_infoContainer}>
             <div className={styles.description_name}>
               Benedikt Hofirek

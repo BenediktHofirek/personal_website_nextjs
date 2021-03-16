@@ -32,6 +32,11 @@
     width: rl(148.2px);
     border-radius:  $borderRadiusPrimary;
     overflow: hidden;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &_infoContainer {

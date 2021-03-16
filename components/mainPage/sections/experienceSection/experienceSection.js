@@ -1,3 +1,4 @@
+import { cc } from '../../../../utils/utils';
 import styles from './experienceSection.module.scss';
 
 export default function experienceSection({containerClass}) {
@@ -10,11 +11,15 @@ export default function experienceSection({containerClass}) {
       <div className={styles.contentContainer}>
         <div className={styles.company}>
           <div className={styles.company_imageContainer}>
-            <img
-              className={styles.company_image  + ' ' + styles.company_image__flowmon}
-              src="/flowmon_networks.png"
-              alt="Flowmon Networks company logo"
-            />
+            <picture className={cc(styles.company_image, styles.company_image__flowmon)}>
+              <source srcSet="/flowmon_networks.webp" type="image/webp"/>
+              <source srcSet="/flowmon_networks.jpg" type="image/jpeg"/>
+              <img
+                className={cc(styles.company_image, styles.company_image__flowmon)}
+                src="/flowmon_networks.jpg"
+                alt="Flowmon Networks company logo"
+              />
+            </picture>
           </div>
           <div className={styles.company_content}>
             <div className={styles.company_line}>
@@ -37,11 +42,15 @@ export default function experienceSection({containerClass}) {
         </div>
         <div className={styles.company}>
           <div className={styles.company_imageContainer}>
-            <img
-              className={styles.company_image + ' ' + styles.company_image__idsa}
-              src="/IDS_Advisory.jpg"
-              alt="IDS Advisory company logo"
-            />
+            <picture className={cc(styles.company_image, styles.company_image__idsa)}>
+              <source srcSet="/IDS_Advisory.webp" type="image/webp"/>
+              <source srcSet="/IDS_Advisory.jpg" type="image/jpeg"/>
+              <img
+                className={cc(styles.company_image, styles.company_image__idsa)}
+                src="/IDS_Advisory.jpg"
+                alt="IDS Advisory company logo"
+              />
+            </picture>
           </div>
           <div className={styles.company_content}>
             <div className={styles.company_line}>

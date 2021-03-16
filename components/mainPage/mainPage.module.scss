@@ -4,9 +4,9 @@
 .container {
   display: block;
   overflow: hidden;
-  background: linear-gradient(to top right, #2193b0, #6dd5ed46);
+  background: linear-gradient(to top right, #2193b0 10%, #6dd5ed46 90%);
   background-position: center;
-  background-size: 100vw 100vh;
+  background-size: 120vw 120vh;
   width: 0;
   height: 0;
   border-radius: 50%;

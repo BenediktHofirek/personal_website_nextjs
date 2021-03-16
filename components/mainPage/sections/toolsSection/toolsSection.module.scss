@@ -22,7 +22,7 @@ $marginL: rl(100px);
 @media (orientation: portrait) {
   $marginP: rp(60px);
   .icon {
-    margin: $marginP;
+    margin: 0 $marginP calc(#{$marginP} / 2) $marginP;
   }
 
   .contentContainer {

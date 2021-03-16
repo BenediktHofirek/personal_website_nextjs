@@ -12,10 +12,15 @@ $errorColor: rgb(255, 123, 0);
 
 //others
 $borderRadiusPrimary: 3px;
-$sectionWidth: 1080px;
+$sectionWidth: 85vw;
+$refSectionWidth: 1080px;
 
-.boxShadowPrimary {
-  box-shadow: 22.5px 22.5px 11.25px $shadowPrimary;
+@mixin boxShadowPrimaryL {
+  box-shadow: rl(22.5px) rl(22.5px) rl(11.25px) $shadowPrimary;
+}
+
+@mixin boxShadowPrimaryP {
+  box-shadow: rp(22.5px) rp(22.5px) rp(11.25px) $shadowPrimary;
 }
 
 @mixin alignRight() {
@@ -72,10 +77,10 @@ $sectionWidth: 1080px;
 
 //responsive section landscape
 @function rl($size) {
-  @return responsiveSize($size, 1009px, $sectionWidth);
+  @return responsiveSize($size, 1009px, $refSectionWidth);
 }
 
 //responsive section portrait
 @function rp($size) {
-  @return responsiveSize($size, 1440px, $sectionWidth);
+  @return responsiveSize($size, 1440px, $refSectionWidth);
 }

@@ -9,7 +9,6 @@ export default function projectCard({
   demoLink,
   isWip,
 }) {
-
   return (
     <div className={cc(styles.project,isWip ? styles.project__wip : '')}>
       {(isWip || null) && (

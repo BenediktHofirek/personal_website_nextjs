@@ -7,13 +7,14 @@ $imageSize: calc(#{$imageScale} * #{$imageWidth});
 .contentContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   margin: auto;
 }
 
 .company {
   display: flex;
-  flex-direction: row wrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
   position: relative;
   width: 100%;
@@ -37,7 +38,7 @@ $imageSize: calc(#{$imageScale} * #{$imageWidth});
     height: calc(#{rl(342px)} * #{$imageScale} * 0.75);
     width: $imageSize;
     border-radius: $borderRadiusPrimary;
-    @extend .boxShadowPrimary;
+    @include boxShadowPrimaryL;
     
     &__flowmon {
       
@@ -89,5 +90,78 @@ $imageSize: calc(#{$imageScale} * #{$imageWidth});
     height: min-content;
     text-align: justify;
     color: white;
+  }
+}
+
+
+$imageWidthP: rp(300px);
+$imageSizeP: calc(#{$imageScale} * #{$imageWidthP});
+@media (orientation: portrait) {
+  .company {
+    flex-direction: column;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+  
+    & + & {
+      margin-top: rp(80px);
+    }
+  
+    &_imageContainer {
+      width: $imageSizeP;
+      margin-bottom: rp(35px);
+    }
+  
+  
+    &_image {
+      height: calc(#{rp(342px)} * #{$imageScale} * 0.75);
+      width: $imageSizeP;
+      border-radius: $borderRadiusPrimary;
+      @include boxShadowPrimaryP;
+    }
+  
+    &_content {
+      width: 100%;
+      margin: 0;
+      height: min-content;
+    }
+  
+    &_line {
+      display: block;
+      float: left;
+      width: 100%;
+      height: min-content;
+  
+      & + & {
+        margin-top: rp(22.5px);
+      }
+    }
+  
+    $titleWidth: rp(150px);
+    &_title {
+      display: block;
+      line-height: rp(22.5px);
+      float: left;
+      line-height: 1.5;
+      font-size: rp(35px);
+      height: rp(22.5px);
+      font-weight: 600;
+      width: $titleWidth;
+      color: $blueHeavy; 
+    }
+    
+    $textMargin: rp(50px);
+    &_text {
+      display: block;
+      margin-left: $textMargin;
+      float: left;
+      font-size: rp(35px);
+      line-height: 1.5;
+      font-weight: 600;
+      width: calc(100% - #{$titleWidth} - #{$textMargin});
+      height: min-content;
+      text-align: justify;
+      color: white;
+    }
   }
 }

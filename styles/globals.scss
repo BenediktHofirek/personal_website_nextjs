@@ -50,7 +50,7 @@ a {
   opacity: 0;
   z-index: -10;
   height: min-content;
-  width: 85%;
+  width: $sectionWidth;
 
   @media (orientation: landscape) {
     max-width: 150vh;

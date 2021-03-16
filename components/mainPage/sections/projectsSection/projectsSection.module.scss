@@ -1,8 +1,19 @@
 @use '../../../../styles/variables.scss' as *;
 
-$projectWidth: responsiveSize(300px, 1009px, 1200px);
-$rowElementCount: 3;
-$margin: responsiveSize(60px, 1009px, 1200px);
+@mixin settings ($projectWidth, $marginRight, $marginBottom, $rowElementCount: false) {
+  .contentContainer {
+    @if $rowElementCount {
+      width: calc((#{$projectWidth} + #{$marginRight}) * #{$rowElementCount});
+    }
+
+    & > div {
+      width: $projectWidth;
+      height: $projectWidth;
+      font-size: calc(#{$projectWidth} / 100);
+      margin: 0 $marginRight $marginBottom 0;
+    }
+  }
+}
 
 .contentContainer {
   display: flex;
@@ -11,15 +22,24 @@ $margin: responsiveSize(60px, 1009px, 1200px);
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  width: calc((#{$projectWidth} + #{$margin}) * #{$rowElementCount});
-
-  & > div {
-    width: $projectWidth;
-    height: $projectWidth;
-    margin: 0 $margin $margin 0;
-  }
 }
+
+@include settings(responsiveSize(300px, 1009px, 1200px), responsiveSize(60px, 1009px, 1200px),responsiveSize(60px, 1009px, 1200px), 3);
 
 .title {
   margin-top: rl(60px);
 }
+
+@media (orientation: portrait) {
+  .contentContainer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @include settings($sectionWidth * 0.3, $sectionWidth * 0.03 , $sectionWidth * 0.03);
+
+  @media only screen and (max-width: 700px){ 
+    @include settings($sectionWidth * 0.45, $sectionWidth * 0.05 , $sectionWidth * 0.05);
+  }
+}
+

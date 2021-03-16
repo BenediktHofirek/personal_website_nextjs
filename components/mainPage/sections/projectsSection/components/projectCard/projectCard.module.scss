@@ -5,11 +5,11 @@
   position: relative;
   flex-direction: column;
   align-items: center;
-  padding: rl(30px) rl(20px);
+  padding: 10em 6.5em;
   background-color: white;
   color: $blueHeavy;
   overflow: hidden;
-  @extend .boxShadowPrimary;
+  @include boxShadowPrimaryL;
 
   &:nth-child(odd) {
     background-color: $blueHeavy;
@@ -18,7 +18,7 @@
 
   &_title {
     display: block;
-    font-size: rl(28.5px);
+    font-size: 9em;
     font-weight: 800;
     @include threedshadow(rgba(63, 114, 127, 0.3), 5);
 
@@ -39,14 +39,14 @@
     position: absolute;
     top: 0px;
     right: 0px;
-    width: rl(52.5px);
-    height: rl(52.5px);
-    line-height: rl(52.5px);
-    color: white;
-
     text-align: center;
     font-weight: 500;
-    font-size: rl(19.5px);
+    font-size: 6.5em;
+    width: 3em;
+    height: 3em;
+    line-height: 3em;
+    color: white;
+
   }
 
   &_toolContainer {
@@ -55,7 +55,7 @@
     justify-content: flex-start;
     align-items: center;
     width: 100%;
-    margin-top: rl(22.5px);
+    margin-top: 7.5em;
   }
 
 
@@ -69,10 +69,10 @@
 
   &_toolIcon {
     display: block;
-    height: rl(30px);
+    height: 10em;
 
     & + & {
-      margin-left: rl(15px);
+      margin-left: 5em;
     }
   }
 
@@ -80,13 +80,13 @@
     display: block;
     text-align: left;
     font-weight: 400;
-    font-size: rl(22.5px);
-    margin-top: rl(22.5px);
-    width: calc(100% - rl(30px));
+    font-size: 7em;
+    margin-top: 1.4em;
+    width: calc(100% - 1.4em);
     font-style: italic;
   }
 
-  $linksSize: rl(90px);
+  $linksSize: 30em;
   $linksTransform: translate(-50%, -50%) scale(0.3, 0.3);
 
   &::before {
@@ -137,8 +137,8 @@
 
   &_repositoryLink {
     display: block;
-    width: rl(30px);
-    height: rl(30px);
+    width: 10em;
+    height: 10em;
   }
 
   &_githubIcon {
@@ -149,10 +149,10 @@
 
   &_demoLink {
     display: block;
-    margin-top: rl(15px);
+    margin-top: 1em;
     cursor: pointer;
     font-weight: 600;
-    font-size: rl(16px);
+    font-size: 5em;
     color: $blueHeavy;
   }
 }

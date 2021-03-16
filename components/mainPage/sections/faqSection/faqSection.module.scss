@@ -28,6 +28,7 @@ $bodyHeight: calc(#{$padding} * 2 + #{rl(24px)});
     display: block;
     width: 100%;
     height: $titleHeight;
+    line-height: $titleHeight;
     float: left;
     cursor: pointer;
   }

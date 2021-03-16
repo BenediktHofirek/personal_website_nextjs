@@ -9,7 +9,7 @@ export default function aboutSection({containerClass}) {
       <div className={styles.contentContainer}>
         <div className={styles.description}>
           <img
-            src="/Benedikt_Hofirek.jpg"
+            src="/Benedikt_Hofirek.webp"
             alt="Benedikt Hofirek"
             className={styles.description_photo}
           />

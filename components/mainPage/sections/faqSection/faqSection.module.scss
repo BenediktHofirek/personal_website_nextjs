@@ -54,6 +54,42 @@ $bodyHeight: calc(#{$padding} * 2 + #{rl(24px)});
   }
 
   &[active] {
-    height: $titleHeight + $bodyHeight;
+    height: calc(#{$titleHeight} + #{$bodyHeight});
+  }
+}
+
+@media (orientation: portrait) {
+  $paddingP: rp(25px);
+  $titleHeightP: rp(50px);
+  $bodyHeightP: calc(#{$paddingP} * 2 + #{rp(25px)});
+
+  .question {
+    height: $titleHeightP;
+
+    & + & {
+      margin-top: $titleHeightP;
+    }
+
+    &_titleContainer {
+      height: $titleHeightP;
+      line-height: $titleHeightP;
+    }
+
+    &_title {
+      font-size: rp(40px);
+      color: white;
+      font-weight: 600;
+    }
+
+    &_answer {
+      height: calc(100% - #{$titleHeightP});
+      font-size: rp(32px);
+      font-weight: 600;
+      padding: $paddingP 0;
+    }
+
+    &[active] {
+      height: calc(#{$titleHeightP} + #{$bodyHeightP});
+    }
   }
 }

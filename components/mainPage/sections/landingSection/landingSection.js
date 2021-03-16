@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './landingSection.module.scss';
+// import photo from '../../../../public/Benedikt_Hofirek.jpg';
 import { write, pause, cc } from '../../../../utils/utils';
 
 export default function LandingSection({
@@ -82,8 +83,10 @@ export default function LandingSection({
         <div className={styles.photo}>
           <Image
             src="/Benedikt_Hofirek.jpg"
+            loading="eager"
             alt="Benedikt Hofirek"
             layout="fill"
+            priority={true}
           />
         </div>
       </div>

@@ -26,8 +26,13 @@ export default function toolsSection({
       level: 2,
     },
     {
-      name: 'PostgresQL',
+      name: 'PostgreSQL',
       source: 'postgresqlText',
+      level: 2,
+    },
+    {
+      name: 'MySQL',
+      source: 'mysql',
       level: 2,
     },
     {
@@ -73,6 +78,41 @@ export default function toolsSection({
     {
       name: 'Git',
       source: 'git',
+      level: 4,
+    },
+    {
+      name: 'Jest',
+      source: 'jest',
+      level: 4,
+    },
+    {
+      name: 'Yarn',
+      source: 'yarn',
+      level: 4,
+    },
+    {
+      name: 'Protractor',
+      source: 'protractor',
+      level: 4,
+    },
+    {
+      name: 'ReactiveX',
+      source: 'reactivex',
+      level: 4,
+    },
+    {
+      name: 'Redux',
+      source: 'redux',
+      level: 4,
+    },
+    {
+      name: 'Apollo GraphQL',
+      source: 'apollographql',
+      level: 4,
+    },
+    {
+      name: 'Ant Design',
+      source: 'antdesign',
       level: 4,
     },
   ];

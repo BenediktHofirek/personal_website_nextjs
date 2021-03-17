@@ -18,25 +18,31 @@ $marginL: rl(100px);
   cursor: pointer;
   margin: 0 $marginL;
   margin-bottom: calc(#{$marginL} / 2);
+  transition: all 0.3s;
 
+  $factor: 1.1;
   &_0 {
-    height: 13vh;
+    height: 10vh * $factor;
   }
 
   &_1 {
-    height: 8vh;
+    height: 8vh * $factor;
   }
 
   &_2 {
-    height: 6vh;
+    height: 6vh * $factor;
   }
 
   &_3 {
-    height: 5vh;
+    height: 5vh * $factor;
   }
 
   &_4 {
-    height: 4vh;
+    height: 4vh * $factor;
+  }
+
+  &:hover {
+    transform: scale(1.4,1.4);
   }
 }
 

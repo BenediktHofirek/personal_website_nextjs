@@ -12,6 +12,7 @@ import LandingSection from './sections/landingSection/landingSection';
 import DotNavigation from '../dotNavigation/dotNavigation';
 import Menu from '../menu/menu';
 import Footer from '../footer/footer';
+import CaretNavigation from '../caretNavigation/caretNavigation';
 
 import { addListeners, removeListeners} from '../../utils/utils';
 
@@ -209,6 +210,11 @@ export default function mainPage() {
             previousItem={previousSection}
             handleSelectItem={handleMenuClick}
             className={(currentSection !== null && 'fadeIn') || ''}
+          />
+          <CaretNavigation
+            className={(currentSection !== null && 'fadeIn') || ''}
+            next={() => handleChangeSection('down')}
+            prev={() => handleChangeSection('up')}
           />
           <Footer
             className={(currentSection === sectionCount - 1 && 'fadeIn') || ''}

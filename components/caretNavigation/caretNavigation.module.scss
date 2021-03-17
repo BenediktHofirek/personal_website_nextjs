@@ -2,21 +2,19 @@
 
 .container {
   display: none;
-  z-index: -1;
+  z-index: 10000;
   position: fixed;
-  top: 7vh;
+  top: 10vh;
   right: 2.5vh;
   opacity: 0;
   cursor: pointer;
+  width: rp(90px);
   animation-duration: $animationDurationPrimary;
 }
 
-@media (orientation: portrait) and (max-width: 600px) {
+@media (orientation: portrait) and (max-width: $hamburgerBreakpoint) {
   .container {
     display: block;
-    opacity: 1;
-    z-index: 10000;
-    width: rp(60px);
   }
 
   .caret {
@@ -24,7 +22,7 @@
     width: 100%;
 
     & + & {
-      margin-top: 1vh;
+      margin-top: 2vh;
     }
   }
 }

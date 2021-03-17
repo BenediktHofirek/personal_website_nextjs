@@ -15,6 +15,7 @@ $borderRadiusPrimary: 3px;
 $sectionWidth: 85vw;
 $refSectionWidth: 1080px;
 $animationDurationPrimary: 1.5s;
+$hamburgerBreakpoint: 600px;
 
 @mixin boxShadowPrimaryL {
   box-shadow: rl(22.5px) rl(22.5px) rl(11.25px) $shadowPrimary;

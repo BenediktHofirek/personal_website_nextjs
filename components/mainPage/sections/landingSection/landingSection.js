@@ -26,7 +26,7 @@ export default function LandingSection({
   //loading animation
   useEffect(() => {
     (async() => {
-      activateScroll();
+      // activateScroll();
 
       // title
       setIsTitleDisplayed(true);
@@ -43,7 +43,7 @@ export default function LandingSection({
       await write(setParagraphText, paragraphTextSource, writeSpeed);
       await pause(500);
       setIsArrowDisplayed(true);
-      // activateScroll();
+      activateScroll();
     })()
   }, []);
 

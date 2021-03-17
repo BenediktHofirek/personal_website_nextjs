@@ -20,13 +20,16 @@ export default function menu({
         <span className={styles.hamburger_line}></span>
         <span className={styles.hamburger_line}></span>
       </div>
-      <ul className={styles.container + ' ' + className}>
+      <ul className={cc(styles.container, className)}>
         {
           itemList.map((item) => (
             <li 
               className={styles.item}
               key={item.name}
-              onClick={item.handleClick}
+              onClick={() => {
+                setIsHamburgerOpen(false);
+                item.handleClick();
+              }}
             >
               <a href='#'>
                 {item.name}

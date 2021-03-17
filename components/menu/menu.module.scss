@@ -52,8 +52,15 @@ $hamburgerBreakpoint: 600px;
   }
 
   @media only screen and (max-width: $hamburgerBreakpoint - 1px) {
+    .container {
+      display: none;
+      animation-duration: 0.3s;
+    }
+    
     .hamburger {
       display: block;
+      z-index: 10000;
+      cursor: pointer;
       opacity: 0;
       animation-duration: $animationDurationPrimary;
       animation-timing-function: ease-in;
@@ -104,10 +111,37 @@ $hamburgerBreakpoint: 600px;
           transform-origin: bottom right;
         }
       }
-    }
 
-    .container {
-      display: none;
+      &__open + .container {
+        display: flex;
+        z-index: 10000 - 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100vw;
+        height: 100vh;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+
+        & .item {
+          display: block;
+          width: max-content;
+          font-size: rp(100px);
+          font-weight: 700;
+
+          &:first-of-type {
+            margin-top: 10vh;
+          }
+        
+          & + .item {
+            margin-top: rp(80px);
+          }
+        }
+      }
     }
   }
 }

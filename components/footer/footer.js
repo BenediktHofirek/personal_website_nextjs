@@ -1,10 +1,11 @@
+import { cc } from '../../utils/utils';
 import styles from './footer.module.scss';
 
 export default function footer({
   className
 }) {
   return (
-    <footer className={styles.container + ' ' + className}>
+    <footer className={cc(styles.container,'section', className)}>
       <div className={styles.content}>
         <div className={styles.item}>
           <span>Icons made by </span>

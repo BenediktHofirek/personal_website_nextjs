@@ -7,7 +7,7 @@
   width: $sectionWidth;
   height: min-content;
   position: absolute;
-  bottom: 2%;
+  top: 98%;
   left: 50%;
   transform: translate(-50%,0);
   animation-duration: $animationDurationPrimary;
@@ -31,5 +31,9 @@
 
   & > a {
     cursor: pointer;
+  }
+
+  @media (orientation: portrait) {
+    font-size: rp(18px);
   }
 }

@@ -15,6 +15,10 @@
   animation-timing-function: ease-in;
 }
 
+.hamburger {
+  display: none;
+}
+
 .item {
   display: block;
   width: max-content;
@@ -48,6 +52,60 @@ $hamburgerBreakpoint: 600px;
   }
 
   @media only screen and (max-width: $hamburgerBreakpoint - 1px) {
+    .hamburger {
+      display: block;
+      opacity: 0;
+      animation-duration: $animationDurationPrimary;
+      animation-timing-function: ease-in;
+      position: fixed;
+      top: 2.5vh;
+      right: 2.5vh;
+      width: 45px;
+      height: 30px;
+
+      & > span {
+        display: block;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 20%;
+        background-color: $greyPrimary;
+        transition: all 0.3s ease;
+
+        &:first-child {
+          top: 0;
+        }
+
+        &:nth-child(2) {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:last-child {
+          bottom: 0;
+        }
+      }
+
+      &__open > span {
+        background-color: $blueHeavy;
+        width: 80%;
+
+        &:first-child {
+          transform: rotate(-45deg);
+          transform-origin: top right;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:last-child {
+          transform: rotate(45deg);
+          transform-origin: bottom right;
+        }
+      }
+    }
+
     .container {
       display: none;
     }

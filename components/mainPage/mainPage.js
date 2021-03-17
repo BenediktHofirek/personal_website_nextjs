@@ -11,6 +11,7 @@ import StatisticSection from './sections/statisticSection/statisticSection';
 import LandingSection from './sections/landingSection/landingSection';
 import DotNavigation from '../dotNavigation/dotNavigation';
 import Menu from '../menu/menu';
+import Footer from '../footer/footer';
 
 import { addListeners, removeListeners} from '../../utils/utils';
 
@@ -208,6 +209,9 @@ export default function mainPage() {
             previousItem={previousSection}
             handleSelectItem={handleMenuClick}
             className={(currentSection !== null && 'fadeIn') || ''}
+          />
+          <Footer
+            className={(currentSection === sectionCount - 1 && 'fadeIn') || ''}
           />
           {
             Array.from({length: sectionCount}).map((_, index) => {

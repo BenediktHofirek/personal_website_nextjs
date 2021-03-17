@@ -1,0 +1,35 @@
+@use '../../styles/variables.scss' as *;
+
+.container {
+  display: block;
+  z-index: 10000;
+  opacity: 0;
+  width: $sectionWidth;
+  height: min-content;
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%,0);
+  animation-duration: $animationDurationPrimary;
+}
+
+.content {
+  display: block;
+  height: min-content;
+  width: max-content;
+  float: left;
+
+  @media (orientation: portrait) {
+    float: none;
+    margin: auto;
+  }
+}
+
+.item {
+  font-size: rl(12px);
+  color: darken($shadowPrimary, 20%);
+
+  & > a {
+    cursor: pointer;
+  }
+}

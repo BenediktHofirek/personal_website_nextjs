@@ -128,17 +128,49 @@
 
   @media only screen and (max-width: 600px) {
     .contentContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-items: flex-start;
+      display: block;
       width: 100%;
+      height: rp(1100px);
       margin: auto;
     }
 
     .stat {
+      float: none;
+      margin: auto;
+
+      &_number {
+        display: block;
+        width: max-content;
+        margin-top: rp(7.5px * 1.2);
+        color: white;
+        text-shadow: rp(0px * 1.2) rp(0px * 1.2) rp(7.5px * 1.2) $blueMedium;
+        font-weight: 700;
+        font-size: rp(60px * 1.2);
+      }
+    
+      &_unit {
+        display: block;
+        width: min-content;
+        margin-top: rp(11.25px * 1.2);
+        font-weight: 600;
+        font-size: rp(45px * 1.2);
+        color: $blueMedium;
+      }
+    
+      &_description {
+        display: block;
+        width: 100%;
+        min-width: rp(150px * 1.2);
+        margin-top: rp(11.25px * 1.2);
+        font-weight: 500;
+        font-size: rp(24px * 1.2);
+        text-align: center;
+        color: white;
+        font-style: italic;
+      }
+
       & + & {
-        margin-top: 5vh;
+        margin-top: rp(75px);
       }
     }
   }

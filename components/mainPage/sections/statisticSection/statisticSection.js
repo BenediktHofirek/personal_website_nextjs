@@ -165,7 +165,7 @@ export default function statisticSection({
 
             return (
               <div 
-                className={cc(styles.stat, index <= currentStat.index ? 'fadeIn' : '')}
+                className={cc(styles.stat, index <= currentStat.index ? 'fadeIn' : '', styles[`stat__${stat.name}`])}
                 key={stat.name}
                 style={statWidth ? { width: `${statWidth}px`} : {}}
                 id={`stat_${stat.name}`}

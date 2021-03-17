@@ -1,4 +1,5 @@
 import styles from './toolsSection.module.scss';
+import { cc } from '../../../../utils/utils';
 
 export default function toolsSection({
   containerClass
@@ -7,26 +8,72 @@ export default function toolsSection({
     {
       name: 'React',
       source: 'reactText',
+      level: 0,
     },
     {
       name: 'Angular',
       source: 'angularText',
+      level: 0,
     },
     {
       name: 'NodeJS',
       source: 'nodejs',
+      level: 1,
     },
     {
       name: 'MongoDB',
       source: 'mongodb',
+      level: 2,
     },
     {
       name: 'PostgresQL',
       source: 'postgresqlText',
+      level: 2,
     },
     {
       name: 'GraphQL',
       source: 'graphql',
+      level: 2,
+    },
+    {
+      name: 'Sass',
+      source: 'sass',
+      level: 3,
+    },
+    {
+      name: 'Typescript',
+      source: 'typescript',
+      level: 3,
+    },
+    {
+      name: 'Bootstrap',
+      source: 'bootstrap',
+      level: 3,
+    },
+    {
+      name: 'Webassembly',
+      source: 'webassembly',
+      level: 3,
+    },
+    {
+      name: 'Npm',
+      source: 'npm',
+      level: 4,
+    },
+    {
+      name: 'Webpack',
+      source: 'webpack',
+      level: 4,
+    },
+    {
+      name: 'Babel',
+      source: 'babel',
+      level: 4,
+    },
+    {
+      name: 'Git',
+      source: 'git',
+      level: 4,
     },
   ];
   return (
@@ -36,13 +83,13 @@ export default function toolsSection({
       </div>
       <div className={styles.contentContainer}>
         {
-          iconList.map(({name, source}) => (
+          iconList.map(({name, source, level}) => (
             <img
               src={`/${source}.svg`}
               key={source}
               alt={name}
               title={name}
-              className={styles.icon}
+              className={cc(styles.icon,styles[`icon_${level}`])}
             />
           ))
         }

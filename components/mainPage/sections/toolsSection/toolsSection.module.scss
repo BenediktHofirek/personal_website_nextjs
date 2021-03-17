@@ -5,6 +5,7 @@ $marginL: rl(100px);
   display: flex;
   flex-flow: row wrap;
   width: 100%;
+  align-items: center;
   justify-content: center;
   margin-left: calc(#{$marginL} * -1);
   width: calc(100% + #{$marginL} * 2);
@@ -17,6 +18,26 @@ $marginL: rl(100px);
   cursor: pointer;
   margin: 0 $marginL;
   margin-bottom: calc(#{$marginL} / 2);
+
+  &_0 {
+    height: 13vh;
+  }
+
+  &_1 {
+    height: 8vh;
+  }
+
+  &_2 {
+    height: 6vh;
+  }
+
+  &_3 {
+    height: 5vh;
+  }
+
+  &_4 {
+    height: 4vh;
+  }
 }
 
 @media (orientation: portrait) {

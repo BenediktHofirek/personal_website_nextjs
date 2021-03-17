@@ -67,8 +67,8 @@ $hamburgerBreakpoint: 600px;
       position: fixed;
       top: 2.5vh;
       right: 2.5vh;
-      width: 45px;
-      height: 30px;
+      width: rp(60px);
+      height: rp(40px);
 
       & > span {
         display: block;

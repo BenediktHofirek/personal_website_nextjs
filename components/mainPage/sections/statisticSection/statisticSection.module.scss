@@ -59,7 +59,37 @@
 }
 
 @media (orientation: portrait) {
+  .contentContainer {
+    display: block;
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    margin: auto;
+  }
+  
   .stat {
+    position: absolute;
+
+    &__experience {
+      top: 0;
+      left: 0;
+    }
+
+    &__programming {
+      top: 10%;
+      right: 10vw;
+    }
+
+    &__typing {
+      top: 60%;
+      left: 10vw;
+    }
+
+    &__lines {
+      top: 80%;
+      right: 0%;
+    }
+
     &_number {
       display: block;
       width: max-content;
@@ -89,89 +119,6 @@
       text-align: center;
       color: white;
       font-style: italic;
-    }
-  }
-
-  @media only screen and (min-width: 600px) {
-    .contentContainer {
-      display: block;
-      position: relative;
-      height: 50vh;
-      width: 100%;
-      margin: auto;
-    }
-    
-    .stat {
-      position: absolute;
-  
-      &__experience {
-        top: 0;
-        left: 0;
-      }
-  
-      &__programming {
-        top: 10%;
-        right: 10vw;
-      }
-  
-      &__typing {
-        top: 60%;
-        left: 10vw;
-      }
-  
-      &__lines {
-        top: 80%;
-        right: 0%;
-      }
-    }  
-  }
-
-  @media only screen and (max-width: 600px) {
-    .contentContainer {
-      display: block;
-      width: 100%;
-      height: rp(1100px);
-      margin: auto;
-    }
-
-    .stat {
-      float: none;
-      margin: auto;
-
-      &_number {
-        display: block;
-        width: max-content;
-        margin-top: rp(7.5px * 1.2);
-        color: white;
-        text-shadow: rp(0px * 1.2) rp(0px * 1.2) rp(7.5px * 1.2) $blueMedium;
-        font-weight: 700;
-        font-size: rp(60px * 1.2);
-      }
-    
-      &_unit {
-        display: block;
-        width: min-content;
-        margin-top: rp(11.25px * 1.2);
-        font-weight: 600;
-        font-size: rp(45px * 1.2);
-        color: $blueMedium;
-      }
-    
-      &_description {
-        display: block;
-        width: 100%;
-        min-width: rp(150px * 1.2);
-        margin-top: rp(11.25px * 1.2);
-        font-weight: 500;
-        font-size: rp(24px * 1.2);
-        text-align: center;
-        color: white;
-        font-style: italic;
-      }
-
-      & + & {
-        margin-top: rp(75px);
-      }
     }
   }
 }

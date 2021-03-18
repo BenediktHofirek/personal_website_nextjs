@@ -1,6 +1,6 @@
 @use '../../../../styles/variables.scss' as *;
 
-$marginL: rl(100px);
+$marginL: rl(50px);
 .contentContainer {
   display: flex;
   flex-flow: row wrap;
@@ -17,10 +17,10 @@ $marginL: rl(100px);
   height: 10vh;
   cursor: pointer;
   margin: 0 $marginL;
-  margin-bottom: calc(#{$marginL} / 2);
+  margin-bottom: $marginL;
   transition: all 0.3s;
 
-  $factor: 1.1;
+  $factor: 1;
   &_0 {
     height: 10vh * $factor;
   }
@@ -39,6 +39,10 @@ $marginL: rl(100px);
 
   &_4 {
     height: 4vh * $factor;
+  }
+
+  &_5 {
+    height: 3vh * $factor;
   }
 
   &:hover {

@@ -51,6 +51,11 @@ export default function toolsSection({
       level: 3,
     },
     {
+      name: 'NextJS',
+      source: 'nextjs',
+      level: 3,
+    },
+    {
       name: 'Bootstrap',
       source: 'bootstrap',
       level: 3,
@@ -78,26 +83,31 @@ export default function toolsSection({
     {
       name: 'Git',
       source: 'git',
-      level: 4,
+      level: 5,
     },
     {
       name: 'Jest',
       source: 'jest',
-      level: 4,
+      level: 5,
     },
     {
       name: 'Yarn',
       source: 'yarn',
-      level: 4,
+      level: 5,
     },
     {
       name: 'Protractor',
       source: 'protractor',
-      level: 4,
+      level: 5,
     },
     {
       name: 'ReactiveX',
       source: 'reactivex',
+      level: 5,
+    },
+    {
+      name: 'PassportJS',
+      source: 'passportjs',
       level: 4,
     },
     {

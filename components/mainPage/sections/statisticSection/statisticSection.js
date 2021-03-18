@@ -17,7 +17,7 @@ export default function statisticSection({
       target: 1,
       step: 1,
       unit: 'year',
-      description: 'commercional_experience',
+      description: 'commercial_experience',
     },
     1: {
       time: 1000,

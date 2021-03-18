@@ -83,27 +83,27 @@ export default function toolsSection({
     {
       name: 'Git',
       source: 'git',
-      level: 5,
+      level: 4,
     },
     {
       name: 'Jest',
       source: 'jest',
-      level: 5,
+      level: 4,
     },
     {
       name: 'Yarn',
       source: 'yarn',
-      level: 5,
+      level: 4,
     },
     {
       name: 'Protractor',
       source: 'protractor',
-      level: 5,
+      level: 4,
     },
     {
       name: 'ReactiveX',
       source: 'reactivex',
-      level: 5,
+      level: 4,
     },
     {
       name: 'PassportJS',

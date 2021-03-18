@@ -8,8 +8,8 @@ export default function LandingSection({
   handleScroll,
   containerClass
 }) {
-  const imageAnimationTime = 1000 * 0.75;
-  const arrowAnimationTime = 750;
+  const imageAnimationTime = 750;
+  const arrowAnimationTime = 500;
   const writeSpeed = 50;
 
   const titleTextSource = "Hello, I'm Benedikt";

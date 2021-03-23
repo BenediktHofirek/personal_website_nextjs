@@ -1,0 +1,22 @@
+{
+  "name": "Benedikt Hofirek personal website",
+  "short_name": "Personal website",
+  "theme_color": "#2193b0",
+  "background_color": "#2193b0",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "pwa_image-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa_image-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}

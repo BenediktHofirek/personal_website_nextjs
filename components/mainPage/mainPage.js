@@ -18,7 +18,7 @@ import { addListeners, removeListeners} from '../../utils/utils';
 
 export default function mainPage() {
   const sectionCount = 8;
-  const scrollAnimationDuration = 1000;
+  const scrollAnimationDuration = 1450;
 
   const [touchStart, setTouchStart] = useState(null);
   const [touchDirection, setTouchDirection] = useState(null);

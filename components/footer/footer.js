@@ -7,6 +7,9 @@ export default function footer({
   return (
     <footer className={cc(styles.container,'section', className)}>
       <div className={styles.content}>
+      <div className={styles.item}>
+          Benedikt Hofírek, Křenovská 80, 664 58 Prace, IČO 10705686, Fyzická osoba zapsaná v Živnostenském rejstříku ve Šlapanicích od 25.03.2021
+        </div>
         <div className={styles.item}>
           <span>Icons made by </span>
           <a href="https://www.freepik.com" title="Freepik"> Freepik</a>

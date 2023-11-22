@@ -99,7 +99,7 @@ $inputFontSize: rl(18px);
       resize: none;
 
       & + [class*='outline'] {
-        height: $inputBorder + rl(1px);
+        height: calc($inputBorder + rl(1px));
       }
     }
   }
@@ -352,7 +352,7 @@ $width: rl(322.5px);
         resize: none;
 
         & + [class*='outline'] {
-          height: $inputBorder + rp(1px * 1.5);
+          height: calc($inputBorder + rp(1px * 1.5));
         }
       }
     }

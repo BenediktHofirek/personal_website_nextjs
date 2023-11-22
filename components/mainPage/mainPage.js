@@ -17,7 +17,46 @@ import CaretNavigation from '../caretNavigation/caretNavigation';
 import { addListeners, removeListeners} from '../../utils/utils';
 
 export default function mainPage() {
-  const sectionCount = 8;
+
+  const sectionMap = {
+    0: {
+      component: LandingSection,
+      defaultProps: {
+        handleScroll: () => handleScroll({ keyCode: 40}),
+        activateScroll: () => addListeners(handleScroll, handleTouch),
+      },
+      index: 0,
+    },
+    1: {
+      component: AboutSection,
+      index: 1,
+    },
+    2: {
+      component: ToolsSection,
+      index: 2,
+    },
+    3: {
+      component: ExperienceSection,
+      index: 3,
+    },
+    4: {
+      component: StatisticSection,
+      index: 4,
+    },
+    5: {
+      component: ProjectsSection,
+      index: 5,
+    },
+    6: {
+      component: FaqSection,
+      index: 6,
+    },
+    // 7: {
+    //   component: ContactSection,
+    //   index: 7,
+    // },
+  }
+  const sectionCount = Object.keys(sectionMap).length;
   const scrollAnimationDuration = 1450;
 
   const [touchStart, setTouchStart] = useState(null);
@@ -131,44 +170,6 @@ export default function mainPage() {
 
   // }, [currentSection]);
 
-  const sectionMap = {
-    0: {
-      component: LandingSection,
-      defaultProps: {
-        handleScroll: () => handleScroll({ keyCode: 40}),
-        activateScroll: () => addListeners(handleScroll, handleTouch),
-      },
-      index: 0,
-    },
-    1: {
-      component: AboutSection,
-      index: 1,
-    },
-    2: {
-      component: ToolsSection,
-      index: 2,
-    },
-    3: {
-      component: ExperienceSection,
-      index: 3,
-    },
-    4: {
-      component: StatisticSection,
-      index: 4,
-    },
-    5: {
-      component: ProjectsSection,
-      index: 5,
-    },
-    6: {
-      component: FaqSection,
-      index: 6,
-    },
-    7: {
-      component: ContactSection,
-      index: 7,
-    },
-  }
 
   const menuItemList = [
     {

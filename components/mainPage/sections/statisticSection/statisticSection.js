@@ -14,17 +14,17 @@ export default function statisticSection({
       time: 0,
       name: 'experience',
       index: 0,
-      target: 1,
-      step: 1,
-      unit: 'year',
+      target: 2.5,
+      step: 2.5,
+      unit: 'years',
       description: 'commercial_experience',
     },
     1: {
-      time: 1000,
+      time: 500,
       name: 'programming',
       index: 1,
-      target: 2.5,
-      step: 0.1,
+      target: 4,
+      step: 1,
       unit: 'years',
       description: 'of_programming',
     },
@@ -32,7 +32,7 @@ export default function statisticSection({
       time: 2000,
       name: 'typing',
       index: 2,
-      target: 85,
+      target: 100,
       step: 1,
       unit: 'wpm',
       description: 'average_typing speed',
@@ -41,14 +41,14 @@ export default function statisticSection({
       time: 2000,
       name: 'lines',
       index: 3,
-      target: 110000,
+      target: 340000,
       step: 1000,
       unit: 'lines',
       description: 'of code written',
     },
   };
 
-  const [currentStat, setCurrentStat] = useState({ index: Object.values(statMap).length });
+  const [currentStat, setCurrentStat] = useState({ index: -1 });
   const [isAnimated, setIsAnimated] = useState(false);
   const [statWidthMap, setStatWidthMap] = useState({});
 
@@ -68,10 +68,10 @@ export default function statisticSection({
 
   useEffect(() => {
     if (isFocused && !isAnimated) {
-      setIsAnimated(true);
       (async() => {
         const statCount = Object.values(statMap).length;
-        await pause(700);
+        await pause(1000);
+        setIsAnimated(true);
         await new Promise(async(resolve) => {
           for(let x = 0; x < statCount; x++) {
             await statAnimation(statMap[x]);
@@ -167,7 +167,7 @@ export default function statisticSection({
               <div 
                 className={cc(styles.stat, index <= currentStat.index ? 'fadeIn' : '', styles[`stat__${stat.name}`])}
                 key={stat.name}
-                style={statWidth ? { width: `${statWidth}px`} : {}}
+                style={statWidth ? { width: `${statWidth}px`} : {visibility: 'hidden'}}
                 id={`stat_${stat.name}`}
               >
                 <div

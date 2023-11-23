@@ -11,7 +11,7 @@ export default (req, res) => {
    
     var transporter = nodemailer.createTransport({
       service: 'smtp.seznam.cz',
-      port: 465,
+      port: 587,
       secure: true,
       auth: {
         user: process.env.EMAIL,

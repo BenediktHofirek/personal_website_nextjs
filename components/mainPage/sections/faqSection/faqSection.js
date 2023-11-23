@@ -22,11 +22,6 @@ export default function faqSection({containerClass}) {
     },
     3: {
       index: 3,
-      question: "Do you accept test projects?",
-      answer: "Yes, of course! I love doing them. If you have one, just send me a message."
-    },
-    4: {
-      index: 4,
       question: "What are your hobbies?",
       answer: "I like to play chess and other mathematic-based games."
     },

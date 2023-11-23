@@ -51,10 +51,10 @@ export default function mainPage() {
       component: FaqSection,
       index: 6,
     },
-    // 7: {
-    //   component: ContactSection,
-    //   index: 7,
-    // },
+    7: {
+      component: ContactSection,
+      index: 7,
+    },
   }
   const sectionCount = Object.keys(sectionMap).length;
   const scrollAnimationDuration = 1450;

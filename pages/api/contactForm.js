@@ -10,7 +10,9 @@ export default (req, res) => {
     } = req.body;
    
     var transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: 'smtp.seznam.cz',
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL,
         pass: process.env.EMAIL_PASSWORD

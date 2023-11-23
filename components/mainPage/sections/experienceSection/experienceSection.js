@@ -12,12 +12,12 @@ export default function experienceSection({containerClass}) {
         <div className={styles.company}>
           <div className={styles.company_imageContainer}>
             <picture className={cc(styles.company_image, styles.company_image__flowmon)}>
-              <source srcSet="/flowmon_networks.webp" type="image/webp"/>
-              <source srcSet="/flowmon_networks.jpg" type="image/jpeg"/>
+              <source srcSet="/varistar.webp" type="image/webp"/>
+              <source srcSet="/varistar.png" type="image/png"/>
               <img
-                className={cc(styles.company_image, styles.company_image__flowmon)}
-                src="/flowmon_networks.jpg"
-                alt="Flowmon Networks company logo"
+                className={cc(styles.company_image, styles.company_image__varistar)}
+                src="/varistar.png"
+                alt="Varistar company logo"
               />
             </picture>
           </div>
@@ -27,7 +27,23 @@ export default function experienceSection({containerClass}) {
                 Position:
               </h5>
               <p className={styles.company_text}>
-                React developer
+                Angular, NodeJS & Python developer
+              </p>
+            </div>
+            <div className={styles.company_line}>
+              <h5 className={styles.company_title}>
+                Project:
+              </h5>
+              <p className={styles.company_text}>
+                Varisar portal 
+                <a 
+                    href="https://varistar.cz/cs/co-je-varistar-2/portal-varistar"
+                    target="_blank"
+                    class={styles.projectLink}
+                >
+                    <i>Learn more </i>
+                    &#x2197;
+                </a>
               </p>
             </div>
             <div className={styles.company_line}>
@@ -35,7 +51,7 @@ export default function experienceSection({containerClass}) {
                 Feedback:
               </h5>
               <p className={styles.company_text}>
-                “I'm sorry you're leaving. You were handy and you managed to solve every problem the way I wanted.”
+                "I appreciate what you have done for Varistar."
               </p>
             </div>
           </div>
@@ -59,6 +75,22 @@ export default function experienceSection({containerClass}) {
               </h5>
               <p className={styles.company_text}>
                 React & NodeJS developer
+              </p>
+            </div>
+            <div className={styles.company_line}>
+              <h5 className={styles.company_title}>
+                Project:
+              </h5>
+              <p className={styles.company_text}>
+                Zoty
+                <a 
+                    href="https://zoty.cz"
+                    target="_blank"
+                    class={styles.projectLink}
+                >
+                    <i>Learn more </i>
+                    &#x2197;
+                </a>
               </p>
             </div>
             <div className={styles.company_line}>

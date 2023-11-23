@@ -23,7 +23,7 @@ export default function statisticSection({
       time: 500,
       name: 'programming',
       index: 1,
-      target: 4,
+      target: 5,
       step: 1,
       unit: 'years',
       description: 'of_programming',

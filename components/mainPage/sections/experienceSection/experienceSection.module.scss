@@ -40,7 +40,7 @@ $imageSize: calc(#{$imageScale} * #{$imageWidth});
     border-radius: $borderRadiusPrimary;
     @include boxShadowPrimaryL;
     
-    &__flowmon {
+    &__varistar {
       
     }
 
@@ -164,4 +164,14 @@ $imageSizeP: calc(#{$imageScale} * #{$imageWidthP});
       color: white;
     }
   }
+}
+
+.projectLink {
+    display: inline-block;
+    margin-left: rp(30px);
+    color: $blueMedium;
+
+    &:hover {
+        color: $blueHeavy;
+    }
 }

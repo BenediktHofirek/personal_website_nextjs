@@ -26,13 +26,13 @@ export default function aboutSection({containerClass}) {
           </div>
         </div>
         <p className={styles.text}>
-          I started programming more than two years ago when I was studying IT at university.
+            I started programming more than two years ago when I was studying computer science at university.
           <br/>
           <br/>
-          I was so excited about the software development that I quit my studies and decided to devote myself fully to coding. And I never regretted this decision.
+            My passion for software development was so great that I decided to quit my studies and devote myself entirely to programming. I have never regretted this decision.
           <br/>
           <br/>
-          What I enjoy most about my job is solving coding problems and possibility to learn every day something new.
+            What I enjoy most about my work is solving complex problems and the opportunity to learn something new every day.
         </p>
       </div>
     </div>

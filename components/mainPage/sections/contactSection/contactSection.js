@@ -1,4 +1,5 @@
 import styles from './contactSection.module.scss';
+import axios from 'axios';
 import {cc} from '../../../../utils/utils';
 import { useEffect, useState } from 'react';
 
@@ -93,22 +94,41 @@ export default function contactSection({containerClass}) {
 
     setFormState(formStateMap.sending);
 
-    const response = await fetch('/api/contactForm', {
-      method: 'POST',
-      mode: 'cors',
-      cache: 'no-cache', 
-      credentials: 'same-origin',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      referrerPolicy: 'no-referrer',
-      body: JSON.stringify({
-        name: inputName,
-        email: inputEmail,
-        subject: inputSubject,
-        message: inputMessage,
-      })
+    // const response = await fetch('/api/contactForm', {
+    //   method: 'POST',
+    //   mode: 'cors',
+    //   cache: 'no-cache', 
+    //   credentials: 'same-origin',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   redirect: 'follow',
+    //   referrerPolicy: 'no-referrer',
+    //   body: JSON.stringify({
+    //     name: inputName,
+    //     email: inputEmail,
+    //     subject: inputSubject,
+    //     message: inputMessage,
+    //   })
+    // });
+    
+    var data = {
+        service_id: process.env.SERVICE_ID,
+        user_id: process.env.USER_ID,
+        template_id: process.env.TEMPLATE_ID,
+        template_params: {
+            name: inputName,
+            email: inputEmail,
+            message: inputMessage,
+            subject: inputSubject,
+        }
+    }
+
+    const response = await axios({
+        url: "https://api.emailjs.com/api/v1.0/email/send",
+        data,
+        method: "post",
+        contentType: "application/json",
     });
 
     if (response.status === 200) {

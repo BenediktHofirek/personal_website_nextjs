@@ -23,7 +23,7 @@ export default function faqSection({containerClass}) {
     3: {
       index: 3,
       question: "What are your hobbies?",
-      answer: "I like to play chess and other mathematic-based games."
+      answer: "I like to read books about computer science and do low-level programming."
     },
   }
 

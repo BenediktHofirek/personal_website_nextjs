@@ -39,7 +39,7 @@ export default function experienceSection({containerClass}) {
                 <a 
                     href="https://varistar.cz/cs/co-je-varistar-2/portal-varistar"
                     target="_blank"
-                    class={styles.projectLink}
+                    className={styles.projectLink}
                 >
                     <i>Learn more </i>
                     &#x2197;

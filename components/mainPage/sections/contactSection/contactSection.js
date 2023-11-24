@@ -124,19 +124,17 @@ export default function contactSection({containerClass}) {
         }
     }
 
-    const response = await axios({
+    await axios({
         url: "https://api.emailjs.com/api/v1.0/email/send",
         data,
         method: "post",
         contentType: "application/json",
-    });
-
-    if (response.status === 200) {
+    }).then(() => {
       resetForm();
       setFormState(formStateMap.success);
-    } else {
+    }).catch(() => {
       setFormState(formStateMap.error);
-    }
+    });
 
     setTimeout(() => setFormState(undefined), 4000);
   }

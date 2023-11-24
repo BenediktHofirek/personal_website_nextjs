@@ -10,7 +10,7 @@ export default (req, res) => {
     } = req.body;
    
     var transporter = nodemailer.createTransport({
-        host: 'smtp.mailtrap.io',
+        host: 'smtp.cloudmta.net',
         port: 587,
       auth: {
         user: process.env.USER,
@@ -18,8 +18,9 @@ export default (req, res) => {
       }
     });
 
+
     var mailOptions = {
-      from: process.env.EMAIL,
+      from: "mailtrap@benedikthofirek.com",
       to: process.env.EMAIL,
       subject: 'CONTACT FORM from' + senderEmail,
       text: `sender: ${senderEmail}\n

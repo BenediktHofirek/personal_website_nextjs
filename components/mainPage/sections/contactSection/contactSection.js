@@ -112,10 +112,11 @@ export default function contactSection({containerClass}) {
     //   })
     // });
     
+    const emailSettings = await fetch('/api/contactForm', { method: "POST" })
+        .then((res) => res.json());
+
     var data = {
-        service_id: process.env.SERVICE_ID,
-        user_id: process.env.USER_ID,
-        template_id: process.env.TEMPLATE_ID,
+        ...emailSettings,
         template_params: {
             name: inputName,
             email: inputEmail,
